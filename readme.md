@@ -1,6 +1,6 @@
-# Laradmin
+# Sistema de inventario y control de facturas
 
-**Laradmin** es mi “personal pre.built" desarrollado haciendo uso de **Laravel 5.5** y la plantilla **AdminLTE** basada en Bootstrap 3,  para ser usada como base inicial en proyectos que necesitan el desarrollo de un panel de control o administrativo con gestión de usuarios con roles y permisos.
+**Sistema de inventario y control de facturas** es mi “personal pre.built" desarrollado haciendo uso de **Laravel 5.5** y la plantilla **AdminLTE** basada en Bootstrap 3,  para ser usada como base inicial en proyectos que necesitan el desarrollo de un panel de control o administrativo con gestión de usuarios con roles y permisos.
 
 El desarrollo  integra el sistema de autentificación por defecto de Laravel, y el uso del paquete spatie/laravel-permission cubriendo en la mayor medida:
 
@@ -9,10 +9,18 @@ El desarrollo  integra el sistema de autentificación por defecto de Laravel, y 
 - Asignación de permisos a roles
 - Habilitar/deshabilitar acceso al usuario
 - Recuperación de contraseña por correo electrónico
-- Registro y listado de ingresos y salidas del sistema (logins)
+- Registro y listado de productos ingresados al inventario
+- Registro de movimiento del producto por concepto de facturas u otro movimiento
+- Registro y listado de comprobantes, donde se especifica su tipo y genera una factura y recibo de pago, estableciendo la fecha de vencimiento del mismo la deuda a cancelar, el dinero abonado y lo que debe el cliente.
+- Registro y listado de gastos generados en el establecimiento
+- Registro y listado de los clientes asociados, colocando su identificación, razón social o RIF
+- Registro y listado de todos los proveedores que están asociados
+- Registro, listado y movimiento de los empleados, especificando el pago, bonificación y deducciones.
+- Registro y listado de apertura de caja antes de iniciar el proceso de ventas
+- Registro y listado de cierre de caja, después de iniciar el proceso de ventas, para conocer con cuanto dinero se cuenta.
 
 
-> La intención como  proyecto base es trabajar con los roles de administrador (con todos los permisos), y el de usuario normal (permisos asignados a este rol), la misma se puede modificar y /o ampliar según las necesidades del proyecto de manera manual, aprovechando los recursos que facilita el paquete **spatie/laravel-permission** para agregar mas roles de usuarios así como diversos permisos.
+> La intención como  proyecto base es trabajar con los roles de administrador (con todos los permisos), y el de vendedor normal (permisos asignados a este rol), la misma se puede modificar y /o ampliar según las necesidades del proyecto de manera manual, aprovechando los recursos que facilita el paquete **spatie/laravel-permission** para agregar mas roles de usuarios así como diversos permisos.
 
 ---
 
@@ -44,7 +52,7 @@ php artisan migrate --seed
 ```
 Los datos del **usuario por defecto** podrán ser vistos (y modificados antes de migrar), en los archivos **seeds** del proyecto en **database/seeds**.
 
-Enjoy!! :)
+Disfrutalo!! :)
 
 ---
 
@@ -88,6 +96,6 @@ Para mayor información en el uso de **Laravel mix** visita la documentación en
 
 #### Créditos
 
-Jorge Vizcaya  
+Theizer Gonzalez 
 Backend web developer  
-jorgevizcayaa@gmail.com | [@jvizcayaa](https://twitter.com/jvizcayaa)
+theizerg@gmail.com | [@theizerg](https://www.instagram.com/theizerg/)

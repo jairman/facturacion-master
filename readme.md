@@ -37,8 +37,8 @@ El desarrollo  integra el sistema de autentificación por defecto de Laravel, y 
 ## Instalación
 
 ```
-git clone https://github.com/jvizcaya/laradmin.git
-cd laradmin
+git clone https://github.com/theizerg/facturacion-master.git
+cd facturacion-master
 composer install
 ```
 
@@ -47,7 +47,7 @@ Modificar el archivo **.env** con los datos correspondientes al proyecto, creden
 Migrar a la base de datos los roles y permisos iniciales, así como el **usuario administrador por defecto**.
 
 ```
-cd laradmin
+cd facturacion-master
 php artisan migrate --seed
 ```
 Los datos del **usuario por defecto** podrán ser vistos (y modificados antes de migrar), en los archivos **seeds** del proyecto en **database/seeds**.
@@ -86,7 +86,7 @@ Los [componentes y plugins](https://adminlte.io/docs/2.4/dependencies) utilizado
 Si desea instalar nuevos plugins o agregar estilos personalizados o nuevos scripts javascript con este metodo, se necesita tener instalados **Node.js** con **NPM** establecer los plugins requeridos en el archivo **package.js** y modificar los archivos assets en **resources/assets** y posteriormente ejecutar:
 
 ```
-cd laradmin
+cd facturacion-master
 npm install
 npm run dev o npm run prod
 ```

@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link rel="stylesheet" href="{{ asset('css/we.css') }}">
     <link rel="stylesheet" href="{{ asset('css/all.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/dataTable.min.css') }}">
     <link rel="icon" href="{{ asset('images/logo/logo.png') }}">
     @stack('styles')
   </head>
@@ -122,6 +123,8 @@
 
     <!-- REQUIRED JS SCRIPTS -->
     <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('js/dataTable.min.js') }}"></script>
+    <script src="{{ asset('js/dataTableBoostrap.min.js') }}"></script>
     @stack('scripts')
   </body>
 </html>

@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-
+use App\Models\Caja;
 class CajasTableSeeder extends Seeder
 {
     /**
@@ -11,12 +11,21 @@ class CajasTableSeeder extends Seeder
      */
     public function run()
     {
-         DB::table('cajas')->insert([
-            'nu_caja' => '1'
-        ]);
+         
 
-        DB::table('cajas')->insert([
-            'nu_caja' => '2'         
-        ]);
+        $user = new Caja;
+        $user->nu_caja = 1;
+        $user->status = 0;
+        $user->save();
+
+
+        $user = new Caja;
+        $user->nu_caja = 2;
+        $user->status = 0;
+        $user->save();
+
+
+
+
     }
 }

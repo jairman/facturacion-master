@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Redirect;
+use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Http\Request;
 use App\facades\SistemaFactura;
 use App\Models\TipoComprobante;
@@ -371,4 +372,21 @@ class ComprobanteController extends Controller
 			return Redirect::back();
 		}
 	}
+
+
+	public function excel()
+    {        
+        /**
+         * toma en cuenta que para ver los mismos 
+         * datos debemos hacer la misma consulta
+        **/
+        Excel::create('Comprobantes', function($excel) {
+            $excel->sheet('Excel sheet', function($sheet) {
+                //otra opción -> $products = Product::select('name')->get();
+                $comprobantes = Comprobante::all();                
+                $sheet->fromArray($comprobantes);
+                $sheet->setOrientation('landscape');
+            });
+        })->export('xls');
+    }
 }

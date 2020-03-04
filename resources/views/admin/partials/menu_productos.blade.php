@@ -45,15 +45,7 @@
 						<li><a href="/comprobantes/vencimientos"><i class="fa fa-calendar" aria-hidden="true"></i> &nbsp  Vencimientos</a></li>
 					</ul>
 				</li>
-				<li class="dropdown">
-					<a href="#" class="" data-toggle="dropdown" style="color:white;">
-						Gastos
-						<b class="caret"></b>
-					</a>
-					<ul class="dropdown-menu">
-						<li><a href="#"><i class="fa fa-table" aria-hidden="true"></i> &nbsp Vista general</a></li>
-					</ul>
-				</li>
+				
 				<li class="dropdown">
 					<a href="#" class="" data-toggle="dropdown" style="color:white;">
 						Clientes

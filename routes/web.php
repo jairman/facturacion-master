@@ -110,5 +110,8 @@ Route::middleware(['auth',])->group(function () {
 	Route::resource('/empleados','EmpleadosController');
 
 
+	Route::get('comprobantes', 'ComprobanteController@excel')->name('comprobantes.excel');
+
+
 
 });

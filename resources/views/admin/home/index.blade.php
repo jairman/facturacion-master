@@ -215,7 +215,7 @@
 									<center><h3>Empleados</h3></center><br>
 									<ul class="list-group">
 										@can('view_empleados')
-										<a href="/compras" class="list-group-item" >
+										<a href="/empleados" class="list-group-item" >
 											Vista general
 											<span class="pull-right">
 												<i class="fa fa-table" aria-hidden="true"></i>
@@ -223,7 +223,7 @@
 										</a>
 										@endcan
 										@can('view_empleados')
-										<a href="/empleado/create" class="list-group-item">
+										<a href="/empleados/create" class="list-group-item">
 											Nuevo empleado
 											<span class="pull-right">
 												<i class="fa fa-plus-square" aria-hidden="true"></i>

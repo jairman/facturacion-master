@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Empleados;
 
 class EmpleadosController extends Controller
 {
@@ -13,7 +14,8 @@ class EmpleadosController extends Controller
      */
     public function index()
     {
-        //
+        $empleados=Empleados::paginate(5);
+        return view('admin.empleados.index',compact('empleados'));
     }
 
     /**
@@ -23,7 +25,7 @@ class EmpleadosController extends Controller
      */
     public function create()
     {
-        //
+       return view('admin.empleados.create');
     }
 
     /**
@@ -34,7 +36,14 @@ class EmpleadosController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //dd($request);
+        $empleados = Empleados::create($request->all());
+        $notification = array(
+            'message' => '¡Empleado creado satisfactoriamente!',
+            'alert-type' => 'success'
+        );
+        
+        return \Redirect::to('/empleados')->with($notification);
     }
 
     /**

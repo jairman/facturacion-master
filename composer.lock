@@ -4,8 +4,56 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0362450167d9b7deb3e3cadb3fbeb196",
+    "content-hash": "8540d417df247b8857cbf212434dd257",
     "packages": [
+        {
+            "name": "crabbly/fpdf-laravel",
+            "version": "v1.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/crabbly/fpdf-laravel.git",
+                "reference": "715d7bdc56ce42cd599318884c6a6692f3f45177"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/crabbly/fpdf-laravel/zipball/715d7bdc56ce42cd599318884c6a6692f3f45177",
+                "reference": "715d7bdc56ce42cd599318884c6a6692f3f45177",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/database": ">=5.1.0",
+                "illuminate/support": ">=5.1.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Crabbly\\Fpdf\\FpdfServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Crabbly\\Fpdf\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Rodrigo Vieira",
+                    "email": "rodrigo@crabbly.com"
+                }
+            ],
+            "description": "Laravel package for FPDF.",
+            "keywords": [
+                "fpdf",
+                "laravel"
+            ],
+            "time": "2019-11-07T02:21:27+00:00"
+        },
         {
             "name": "dnoegel/php-xdg-base-dir",
             "version": "v0.1.1",

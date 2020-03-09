@@ -21,6 +21,10 @@ class CreateProveedoresTable extends Migration
             $table->string('mail')->nullable();
             $table->string('direccion')->nullable();
             $table->string('telefono')->nullable();
+                         // Usuario asociado
+            $table->integer('usuario_id')->unsigned()->nullable();
+            $table->foreign('usuario_id')->references('id')->on('users');
+            
             $table->string('web')->nullable();
             $table->timestamps();
 

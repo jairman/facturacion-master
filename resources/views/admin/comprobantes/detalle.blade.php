@@ -170,12 +170,7 @@
 									<i class="fa fa-print" aria-hidden="true"></i>
 								</span>
 							</a>
-							<a href="{{ route('comprobantes.excel') }}" target="_blank" class="btn btn-block btn-success">
-								Exportar Excel
-								<span class="pull-right">
-									<i class="fa fa-print" aria-hidden="true"></i>
-								</span>
-							</a>
+							
 						</div>
 						<div class="col-md-8">
 							<div class="col-md-12 col-sm-12 col-xs-12">

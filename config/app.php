@@ -15,7 +15,7 @@ return [
 
     'name' => env('APP_NAME', 'Laravel'),
 
-    'monedaPreferida' => 2,
+    'monedaPreferida' => 1,
 
     /*
     |--------------------------------------------------------------------------
@@ -167,6 +167,7 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         Kyslik\ColumnSortable\ColumnSortableServiceProvider::class,
         Maatwebsite\Excel\ExcelServiceProvider::class,
+        Crabbly\Fpdf\FpdfServiceProvider::class,
 
         /*
          * Package Service Providers...

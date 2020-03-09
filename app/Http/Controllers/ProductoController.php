@@ -85,6 +85,7 @@ class ProductoController extends Controller
 			//Acá se hace el alta
 			$producto = new Producto();
 			$producto->codigo  = $request->codigo;
+			//$producto->cotizacion  = $request->cotizacion;
 			$producto->codigo_de_barras  = $request->codigo_de_barras;
 			$producto->nombre  = $request->nombre;
 			$producto->descripcion  = nl2br($request->descripcion);
@@ -140,6 +141,7 @@ class ProductoController extends Controller
 				$producto->nombre  = $request->nombre;
 			}
 			$producto->codigo_de_barras  	= $request->codigo_de_barras;
+			//$producto->cotizacion  			= $request->cotizacion;
 			$producto->descripcion  		= nl2br($request->descripcion);
 			$producto->familiaProducto_id  	= $request->familia_producto;
 			$producto->tasa_iva_id  		= $request->tasa_iva;

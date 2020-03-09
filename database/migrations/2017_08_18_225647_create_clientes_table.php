@@ -33,6 +33,10 @@ class CreateClientesTable extends Migration
             // Plazo factura por defecto
             $table->integer('plazo_factura')->nullable();
 
+                         // Usuario asociado
+            $table->integer('usuario_id')->unsigned()->nullable();
+            $table->foreign('usuario_id')->references('id')->on('users');
+
             $table->softDeletes();
             $table->timestamps();
 

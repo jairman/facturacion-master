@@ -59,6 +59,7 @@ class ClienteController extends Controller
 		}else{
 			if($request->tipo_cliente == "persona"){
 				$cliente->nombre = $request->nombre;
+				$cliente->usuario_id = $request->usuario_id;
 				$cliente->apellido = $request->apellido;
 				if($request->tipo_documento != null){
 					$cliente->documento = $request->documento;
@@ -70,6 +71,7 @@ class ClienteController extends Controller
 				$cliente->empresa = 1;
 			}
 			$cliente->mail = $request->mail;
+			$cliente->usuario_id = $request->usuario_id;
 			$cliente->direccion = $request->direccion;			
 			$cliente->telefono = $request->telefono;
 			$cliente->save();

@@ -4,11 +4,11 @@
 <div class="container">
 	<div class="row">    
 		<div class="col-md-12">
-			<div class="w3-card-4 w3-white">
-				<div class="panel-heading">
+			<div class="box  box-primary w3-card-4 w3-white">
+				<div class="box-header">
 					<h4>Vista general de la apertura de caja</h4>
 				</div>
-				<div class="panel-body">
+				<div class="box-body">
 					<span class="pull-right">
 						<a class="btn btn-md btn-success" href="/apertura/create" class="btn btn-link">
 							<i class="fa fa-user-plus" aria-hidden="true"></i> Nueva apertura

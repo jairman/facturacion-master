@@ -80,6 +80,7 @@
 										<label class="sr-only">RIF</label>
 										<input class="form-control form-empresa-required" type="text" name="rif" placeholder="RIF" oninvalid="this.setCustomValidity('Debe ingresar un RIF para el cliente')" oninput="setCustomValidity('')">
 									</div>
+									<input type="hidden" name="usuario_id" id="usuario_id" value="{{Auth::user()->id}}">
 
 									<div class="form-group form-persona form-empresa" >
 										<label class="sr-only">Mail</label>

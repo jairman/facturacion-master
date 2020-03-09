@@ -9,13 +9,17 @@ class Proveedor extends Model
     protected $table = 'proveedores';
 
 	protected $fillable = [
-		'nombre', 'razon_social', 'rif', 'mail', 'direccion', 'telefono', 'web'
+		'nombre', 'razon_social', 'rif', 'mail', 'direccion', 'telefono', 'web','usuario_id'
 	];
 
 	protected $dates = ['deleted_at'];
 
 	public function comprobantes(){
 		return $this->hasMany(App\Models\Comprobante::class);
+	}
+
+	public function vendedor(){
+	return $this->belongsTo(App\Models\User::class);
 	}
 
 	// FILTROS

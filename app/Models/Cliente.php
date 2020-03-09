@@ -11,13 +11,17 @@ class Cliente extends Model
 	protected $table = 'clientes';
 
 	protected $fillable = [
-		'nombre', 'apellido', 'empresa', 'rif', 'mail', 'direccion', 'telefono', 'tipo_documento', 'genero'
+		'nombre', 'apellido', 'empresa', 'rif', 'mail', 'direccion', 'telefono', 'tipo_documento', 'genero','usuario_id'
 	];
 
 	protected $dates = ['deleted_at'];
 
 	public function comprobantes(){
 		return $this->hasMany(Comprobante::class);
+	}
+
+	public function vendedor(){
+	return $this->belongsTo(App\Models\User::class);
 	}
 
 	public function tipoDocumento(){

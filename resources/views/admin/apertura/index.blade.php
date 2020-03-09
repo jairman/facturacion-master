@@ -4,7 +4,7 @@
 <div class="container">
 	<div class="row">    
 		<div class="col-md-12">
-			<div class="w3-card-4 w3-white">
+			<div class="box  box-primary w3-card-4 w3-white">
 				<div class="panel-heading">
 					<h4>Vista general de la apertura de caja</h4>
 				</div>

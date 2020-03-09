@@ -27,7 +27,7 @@
 						<li><a href="/productos/"><i class="fa fa-table" aria-hidden="true"></i> &nbsp Vista general</a></li>
 						<li><a href="/productos/nuevo"><i class="fa fa-plus-square" aria-hidden="true"></i> &nbsp  Nuevo producto</a></li>
 						<li class="divider"></li>
-						<li><a href="/productos/movimientos"><i class="fa fa-exchange disabled" aria-hidden="true"></i></i> &nbsp Movimientos</a></li>
+						<li><a href="/productos/movimientos"><i class="fas fa-exchange-alt disabled" aria-hidden="true"></i></i> &nbsp Movimientos</a></li>
 						
 					</ul>
 	      		</li>
@@ -40,7 +40,7 @@
 						<li><a href="/comprobantes/"><i class="fa fa-table" aria-hidden="true"></i> &nbsp Vista general</a></li>
 						<li><a href="/comprobantes/nuevo"><i class="fa fa-plus-square" aria-hidden="true"></i> &nbsp  Nuevo comprobante</a></li>
 						<li class="divider"></li>
-						<li><a href="/comprobantes/reportes"><i class="fa fa-database" aria-hidden="true"></i> &nbsp  Reportes</a></li>
+						<li><a href="/comprobantes/imprimir"> <i class="fa fa-plus-square"aria-hidden="true"></i>&nbsp Reportes</a></li>
 						<li class="divider"></li>
 						<li><a href="/comprobantes/vencimientos"><i class="fa fa-calendar" aria-hidden="true"></i> &nbsp  Vencimientos</a></li>
 					</ul>
@@ -117,7 +117,7 @@
         			<input id="txtBusqueda" type="text" class="form-control" name="busqueda" placeholder="Busqueda" >
 	      		</div>
 	      		<button type="submit" class="btn btn-default"><i class="fa fa-search" aria-hidden="true"></i></button>
-	    	</form>						 
+	    	</form>	<br>					 
 	  	</div>
 	</nav>
 </div>

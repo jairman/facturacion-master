@@ -60,6 +60,12 @@ class User extends Authenticatable
         return $this->hasMany('App\Models\CierreCaja');
     }
 
+
+    public function caja()
+    {
+        return $this->belongsTo('App\Models\Caja');
+    }
+
     /*
     |
     | ** Accesors model **

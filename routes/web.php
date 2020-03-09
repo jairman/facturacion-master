@@ -60,7 +60,7 @@ Route::middleware(['auth',])->group(function () {
 	Route::get('/comprobantes/reportes', 'ReportesController@indexComprobantes');
 	Route::get('/comprobantes/nuevo', 'ComprobanteController@nuevo');
 	Route::get('/comprobantes/detalle/{facturaId}', 'ComprobanteController@detalle');
-	Route::get('/comprobantes/imprimir/{facturaId}', 'ComprobanteController@imprimir');
+	
 	Route::post('/comprobantes/guardar', 'ComprobanteController@guardar');
 	
 	Route::get('/comprobantes/vencimientos', 'ComprobanteController@vencimientos');
@@ -110,8 +110,9 @@ Route::middleware(['auth',])->group(function () {
 	Route::resource('/empleados','EmpleadosController');
 
 
-	Route::get('comprobantes', 'ComprobanteController@excel')->name('comprobantes.excel');
+	Route::get('/comprobantes/excel', 'ComprobanteController@excel')->name('comprobantes.excel');
 
-
+	Route::get('/comprobantes/imprimir', 'ImprimirComprobantesController@index')->name('comprobantes.imprimir');
+	Route::get('/comprobantes/imprimir/{facturaId}', 'ImprimirComprobantesController@show');
 
 });

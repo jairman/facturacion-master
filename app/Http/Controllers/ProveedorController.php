@@ -70,6 +70,7 @@ class ProveedorController extends Controller
 		$p->mail = $request->mail;
 		$p->direccion = $request->direccion;
 		$p->web = $request->web;
+		$p->usuario_id = $request->usuario_id;
 		$p->save();
 
 		return Redirect::to($url)->with(compact('mensaje'));

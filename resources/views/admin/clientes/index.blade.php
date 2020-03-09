@@ -65,7 +65,7 @@
 								<td>{{$cliente->telefono}}</td>								
 								<td>{{$cliente->mail}}</td>
 								<td class="text-center">
-									{{ App\Moneda::find(config('app.monedaPreferida'))->first()->simbolo }}
+									{{ App\Models\Moneda::find(config('app.monedaPreferida'))->first()->simbolo }}
 									{{ $cliente->getSaldo() }}
 								</td>
 							</tr>

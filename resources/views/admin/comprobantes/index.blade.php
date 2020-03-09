@@ -84,7 +84,18 @@
 					</div>                    
 				</div>
 				<div class="panel-body">
-					<div class="table-responsive">
+					<div class="col-sm-3 pull-right">
+					<a href="/comprobantes/excel" class="btn btn-block btn-success">
+									Exportar Excel
+									<span class="pull-right">
+										<i class="fa fa-print" aria-hidden="true"></i>
+									</span>
+								</a>
+					</div>
+					<div class="col-sm-3 pull-left">
+						
+					</div>
+					<div class="table-responsive"><br>
 						<table id="tabla_comprobantes" cellspacing="0" width="100%" class="table-condensed table-striped table-bordered">
 							<tr>								
 								<th class="text-center" width="120px">Fecha emisión</th>

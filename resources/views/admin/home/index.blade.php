@@ -1,357 +1,193 @@
-@extends('layouts.admin')
+    @extends('layouts.admin')
 
-@section('title', 'Inicio')
-@section('page_title', 'Inicio')
-@section('page_subtitle', 'Principal')
+    @section('title', 'Inicio')
+    @section('page_title', 'Inicio')
+    @section('page_subtitle', 'Principal')
 
-@section('breadcrumb')
-    @parent
-    <li><a href="{{ url('/') }}"><i class="fas fa-tachometer-alt"></i> Inicio</a></li>
-    <li class="active">Panel de control</li>
-@endsection
+    @section('breadcrumb')
+        @parent
+        <li><a href="{{ url('/') }}"><i class="fas fa-tachometer-alt"></i> Inicio</a></li>
+        <li class="active">Panel de control</li>
+    @endsection
 
-@section('content')
+    @section('content')
 
-<div class="container">
-	<div class="row">
-		<div class="col-md-12">
-			<div class="w3-card-4 w3-white">
-				<div class="panel-heading">
-					<h4 class="">Panel de control</h4> 
-				
-					<div class="panel-body">					
-						<div class="row">
-							
-							<div class="col-md-4">
-								<div class="w3-card-4 w3-white"><br>
-									<center><h3>Inventario de productos</h3></center><br>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="box  box-primary w3-card-4 w3-white ">
+                    <div class="box-header">
+                        <h4 class="">Panel de control</h4> 
+                    
+                        <div class="box-body">					
+                            <div class="row">
+                                
+                                <div class="col-md-4">
+                                    <div class="box  box-primary w3-card-4 w3-white"><br>
+                                        <center><h3>Inventario de productos</h3></center>
+                                        <div class="small-box" style="background:linear-gradient(to left,#627d4d,#627d4d,#2c5706)">
+                                            <div class="inner">
+                                            <h3 style="color:white;">{{ $producto }}</h3>
 
-									<ul class="list-group"> 
-									@can('view_productos')                               
-										<a href="/productos" class="list-group-item">
-											Vista general 
-											<span class="pull-right">
-												<i class="fa fa-table" aria-hidden="true"></i>
-											</span>
-										</a
-										>
-									@endcan
+                                            <p style="color:white;">Productos guardados</p>
+                                            </div>
+                                            <div class="icon">
+                                            <i class="ion-android-done-all"></i>
+                                            </div>
+                                            <a href="{{ url('productos') }}" class="small-box-footer">Más información <i class="fa fa-arrow-circle-left"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            
+                                <div class="col-md-4">
+                                    <div class="box  box-primary w3-card-4 w3-white"><br>
+                                        <center><h3>Comprobantes</h3></center>
+                                        <div class="small-box" style="background:linear-gradient(to left,#ff5e00,#c74900,#a63c03,#a63c03,#a63c03)">
+                                            <div class="inner">
+                                            <h3 style="color:white;">{{ $comprobante }}</h3>
 
-									@can('add_productos')
-										<a href="/productos/nuevo" class="list-group-item">
-											Nuevo producto
-											<span class="pull-right">
-												<i class="fa fa-plus-square" aria-hidden="true"></i>
-											</span>
-										</a>
-										@endcan
+                                            <p style="color:white;">Comprobantes generados</p>
+                                            </div>
+                                            <div class="icon">
+                                            <i class="ion ion-bag"></i>
+                                            </div>
+                                            <a href="{{ url('/comprobantes') }}" class="small-box-footer">Más información <i class="fa fa-arrow-circle-left"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="box  box-primary w3-card-4 w3-white"><br>
+                                        
+                                        <center><h3>Gastos</h3></center>
+                                        @can('add_gastos')
+                                        <div class="small-box" style="background:linear-gradient(to left,#ffee00 ,#b5a906,#968a00,#918505,#877b0a)">
+                                            <div class="inner">
+                                            <h3 style="color:white;">150</h3>
 
-										@can('view_productos')
-										<a href="#" class="list-group-item" data-toggle="popover" data-content="Próximamente" data-trigger="hover" >
-											Reportes
-											<span class="pull-right">
-												<i class="fa fa-database" aria-hidden="true"></i>
-											</span>
-										</a>
-										@endcan
-										@can('view_movimientos')
-										<a href="/productos/movimientos" class="list-group-item">
-											Movimientos
-											<span class="pull-right">
-												<i class="fas fa-exchange-alt" aria-hidden="true"></i>
-											</span>
-										</a>
-										@endcan
-									</ul>
-								</div>
-							</div>
-						
-							<div class="col-md-4">
-								<div class="w3-card-4 w3-white"><br>
-									<center><h3>Comprobantes</h3></center><br>
-									<ul class="list-group">
-										@can('view_facturas')
-										<a href="/comprobantes/" class="list-group-item">
-											Vista general
-											<span class="pull-right">
-												<i class="fa fa-table" aria-hidden="true"></i>
-											</span>
-										</a>
-										@endcan
-										@can('add_facturas')
-										<a href="/comprobantes/nuevo" class="list-group-item">
-											Nuevo comprobante
-											<span class="pull-right">
-												<i class="fa fa-plus-square" aria-hidden="true"></i>
-											</span>
-										</a>
-										@endcan
-										@can('view_facturas')
-										<a href="/comprobantes/reportes" class="list-group-item" data-toggle="popover" data-content="Próximamente" data-trigger="hover" >
-											Reportes
-											<span class="pull-right">
-												<i class="fa fa-database" aria-hidden="true"></i>
-											</span>
-										</a>
-										@endcan
-										@can('view_facturas')
-										<a href="/comprobantes/vencimientos" class="list-group-item">
-											Vencimientos
-											<span class="pull-right">
-												<i class="fa fa-calendar" aria-hidden="true"></i>
-											</span>
-										</a>
-										@endcan
-									</ul>
-								</div>
-							</div>
-							<div class="col-md-4">
-								<div class="w3-card-4 w3-white"><br>
-									<center><h3>Gastos</h3></center><br>
-									<ul class="list-group"> 
-									@can('view_gastos')                               
-										<a href="#" class="list-group-item" data-toggle="popover" data-content="Próximamente" data-trigger="hover" >
-											Vista General
-											<span class="pull-right">
-												<i class="fa fa-table" aria-hidden="true"></i>
-											</span>
-										</a>
-										@endcan
-										@can('add_gastos')
-										<a href="/gastos/nuevo" class="list-group-item">
-											Nuevo gasto o compra
-											<span class="pull-right">
-												<i class="fa fa-plus-square" aria-hidden="true"></i>
-											</span>
-										</a>
-										@endcan
-										@can('view_gastos')
-										<a href="#" class="list-group-item" data-toggle="popover" data-content="Próximamente" data-trigger="hover" >
-											Reportes
-											<span class="pull-right">
-												<i class="fa fa-database" aria-hidden="true"></i>
-											</span>
-										</a>
-										@endcan
-										@can('view_gastos')
-										<a href="#" class="list-group-item" data-toggle="popover" data-content="Próximamente" data-trigger="hover" >
-											Conceptos
-											<span class="pull-right">
-												<i class="fa fa-book" aria-hidden="true"></i>
-											</span>
-										</a>
-										@else
-										<center><h5 style="color: red;">Lo siento, usted no tiene permisos para ver este módulo.</h5></center><br>
-										@endcan
-									</ul>
-								</div>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-md-4">
-								<div class="w3-card-4 w3-white"><br>
-									<center><h3>Clientes</h3></center><br>
-									<ul class="list-group">
-									@can('view_clientes')                                
-										<a href="/clientes" class="list-group-item" >
-											Vista general
-											<span class="pull-right">
-												<i class="fa fa-table" aria-hidden="true"></i>
-											</span>
-										</a>
-										@endcan
-										@can('add_clientes') 
-										<a href="/clientes/nuevo" class="list-group-item">
-											Nuevo cliente
-											<span class="pull-right">
-												<i class="fa fa-plus-square" aria-hidden="true"></i>
-											</span>
-										</a>
-										@endcan
-										@can('view_clientes') 
-										<a href="#" class="list-group-item" data-toggle="popover" data-content="Próximamente" data-trigger="hover" >
-											Reportes
-											<span class="pull-right">
-												<i class="fa fa-database" aria-hidden="true"></i>
-											</span>
-										</a>
-										@endcan
-									</ul>
-								</div>
-							</div>
-							<div class="col-md-4">
-								<div class="w3-card-4 w3-white"><br>
-									<center><h3>Proveedores</h3></center><br>
-									<ul class="list-group">
-										@can('view_proveedores') 
-										<a href="/proveedores" class="list-group-item" >
-											Vista general
-											<span class="pull-right">
-												<i class="fa fa-table" aria-hidden="true"></i>
-											</span>
-										</a>
-										@endcan
-										@can('add_proveedores')
-										<a href="/proveedores/nuevo" class="list-group-item">
-											Nuevo proveedor
-											<span class="pull-right">
-												<i class="fa fa-plus-square" aria-hidden="true"></i>
-											</span>
-										</a>
-										@endcan
-										@can('view_proveedores')
-										<a href="#" class="list-group-item" data-toggle="popover" data-content="Próximamente" data-trigger="hover" >
-											Reportes
-											<span class="pull-right">
-												<i class="fa fa-database" aria-hidden="true"></i>
-											</span>
-										</a>
-										@endcan
-									</ul>
-								</div>
-							</div>
-							<div class="col-md-4">
-								<div class="w3-card-4 w3-white"><br>
-									<center><h3>Empleados</h3></center><br>
-									<ul class="list-group">
-										@can('view_empleados')
-										<a href="/empleados" class="list-group-item" >
-											Vista general
-											<span class="pull-right">
-												<i class="fa fa-table" aria-hidden="true"></i>
-											</span>
-										</a>
-										@endcan
-										@can('view_empleados')
-										<a href="/empleados/create" class="list-group-item">
-											Nuevo empleado
-											<span class="pull-right">
-												<i class="fa fa-plus-square" aria-hidden="true"></i>
-											</span>
-										</a>
-										@endcan
-										@can('view_empleados')
-										<a href="#" class="list-group-item" data-toggle="popover" data-content="Próximamente" data-trigger="hover" >
-											Reportes
-											<span class="pull-right">
-												<i class="fa fa-database" aria-hidden="true"></i>
-											</span>
-										</a>
-										@else
-										<center><h5 style="color: red;">Lo siento, usted no tiene permisos para ver este módulo</h5></center><br>
-										@endcan
-									</ul>
-								</div>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-md-4">
-								<div class="w3-card-4 w3-white"><br>
-									<center><h3>Apertura de caja</h3></center><br>
-								<ul class="list-group"> 
-								      @can('view_apertura_caja')                         
-									<a href="/apertura" class="list-group-item" >
-										Vista general
-										<span class="pull-right">
-											<i class="fa fa-table" aria-hidden="true"></i>
-										</span>
-									</a>
+                                            <p style="color:white;">Facturas generadas</p>
+                                            </div>
+                                            <div class="icon">
+                                            <i class="ion ion-bag"></i>
+                                            </div>
+                                            <a href="#" class="small-box-footer">Más información <i class="fa fa-arrow-circle-left"></i></a>
+                                        </div>
+                                         @else
+                                                 <center><h5 style="color:red;">Lo siento, no tienes permisos para ver éste módulo.</h5></center><br>
+                                        @endcan
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="box  box-primary w3-card-4 w3-white"><br>
+                                        <center><h3>Clientes</h3></center>
+                                        <div class="small-box" style="background:linear-gradient(to left,#00ff2b ,#00b51e,#009116,#008c15,#007812)">
+                                            <div class="inner">
+                                                <h3 style="color:white;">{{ $clientes }}</h3>
 
-									@endcan
-									@can('add_apertura_caja') 
-									<a href="/apertura/create" class="list-group-item">
-										Nueva apertura
-										<span class="pull-right">
-											<i class="fa fa-plus-square" aria-hidden="true"></i>
-										</span>
-									</a>
+                                                <p style="color:white;">Clientes guardados</p>
+                                            </div>
+                                            <div class="icon">
+                                            <i class="ion-android-contacts"></i>
+                                            </div>
+                                            <a href="{{ url('/clientes') }}" class="small-box-footer">Más información <i class="fa fa-arrow-circle-left"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="box  box-primary w3-card-4 w3-white"><br>
+                                        <center><h3>Proveedores</h3></center>
+                                        <div class="small-box" style="background:linear-gradient(to left,#00ffd9 ,#00b59a,#029680,#02917c,#02826f)">
+                                            <div class="inner">
+                                            <h3 style="color:white;">{{ $proveedor }}</h3>
 
-									@endcan
-									@can('view_apertura_caja') 
-									<a href="#" class="list-group-item" data-toggle="popover" data-content="Próximamente" data-trigger="hover" >
-										Reportes
-										<span class="pull-right">
-											<i class="fa fa-database" aria-hidden="true"></i>
-										</span>
-									</a>
+                                            <p style="color:white;">Proveedores guardados</p>
+                                            </div>
+                                            <div class="icon">
+                                            <i class="ion ion-bag"></i>
+                                            </div>
+                                            <a href="{{ url('/proveedores') }}" class="small-box-footer">Más información <i class="fa fa-arrow-circle-left"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="box  box-primary w3-card-4 w3-white"><br>
+                                        <center><h3>Empleados</h3></center>
+                                        @can('add_empleados')
+                                        
+                                            <div class="small-box" style="background:linear-gradient(to left,#1296e3,#0c6aa8,#045185,#014773)">
+                                                <div class="inner">
+                                                <h3 style="color:white;">150</h3>
 
-									@endcan
-								</ul>
-							</div>
-						</div>
-						<div class="col-md-4">
-								<div class="w3-card-4 w3-white"><br>
-									<center><h3>Cierre de caja</h3></center><br>
-								<ul class="list-group"> 
-								      @can('view_cierre_caja')                         
-									<a href="/cierre" class="list-group-item" >
-										Vista general
-										<span class="pull-right">
-											<i class="fa fa-table" aria-hidden="true"></i>
-										</span>
-									</a>
+                                                <p style="color:white;">Empleados guardados</p>
+                                                </div>
+                                                <div class="icon">
+                                                <i class="ion-android-happy"></i>
+                                                </div>
+                                                <a href="{{ route('empleados.index') }}" class="small-box-footer">Más información <i class="fa fa-arrow-circle-left"></i></a>
+                                            </div>
+                                            @else
+                                                 <center><h5 style="color:red;">Lo siento, no tienes permisos para ver éste módulo.</h5></center><br>
+                                            @endcan
+                                            
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="box  box-primary w3-card-4 w3-white"><br>
+                                        <center><h3>Apertura de caja</h3></center>
+                                            <div class="small-box" style="background:linear-gradient(to left,#b021e8,#8712b5,#580a7a,#511469)">
+                                                <div class="inner">
+                                                <h3 style="color:white;">{{ $apertura }}</h3>
+                                                <p style="color:white;">Cantidad de aperturas de caja</p>
+                                                </div>
+                                                <div class="icon">
+                                                <i class="ion-android-open"></i>
+                                                </div>
+                                                <a href="{{ route('apertura.index') }}" class="small-box-footer">Más información <i class="fa fa-arrow-circle-left"></i></a>
+                                        </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                    <div class="box  box-primary w3-card-4 w3-white"><br>
+                                        <center><h3>Cierre de caja</h3></center>
+                                            <div class="small-box" style="background:linear-gradient(to left,#e69122 ,#cc802f,#b56e28,#a15f0f,#824800)">
+                                                <div class="inner">
+                                                <h3 style="color:white;">{{ $cierre }}</h3>
 
-									@endcan
-									@can('add_cierre_caja') 
-									<a href="/cierre/create" class="list-group-item">
-										Nuevo cierre
-										<span class="pull-right">
-											<i class="fa fa-plus-square" aria-hidden="true"></i>
-										</span>
-									</a>
+                                                <p style="color:white;">Cantidad de cierres de caja</p>
+                                                </div>
+                                                <div class="icon">
+                                                <i class="ion-android-notifications-off"></i>
+                                                </div>
+                                                <a href="{{ route('cierre.index') }}" class="small-box-footer">Más información <i class="fa fa-arrow-circle-left"></i></a>
+                                            </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                    <div class="box  box-primary w3-card-4 w3-white"><br>
+                                        <center><h3>Vendedores</h3></center>
+                                        @can('add_users')
+                                            <div class="small-box" style="background:linear-gradient(to left,#e00000 ,#c40000,#ab0707,#a60707,#910303)">
+                                                <div class="inner">
+                                                    <h3 style="color:white;">{{ $count }}</h3>
+                                                    <p style="color:white;">Vendedores registrados</p>
+                                                </div>
+                                        <div class="icon">
+                                        <i class="ion-person-stalker"></i>
+                                        </div>
+                                        <a href="{{ route('user.index') }}" class="small-box-footer">Más información <i class="fa fa-arrow-circle-left"></i></a>
+                                    </div>
+                                    @else
+                                    <center><h5 style="color:red;">Lo siento, no tienes permisos para ver éste módulo.</h5></center><br>
+                                    @endcan
+                                </div>
+                            </div>
+                        </div>					
+                    </div>
+                </div>
+            </div>
+        </div>
 
-									@endcan
-									@can('view_cierre_caja') 
-									<a href="#" class="list-group-item" data-toggle="popover" data-content="Próximamente" data-trigger="hover" >
-										Reportes
-										<span class="pull-right">
-											<i class="fa fa-database" aria-hidden="true"></i>
-										</span>
-									</a>
-
-									@endcan
-								</ul>
-							</div>
-						</div>
-						<div class="col-md-4">
-								<div class="w3-card-4 w3-white"><br>
-									<center><h3>Usuarios</h3></center><br>
-								<ul class="list-group"> 
-								      @can('view_users')                         
-									<a href="/user" class="list-group-item" >
-										Vista general
-										<span class="pull-right">
-											<i class="fa fa-table" aria-hidden="true"></i>
-										</span>
-									</a>
-
-									@endcan
-									@can('add_users') 
-									<a href="/user/create" class="list-group-item">
-										Nuevo usuario
-										<span class="pull-right">
-											<i class="fa fa-plus-square" aria-hidden="true"></i>
-										</span>
-									</a>
-
-									@endcan
-									@can('view_users') 
-									<a href="#" class="list-group-item" data-toggle="popover" data-content="Próximamente" data-trigger="hover" >
-										Reportes
-										<span class="pull-right">
-											<i class="fa fa-database" aria-hidden="true"></i>
-										</span>
-									</a>
-										@else
-										<center><h5 style="color: red;">Lo siento, usted no tiene permisos para ver este módulo</h5></center><br>
-									@endcan
-								</ul>
-							</div>
-						</div>
-					</div>					
-				</div>
-			</div>
-		</div>
-	</div>
-
-@endsection
+    @endsection

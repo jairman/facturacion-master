@@ -81,7 +81,7 @@
 										<input id="txtSitioWeb" type="text" class="form-control" name="web" placeholder="Sitio web"  value="{!! old('web') !!}" >
 									</div>
 
-									
+										<input type="hidden" name="usuario_id" id="usuario_id" value="{{ Auth::user()->id}}">
 									
 									<div class="form-group text-center">
 										<input type="submit" class="btn btn-primary btn-block" value="Guardar">

@@ -160,7 +160,7 @@
 														</td>
 														<td class="text-center">
 															<a href="/comprobantes/detalle/{{$c->id}}">
-																<i class="fa fa-external-link"></i>
+																<i class="fas fa-external-link-alt"></i>
 															</a>
 														</td>
 													</tr>													

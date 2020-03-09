@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Models\TipoComprobante;
 use App\Models\LineaProducto;
+use App\Models\Producto;
 use App\Models\Moneda;
 use App\Models\TipoPago;
 use App\Models\User;
@@ -61,6 +62,11 @@ class Comprobante extends Model
     public function lineasProducto(){
         return $this->hasMany(LineaProducto::class);
     }
+
+    public function producto(){
+        return $this->hasMany(Producto::class);
+    }
+
 
     public function factura(){
         return $this->hasOne(Factura::class);

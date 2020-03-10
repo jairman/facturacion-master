@@ -71,7 +71,7 @@ class CierreCajaController extends Controller
         }
 
          $cierres = CierreCaja::paginate(5);
-             return view('admin.cierre.indexes')->with([
+             return view('admin.cierre.index')->with([
             'cierres'=> $cierres
             ]);  
            

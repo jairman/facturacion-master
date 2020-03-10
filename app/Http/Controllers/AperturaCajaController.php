@@ -39,7 +39,7 @@ class AperturaCajaController extends Controller
         }
 
          $aperturas= AperturaCaja::paginate(5);
-             return view('admin.apertura.indexes')->with([
+             return view('admin.apertura.index')->with([
             'aperturas'=> $aperturas
             ]);
        

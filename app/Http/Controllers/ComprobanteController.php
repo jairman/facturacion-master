@@ -46,7 +46,7 @@ class ComprobanteController extends Controller
 					->orderby('fecha_emision', 'desc')
 					->paginate(20);            
 		}else{
-			$comprobantes = Comprobante::orderby('fecha_emision', 'desc')->paginate(20);
+			$comprobantes = Comprobante::orderby('fecha_emision', 'desc')->paginate(5);
 		}
 		return view('admin.comprobantes.index')->with(compact('comprobantes', 'monedas', 'tipos_comprobante','tipos_pago'));            
 	}
@@ -268,7 +268,7 @@ class ComprobanteController extends Controller
 		}
 		
 		$vencimientos = $vencimientos->orderby('fecha_vencimiento')
-						->paginate(50);
+						->paginate(5);
 				
 		return view('admin.facturas.vencimientos')->with(compact('vencimientos'));
 	}
@@ -280,7 +280,8 @@ class ComprobanteController extends Controller
 			$facturas = Factura::buscarPorCliente($cliente->id)
 					->where('deuda_actual', '>', 0)
 					->orderby('fecha_vencimiento')
-					->get();					
+
+					->paginate(5);					
 			$total_adeudado = 0;
 			$total_atrasado = 0;
 			for ($i=0; $i < sizeof($facturas) ; $i++) {

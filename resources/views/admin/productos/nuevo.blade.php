@@ -123,11 +123,13 @@
 												</tr>
 											@endforeach
 										</tbody>
+
 									</table>
+									{{ $productos->links( "pagination::bootstrap-4") }}
 								</div>
 							</div>
-							<div class="col-md-5 col-md-offset-2">                				
-
+							<div class="col-md-5 col-md-offset-2">                					
+								
 							</div>
 							@include('partials.familia_producto_box')
 						</div>

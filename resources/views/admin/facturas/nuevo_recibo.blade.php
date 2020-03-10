@@ -1,5 +1,5 @@
 @extends('layouts.admin')
-
+@section('title', 'Recibo')
 @push('scripts')	
 	<script src="{{ asset('js/forms/recibos.js') }}"></script>
 @endpush
@@ -9,38 +9,37 @@
 	<div class="row">    
 		<div class="col-md-12">
 			<div class="w3-card-4 w3-white">
-				<div class="panel-heading">
+				<div class="card-header">
 					<h4>Nuevo recibo</h4>
 				</div>
-				<div class="panel-body">                    
-					<span class="pull-right">
+				<div class="card-body">                    
+					<span class="float-right">
 						<a class="btn btn-sm btn-success" href="/comprobantes/nuevo" class="btn btn-link">
 							<i class="fa fa-plus" aria-hidden="true"></i> Nuevo comprobante
 						</a>
 					</span>
 					<ul class="list-inline">
-						<li>
+						 <li class="list-inline-item">
 							<a href="/" class="link_ruta">
 								Inicio &nbsp; &nbsp;<i class="fa fa-chevron-right" aria-hidden="true"></i>
 							</a>
 						</li>
-						<li>
+						 <li class="list-inline-item">
 							<a href="/comprobantes" class="link_ruta">
 								Comprobantes &nbsp; &nbsp;<i class="fa fa-chevron-right" aria-hidden="true"></i>
 							</a>
 						</li>
-						<li>
+						 <li class="list-inline-item">
 							<a href="/comprobantes/vencimientos" class="link_ruta">
 								Vencimientos &nbsp; &nbsp;<i class="fa fa-chevron-right" aria-hidden="true"></i>
 							</a>
 						</li>
-						<li>
+						 <li class="list-inline-item">
 							<a href="/comprobantes/recibos/nuevo" class="link_ruta">
 								Nuevo recibo de pago
 							</a>
 						</li>
 					</ul><br>
-					@include('partials.menu_productos')
 					<form id="formNuevoRecibo" action="/comprobantes/recibos/guardar" method="post">
 						{{ csrf_field() }}
 						<input id="hidden_facturas_seleccionadas" type="hidden" name="facturas_seleccionadas" value="">
@@ -51,7 +50,7 @@
 									<label class="sr-only" for="txtFecha">Fecha de emisión</label>
 									<input id="txtFecha" type="date" name="fecha" class="form-control input-sm" title="Fecha del recibo">
 								</div>
-								<div class="form-group col-md-6">
+								<div class="form-group col-md-12">
 									<label class="sr-only" for="txtMoneda">Moneda</label>
 									<select name="moneda" class="form-control input-sm" tabindex="4">
 										@foreach($monedas as $moneda)
@@ -63,7 +62,7 @@
 										@endforeach
 									</select>
 								</div>
-								<div class="form-group col-md-6">
+								<div class="form-group col-md-12">
 									<label class="sr-only" for="txtCotizacion">Cotización</label>
 									<input name="cotizacion" type="text" class="form-control input-sm" id="txtCotizacion" placeholder="Cotización" tabindex="5">
 								</div>
@@ -201,6 +200,7 @@
 											@endforeach
 										</tbody>
 									</table>
+									{{ $facturas->links( "pagination::bootstrap-4") }}
 								</div>
 								<input class="btn btn-primary btn-block btn-sm" type="submit" name="" value="Confirmar">
 							</div>							

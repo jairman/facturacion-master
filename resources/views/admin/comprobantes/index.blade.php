@@ -105,7 +105,7 @@
 						
 					</div>
 					<div class="table-responsive"><br>
-						<table id="tabla_comprobantes" cellspacing="0" width="100%" class="table-condensed table-striped table-bordered">
+						<table id="tabla_comprobantes" cellspacing="0" width="100%" class="table table-hover">
 							<tr>								
 								<th class="text-center " width="120px">Fecha emisión</th>
 								<th class="text-center " width="200px">Tipo comprobante</th>
@@ -154,21 +154,21 @@
 								@endif
 								
 								<td>
-									&nbsp; {{$comprobante->moneda->simbolo}} 
+								
 									<span class="float-right">
 										{{ number_format($comprobante->subTotal, 2) }}
 									</span>
 								</td>
 
 								<td>
-									&nbsp; {{$comprobante->moneda->simbolo}} 
+									
 									<span class="float-right">
 										{{ number_format($comprobante->iva, 2) }}
 									</span>
 								</td>
 
 								<td>
-									&nbsp; {{$comprobante->moneda->simbolo}} 
+									
 									<span class="float-right">
 										{{ number_format($comprobante->total, 2) }}
 									</span>
@@ -190,7 +190,7 @@
 						</table>
 					</div>
 					<div class="text-center ">
-						{{ $comprobantes->links() }}
+						{{ $comprobantes->links( "pagination::bootstrap-4") }}
 					</div>
 				</div>
 			</div>

@@ -56,7 +56,7 @@
 						</table>
 					</div>
 					<div class="text-center">
-						{{ $cierres->links() }}
+						{{ $cierres->links( "pagination::bootstrap-4") }}
 					</div>
 				</div>
 			</div>

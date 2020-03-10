@@ -26,10 +26,8 @@
 							</a>
 						</li>						
 					</ul><br>
-	
-				
-					<div>
-						<table id="example" class="table table-striped table-bordered" style="width:100%">
+					
+					<table id="" class="table table-hover" style="width:100%">
                             <thead>
                                 <tr>
                                     <th>ID</th>
@@ -50,25 +48,7 @@
                                     <td>{{$empleado->nb_apellido}}</td>
                                     <td>{{$empleado->nu_cedula}}</td>
                                     <td>{{$empleado->fe_ingreso}}</td>
-                                    <td><div class="dropdown">
-                                        <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
-                                          <i class="fa fa-gears"></i> <span class="caret"></span>
-                                        </button>
-                                        <ul class=" dropdown-menu dropdown-menu-right">
-                                          <li><a href="{{  url('empleados', [$empleado->id_empleado]) }}"><i class="fa fa-eye"></i> Perfil</a></li>
-                                          @can('edit_users')
-                                          <li><a href="{{ url('empleados', [$empleado->id_empleado, 'edit']) }}"><i class="fa fa-edit"></i> Editar</a></a></li>
-                                          @endcan
-                                          @can('view_logdins')
-                                          <li class="divider"><li>
-                                          <li><a href="{{ url('user/login', [$empleado->id_empleado]) }}"><i class="fa fa-sign-in"></i> Logins</a></li>
-                                          @endcan
-                                          @if(auth()->user()->can('delete_empleado') && Auth::user()->id != $empleado->id)
-                                          <li class="divider"><li>
-                                          <li><a href="#confirm-modal" id="{{ $empleado->id_empleado }}"  class="del-btn" data-toggle="modal"><i class="fa fa-trash"></i> Eliminar</a></li>
-                                          @endif
-                                        </ul>
-                                      </div></td>
+                                    
                                 </tr>
                                 @endforeach
                             <tfoot>
@@ -85,7 +65,7 @@
                         </table>
 					</div>
 					<div class="text-center">
-						{{ $empleados->links() }}
+						{{ $empleados->links( "pagination::bootstrap-4")}}
 					</div>
 				</div>
 			</div>

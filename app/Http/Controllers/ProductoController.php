@@ -45,7 +45,7 @@ class ProductoController extends Controller
 			if ($producto !=null) {
 				return Redirect::to('productos/' . $producto->busqueda);
 			}else{
-				$productos = Producto::Filtrar($busqueda)->orderBy('nombre')->sortable()->paginate(10);
+				$productos = Producto::Filtrar($busqueda)->orderBy('nombre')->sortable()->paginate(5);
 				return view('admin.productos.index')->with(compact('productos','date'));
 			}
 		}
@@ -67,7 +67,7 @@ class ProductoController extends Controller
 
 	public function nuevo()
 	{
-		$productos = Producto::all();
+		$productos = Producto::paginate(5);
 		$moneda = Moneda::find(config('app.monedaPreferida'));
 		$familias_producto = FamiliaProducto::orderBy('nombre')->get();
 		return view('admin.productos.nuevo')->with(compact('productos', 'familias_producto', 'moneda'));

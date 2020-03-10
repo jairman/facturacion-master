@@ -1,5 +1,5 @@
 @extends('layouts.admin')
-
+@section('title', 'Vencimiento')
 @push('scripts')		
 	<script type="text/javascript">
 		var buscar_cliente_url = "{{ url('clientes/buscar?texto=') }}";
@@ -14,102 +14,36 @@
 	<div class="row">    
 		<div class="col-md-12">
 			<div class="w3-card-4 w3-white">
-				<div class="panel-heading">
+				<div class="card-header">
 					<h4>Vencimientos</h4>
 				</div>
-				<div class="panel-body">                    
-					<span class="pull-right">
+				<div class="card-body">                    
+					<span class="float-right">
 						<a class="btn btn-sm btn-success" href="/comprobantes/nuevo" class="btn btn-link">
 							<i class="fa fa-plus" aria-hidden="true"></i> Nuevo comprobante
 						</a>
 					</span>
 					<ul class="list-inline">
-						<li>
+						 <li class="list-inline-item">
 							<a href="/" class="link_ruta">
 								Inicio &nbsp; &nbsp;<i class="fa fa-chevron-right" aria-hidden="true"></i>
 							</a>
 						</li>
-						<li>
+						 <li class="list-inline-item">
 							<a href="/comprobantes" class="link_ruta">
 								Comprobantes &nbsp; &nbsp;<i class="fa fa-chevron-right" aria-hidden="true"></i>
 							</a>
 						</li>
-						<li>
+						 <li class="list-inline-item">
 							<a href="/comprobantes/vencimientos" class="link_ruta">
 								Vencimientos
 							</a>
 						</li>
-					</ul><br>
-					@include('partials.menu_productos')					                  
+					</ul><br>			                  
 				</div>
-				<div class="panel-body">
-					<div class="row">
-						<form method="get" action="/comprobantes/vencimientos">
-							<div class="well col-md-12" style="padding-bottom: 0px;">
-								<div class="col-md-3">
-									<div class="form-group">
-										<label>Cliente</label>
-										<div class="input-group">
-											<input id="hiddenCliente" type="hidden" name="cliente_id">
-											<input name="cliente" type="text" class="form-control input-sm" id="txtCliente" placeholder="Buscar cliente...">
-											<div class="input-group-btn">
-											<button id="btnAgregarCliente" class="btn btn-default btn-sm" data-toggle="modal" data-target="#modalAgregarCliente" onclick="prevent">
-													<i class="fa fa-address-book" aria-hidden="true"></i>
-												</button>
-											</div>
-										</div>
-									</div>
-								</div>
-
-								<div class="col-md-3">
-									<div class="form-group">
-										<label>Vencimiento</label>
-										<input class="form-control input-sm" type="date" name="fecha">
-									</div>
-								</div>
-								<div class="col-md-2 text-center">
-									<div class="form-group">
-										<br>
-										@if( app('request')->input('ocultar_facturas_vencidas') )
-											<input class="form-check-input" type="checkbox" id="checkFacturasVencidas" name="ocultar_facturas_vencidas" checked="true">
-										@else
-											<input class="form-check-input" type="checkbox" id="checkFacturasVencidas" name="ocultar_facturas_vencidas">
-										@endif
-										<label class="form-check-label" for="checkFacturasVencidas">
-											Ocultar vencidas
-										</label>
-									</div>
-								</div>
-
-								<div class="col-md-2 text-center">
-									<div class="form-group">
-										<br>
-										@if( app('request')->input('mostrar_facturas_pagas') )
-											<input class="form-check-input" type="checkbox" id="checkFacturasPagas" name="mostrar_facturas_pagas" checked="true">
-										@else
-											<input class="form-check-input" type="checkbox" id="checkFacturasPagas" name="mostrar_facturas_pagas">
-										@endif
-										<label class="form-check-label" for="checkFacturasPagas">
-											Mostrar pagas
-										</label>
-									</div>
-								</div>
-
-								<div class="col-md-12">
-									<div class="form-group text-center">
-										<button class="btn btn-primary btn-block btn-sm" type="submit" value="Filtrar">
-											Filtrar 
-											<i class="fas fa-search" aria-hidden="true"></i>
-										</button>
-									</div>
-								</div>
-							</div>
-						</form>						
-					</div>
-				</div>
-				<div class="panel-body">
+				<div class="card-body">
 					<div class="table-responsive">
-						<table id="tabla_comprobantes" cellspacing="0" width="100%" class="table table-condensed table-striped table-bordered">
+						<table id="tabla_comprobantes" cellspacing="0" width="100%" class="table table-hover">
 							<tr>
 								<th width="120px" class="text-center">Vencimiento</th>
 								<th class="text-center">Cliente</th>
@@ -173,7 +107,7 @@
 						</table>
 					</div>
 					<div class="text-center">
-						{{ $vencimientos->links() }}
+						{{ $vencimientos->links( "pagination::bootstrap-4") }}
 					</div>
 				</div>
 			</div>
@@ -223,7 +157,10 @@
 							<tbody id="tablaClientes">
 								
 							</tbody>
-						</table>						
+						</table>
+							<div class="text-center">
+						{{ $vencimientos->links( "pagination::bootstrap-4")}}
+					</div>					
 					</div>
 				</form>
 			</div>

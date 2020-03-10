@@ -27,7 +27,7 @@
 						</li>						
 					</ul><br>
 					<div class="table-responsive">
-						<table id="tabla_comprobantes" cellspacing="0" width="100%" class="table-condensed table-striped table-bordered">
+						<table id="tabla_comprobantes" cellspacing="0" width="100%" class="table table-hover">
 							<tr>
 								<th width="100px" class="text-center" colspan="2">ID</th>	
 								<th width="200px" class="text-center">Nombre</th>
@@ -71,7 +71,7 @@
 						</table>
 					</div>
 					<div class="text-center">
-						{{ $clientes->links() }}
+						{{ $clientes->links( "pagination::bootstrap-4") }}
 					</div>
 				</div>
 			</div>

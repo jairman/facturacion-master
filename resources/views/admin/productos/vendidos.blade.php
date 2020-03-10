@@ -5,11 +5,11 @@
 	<div class="row">
 		<div class="col-md-12">
 			<div class="w3-card-4 w3-white">
-				<div class="panel-heading">
+				<div class="card-heading">
 					<h4>Vista general de los productos más <b>Vendidos durante el mes cursante </b></h4>
 				</div>
 
-				<div class="panel-body">
+				<div class="card-body">
 					<span class="pull-right">
 						<a class="btn btn-md btn-success w3-card-4" href="/productos/nuevo" class="btn btn-link" >
 							<i class="fa fa-plus" aria-hidden="true"></i> Nuevo producto
@@ -17,18 +17,17 @@
 					</span>
 					<br><br><br>
 					<ul class="list-inline">
-						<li>
+						<li class="list-inline-item">
 							<a href="/" class="link_ruta">
 								Inicio &nbsp; &nbsp;<i class="fa fa-chevron-right" aria-hidden="true"></i>
 							</a>
 						</li>
-						<li>
+						<li class="list-inline-item">
 							<a href="/productos" class="link_ruta">
 								Productos
 							</a>
 						</li>
 					</ul><br>
-					@include('partials.menu_productos')
 					<div class="row">
 						<div class="container">
 							<div class="table-responsive table-condensed">
@@ -49,7 +48,7 @@
 								</table>
 							</div>
 							<div class="text-center">
-								{!! $masVendidos->appends(\Request::except('page'))->render() !!}
+								{{ $masVendidos->links( "pagination::bootstrap-4") }}
 							</div>
 						</div>
 					</div>

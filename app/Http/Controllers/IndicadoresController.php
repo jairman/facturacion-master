@@ -26,8 +26,7 @@ class IndicadoresController extends Controller
 			)
 			->where('precioUnitario', '<>', null)
 			->whereMonth('linea_productos.fecha', '=', $mes)
-			->groupBy('productos.nombre','cantidad')
-			->orderBy('cantidad', 'asc')
+			->groupBy('productos.nombre')
 			->paginate(5);
 			
     	return view('admin.productos.vendidos')->with(compact('masVendidos'));

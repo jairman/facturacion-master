@@ -55,7 +55,7 @@
 						</table>
 					</div>
 					<div class="text-center">
-						{{ $aperturas->links() }}
+						{{ $aperturas->links( "pagination::bootstrap-4")}}
 					</div>
 				</div>
 			</div>
@@ -65,11 +65,11 @@
 
 @endsection
 
-@section('scripts')
+@push('scripts')
 	<script type="text/javascript">
 		$(document).ready(function(){
 			$("#form_busqueda").show();
 			$("#txtBusqueda").focus();		
 		});
 	</script>
-@endsection
+@endpush

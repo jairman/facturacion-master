@@ -65,7 +65,7 @@
 								</table>
 							</div>
 							<div class="text-center">
-								{{ $proveedores->links() }}
+								{{ $proveedores->links( "pagination::bootstrap-4") }}
 							</div>
 						</div>
                     </div>                    

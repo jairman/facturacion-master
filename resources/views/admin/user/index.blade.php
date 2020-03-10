@@ -86,7 +86,7 @@
                 @endforeach
               </table>
               <div class="box-footer clearfix">
-                  {{ $users->links() }}
+                  {{ $users->links( "pagination::bootstrap-4") }}
                   <p class="text-muted">Mostrando <strong>{{ $users->count() }}</strong> registros de <strong>{{$users->total() }}</strong> totales</p>
               </div>
             </div>

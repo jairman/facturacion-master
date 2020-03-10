@@ -36,7 +36,7 @@
 					<div class="row">
 						<div class="container">
 							<div class="table-responsive ">
-								<table id="example" class="table table-hover table-bordered" style="width:100%">
+								<table  class="table table-hover" style="width:100%">
 									<thead>
 									<tr>
 										<th class="text-center" width="120px">Código</th>
@@ -120,7 +120,7 @@
 								</table>
 							</div>
 							<div class="text-center">
-								{!! $productos->appends(\Request::except('page'))->render() !!}
+								{{ $productos->links( "pagination::bootstrap-4") }}
 							</div>
 						</div>
 					</div>

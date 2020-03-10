@@ -30,7 +30,7 @@ class ProveedorController extends Controller
 	}
 
 	public function nuevo(){
-		$proveedores = Proveedor::all();
+		$proveedores = Proveedor::paginate(5);
 		return view('admin.proveedores.nuevo')->with(compact('proveedores'));
 	}
 

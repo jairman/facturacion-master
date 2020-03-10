@@ -4,32 +4,31 @@
 <div class="container">
 	<div class="row">    
 		<div class="col-md-12">
-			<div class="box  box-primary w3-card-4 w3-white">
-				<div class="panel-heading">
+			<div class="w3-card-4 w3-white">
+				<div class="card-header">
 					<h4>Vista general de la apertura de caja</h4>
 				</div>
-				<div class="panel-body">
-					<span class="pull-right">
+				<div class="card-body">
+					<span class="float-right">
 						<a class="btn btn-md btn-success" href="/apertura/create" class="btn btn-link">
 							<i class="fa fa-user-plus" aria-hidden="true"></i> Nueva apertura
 						</a>
 					</span>
 					<ul class="list-inline">
-						<li>
+						<li class="list-inline-item">
 							<a href="/" class="link_ruta">
 								Inicio &nbsp; &nbsp;<i class="fa fa-chevron-right" aria-hidden="true"></i>
 							</a>
 						</li>
-						<li>
+						<li class="list-inline-item">
 							<a href="/apertura" class="link_ruta">
 								Apertura
 							</a>
 						</li>						
 					</ul><br>
-					@include('partials.menu_productos')<br>
-				
+			
 					<div class="table-responsive">
-						<table id="tabla_comprobantes" cellspacing="0" width="100%" class="table-condensed table-striped table-bordered">
+						<table id="tabla_comprobantes" cellspacing="0" width="100%" class="table table-hover">
 							<tr>
 								<th class="text-center">ID</th>	
                                 <th class="text-center">Efectivo</th>

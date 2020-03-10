@@ -5,49 +5,53 @@
 	<div class="row">
 		<div class="col-md-12">
 			<div class="w3-card-4 w3-white">
-				<div class="panel-heading">
+				<div class="card-header">
 					<h4>Vista general de productos</h4>
 				</div>
 
-				<div class="panel-body">
-					<span class="pull-right">
+				<div class="card-body">
+					<span class="float-right">
 						<a class="btn btn-md btn-success w3-card-4" href="/productos/nuevo" class="btn btn-link" >
 							<i class="fa fa-plus" aria-hidden="true"></i> Nuevo producto
 						</a>
 					</span>
-					<span class="pull-left">
+					<span class="float-left">
 						<a class="btn btn-md btn-primary w3-card-4" href="/indicadores/masVendidos/{{ $date }}" class="btn btn-link" >
 							<i class="fas fa-chart-bar" aria-hidden="true"></i> Productos más vendidos
 						</a>
 					</span><br><br><br>
 					<ul class="list-inline">
-						<li>
+						 <li class="list-inline-item">
 							<a href="/" class="link_ruta">
 								Inicio &nbsp; &nbsp;<i class="fa fa-chevron-right" aria-hidden="true"></i>
 							</a>
 						</li>
-						<li>
+						 <li class="list-inline-item">
 							<a href="/productos" class="link_ruta">
 								Productos
 							</a>
 						</li>
 					</ul>
-					@include('partials.menu_productos')
+				
 					<div class="row">
 						<div class="container">
-							<div class="table-responsive table-condensed">
-								<table id="tabla_productos" cellspacing="0" width="97%" class="table-condensed table-striped table-bordered">
+							<div class="table-responsive ">
+								<table id="example" class="table table-hover table-bordered" style="width:100%">
+									<thead>
 									<tr>
-										<th class="text-center" width="120px"> @sortablelink('codigo', 'Código')</th>
-										<th class="text-center" width="200px"> @sortablelink('nombre', 'Nombre')</th>
+										<th class="text-center" width="120px">Código</th>
+										<th class="text-center" width="90px">Nombre</th>
 										<th class="text-center" width="150px">Familia producto</th>
 										<th class="text-center">Descripción</th>
-										<th class="text-center" width="120px">Precio</th>
-										<th class="text-center" width="10%" colspan="2">Stock</th>                                      
+										<th class="text-center" width="80px">Precio</th>
+										<th class="text-center" width="10%">Stock</th> <th class="text-center" width="10%">Opciones</th>                                     
 									</tr>
+									</thead>
 
 									@foreach($productos as $producto)
-										<tr>
+										
+									<tbody>
+<tr>
 											<td class="text-center"><a href="/productos/detalle/{{ $producto->codigo}}">{{ $producto->codigo}}</a></td>
 											<td class="text-center" title="{{$producto->nombre}}">
 												@if(strlen($producto->nombre) > 24)
@@ -62,7 +66,7 @@
 												{{ str_limit(str_replace('<br />','', $producto->descripcion), 80) }}
 
 												@if(strlen($producto->descripcion) > 80)
-												<span class="pull-right">
+												<span class="float-right">
 													<a class="btn-sm btn-link" data-toggle="modal" data-target="#myModal{{ $producto->codigo }}">
 														más...
 													</a>
@@ -88,7 +92,7 @@
 											<td>
 												&nbsp;
 												{{ App\Models\Moneda::find(config('app.monedaPreferida'))->first()->simbolo }}
-												<span class="pull-right">
+												<span class="float-right">
 													{{ $producto->precio}}
 												</span>
 											</td>
@@ -98,8 +102,21 @@
 													<i class="fas fa-exchange-alt" aria-hidden="true"></i>
 												</a>
 											</td>
+											
 										</tr>
-									@endforeach                         
+										</tbody>
+									@endforeach 
+									<tfoot>
+							            <tr>
+							                <th>Código</th>
+							                <th>Nombre</th>
+							                <th>Familia producto</th>
+							                <th>Descripción</th>
+							                <th>Precio</th>
+							                <th>Stock</th>
+							                <th>Opciones</th>
+							            </tr>
+							        </tfoot>                        
 								</table>
 							</div>
 							<div class="text-center">
@@ -115,9 +132,11 @@
 </div>
 @endsection
 
-@section('scripts')
+@push('scripts')
 <script type="text/javascript"> 
-	$("#form_busqueda").show();
-	$("#txtBusqueda").focus();  
+	$(document).ready(function() {
+    $('#example').DataTable();
+} ); 
 </script>
-@endsection
+
+@endpush

@@ -5,29 +5,28 @@
 	<div class="row">
 		<div class="col-md-12">
 			<div class="w3-card-4 w3-white">
-				<div class="panel-heading">
-					<h4>Alta de cliente</h4>
+				<div class="card-header">
+					<h4>Cierre de caja</h4>
 				</div>
 
-				<div class="panel-body">
+				<div class="card-body">
 					<ul class="list-inline">
-						<li>
+						<li class="list-inline-item">
 							<a href="/" class="link_ruta">
 								Inicio &nbsp; &nbsp;<i class="fa fa-chevron-right" aria-hidden="true"></i>
 							</a>
 						</li>
-						<li>
+						<li class="list-inline-item">
 							<a href="/cierre" class="link_ruta">
 								Cierre de caja &nbsp; &nbsp;<i class="fa fa-chevron-right" aria-hidden="true"></i>
 							</a>
 						</li>
-						<li>
+						<li class="list-inline-item">
 							<a href="/cierre/create" class="link_ruta">
 								Nuevo
 							</a>
 						</li>
 					</ul><br>
-					@include('partials.menu_productos')
 					<div class="row">
 						<div class="container row">
 							<div class="col-md-12 col-md-offset-0">

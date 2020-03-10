@@ -1,35 +1,33 @@
 @extends('layouts.admin')
-
+@section('title', 'Proveedores')
 @section('content')
 <div class="container">
 	<div class="row">
 		<div class="col-md-12">
 			<div class="w3-card-4 w3-white">
-				<div class="panel-heading">
+				<div class=" card-header">
 					<h4>Alta de proveedor</h4>
 				</div>
 
-				<div class="panel-body">                
+				<div class="card-body">                
 					<ul class="list-inline">
-						<li>
+						<li class="list-inline-item">
 							<a href="/" class="link_ruta">
 								Inicio &nbsp; &nbsp;<i class="fa fa-chevron-right" aria-hidden="true"></i>
 							</a>
 						</li>
-						<li>
+						<li class="list-inline-item">
 							<a href="/proveedores" class="link_ruta">
 								Proveedores &nbsp; &nbsp;<i class="fa fa-chevron-right" aria-hidden="true"></i>
 							</a>
 						</li>
-						<li>
+						<li class="list-inline-item">
 							<a href="/proveedores/nuevo" class="link_ruta">
 								Nuevo
 							</a>
 						</li>
 					</ul><br>
-					@include('partials.menu_productos')
 					<div class="row">
-						<div class="container">
 							<div class="col-md-4"><br>
 								<legend>Registro de Proveedor</legend>
 								<form id="form_nuevo_producto" role="form" method="POST" action="/proveedores/guardar">
@@ -139,11 +137,11 @@
 </div>
 @endsection
 
-@section('scripts')
+@push('scripts')
 <script type="text/javascript">	
 	//Auto focus al buscador
-	$("#txtCodigo").focus();
+	$("#txtNombre").focus();
 
 	
 </script>
-@endsection
+@endpush

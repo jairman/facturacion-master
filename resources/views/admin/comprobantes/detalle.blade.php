@@ -5,33 +5,33 @@
 	<div class="row">    
 		<div class="col-md-12 col-sm-12 col-xs-12">
 			<div class="w3-card-4 w3-white">
-				<div class="panel-heading">
+				<div class="card-header">
 					<h4>Detalle del comprobante</h4>
 				</div>                
-				<div class="panel-body">
-					<span class="pull-right">
+				<div class="card-body">
+					<span class="float-right">
 						<a class="btn btn-sm btn-success" href="/comprobantes/nuevo" class="btn btn-link">
 							<i class="fa fa-plus" aria-hidden="true"></i> Nuevo comprobante
 						</a>
 					</span>
 					<ul class="list-inline">
-						<li>
+						<li class="list-inline-item">
 							<a href="/" class="link_ruta">
 								Inicio &nbsp; &nbsp;<i class="fa fa-chevron-right" aria-hidden="true"></i>
 							</a>
 						</li>
-						<li>
+						<li class="list-inline-item">
 							<a href="/comprobantes" class="link_ruta">
 								Comprobantes &nbsp; &nbsp;<i class="fa fa-chevron-right" aria-hidden="true"></i>
 							</a>
 						</li>
-						<li>
+						<li class="list-inline-item">
 							<a href="/comprobantes/detalle/{{$comprobante->id}}" class="link_ruta">
 								Detalle
 							</a>
 						</li>
 					</ul><br>
-					@include('partials.menu_productos')					
+									
 					<div class="row">
 						<div class="col-md-4">							
 							<div class="col-md-12 col-sm-12 col-xs-12">
@@ -89,19 +89,19 @@
 										<td>
 											{{ date_format(date_create($comprobante->factura->fecha_vencimiento), 'd / m / Y' ) }}
 											@if($comprobante->factura->deuda_actual == 0)
-												<span class="pull-right text-success">
+												<span class="float-right text-success">
 													(Factura paga)
 												</span>
 											@elseif($dias_restantes <= 0)
-												<span class="pull-right danger">
+												<span class="float-right danger">
 													( Vencida )
 												</span>
 											@elseif($dias_restantes <= 7)
-												<span class="pull-right warning">
+												<span class="float-right warning">
 													( {{$dias_restantes}} días )
 												</span>
 											@else
-												<span class="pull-right">
+												<span class="float-right">
 													( {{$dias_restantes}} días )
 												</span>
 											@endif
@@ -159,14 +159,14 @@
 							@if($comprobante->factura && $comprobante->factura->deuda_actual > 0)
 								<a href="/comprobantes/recibos/nuevo/{{$comprobante->cliente_id}}" target="_blank" class="btn btn-block btn-success">
 									Ingresar recibo de pago 
-									<span class="pull-right">
+									<span class="float-right">
 										<i class="fa fa-plus-square" aria-hidden="true"></i>
 									</span>
 								</a>
 							@endif
 							<a href="/comprobantes/imprimir/{{$comprobante->id}}" target="_blank" class="btn btn-block btn-primary">
 								Imprimir
-								<span class="pull-right">
+								<span class="float-right">
 									<i class="fa fa-print" aria-hidden="true"></i>
 								</span>
 							</a>
@@ -198,7 +198,7 @@
 											</td>
 											<td>
 												&nbsp; {{ $comprobante->moneda->simbolo }}
-												<span class="pull-right">
+												<span class="float-right">
 													{{ $l->precioUnitario }}
 												</span>
 											</td>
@@ -207,19 +207,19 @@
 											</td>
 											<td>
 												&nbsp; {{ $comprobante->moneda->simbolo }}
-												<span class="pull-right">
+												<span class="float-right">
 													{{ number_format($l->subTotal, 2, '.', ',') }}
 												</span>
 											</td>
 											<td>
 												&nbsp; {{ $comprobante->moneda->simbolo }}
-												<span class="pull-right">
+												<span class="float-right">
 													{{ number_format($l->iva, 2, '.', ',') }}
 												</span>
 											</td>
 											<td>
 												&nbsp; {{ $comprobante->moneda->simbolo }}
-												<span class="pull-right">
+												<span class="float-right">
 													{{ number_format($l->total, 2, '.', ',') }}
 												</span>
 											</td>
@@ -228,30 +228,7 @@
 									</tbody>
 								</table>
 							</div>							
-							<div class="col-md-6 col-md-offset-6 col-sm-6 col-sm-offset-6 col-xs-12">
-								<table class="table-condensed pull-right table-striped"><br><br><br><br><br><br><br><br><br>
-									<thead id="tablaResumen">
-										<tr>
-											<td width="160px">SUB-TOTAL</td>
-											<td>
-												{{ number_format($comprobante->subTotal, 0, '.', ',') }} &nbsp;
-											</td>
-										</tr>
-										<tr>
-											<td>IVA</td>
-											<td>
-												{{ number_format($comprobante->iva, 0, '.', ',') }} &nbsp;
-											</td>
-										</tr>
-										<tr>
-											<td>TOTAL</td>
-											<td>
-												{{ number_format($comprobante->total, 0, '.', ',') }} &nbsp;
-											</td>
-										</tr>
-									</thead>
-								</table>
-							</div>
+							<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 							@if($comprobante->factura)
 								<div class="col-md-12 col-sm-12 col-xs-12">
@@ -280,19 +257,19 @@
 													</td>
 													<td>
 														&nbsp; {{ $r->moneda->simbolo }}
-														<span class="pull-right">
+														<span class="float-right">
 															{{ $r->pivot->deuda_inicial }} &nbsp;
 														</span>
 													</td>
 													<td>
 														&nbsp; {{ $r->moneda->simbolo }}
-														<span class="pull-right">
+														<span class="float-right">
 															{{ $r->monto }} &nbsp;
 														</span>
 													</td>
 													<td>
 														&nbsp; {{ $r->moneda->simbolo }}
-														<span class="pull-right">
+														<span class="float-right">
 															{{ $r->pivot->deuda_final }} &nbsp;
 														</span>
 													</td>

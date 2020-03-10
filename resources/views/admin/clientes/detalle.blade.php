@@ -1,43 +1,43 @@
 @extends('layouts.admin')
-
+@section('title', 'Clientes')
 @section('content')
 <div class="container">
 	<div class="row">
 		<div class="col-md-12">
 			<div class="w3-card-4 w3-white">
-				<div class="panel-heading">
+				<div class="card-header">
 					<h4>Detalle de cliente</h4>
 				</div>
-				<div class="panel-body">
-					<span class="pull-right">
+				<div class="card-body">
+					<span class="float-right">
 						<a class="btn btn-md btn-success" href="/clientes/nuevo" class="btn btn-link">
 							<i class="fa fa-user-plus" aria-hidden="true"></i> Nuevo cliente
 						</a>
 					</span>
 					<ul class="list-inline">
-						<li>
+						<li class="list-inline-item">
 							<a href="/" class="link_ruta">
 								Inicio &nbsp; &nbsp;<i class="fa fa-chevron-right" aria-hidden="true"></i>
 							</a>
 						</li>
-						<li>
+						<li class="list-inline-item">
 							<a href="/clientes" class="link_ruta">
 								Clientes &nbsp; &nbsp;<i class="fa fa-chevron-right" aria-hidden="true"></i>
 							</a>
 						</li>
-						<li>
+						<li class="list-inline-item">
 							<a href="/clientes/detalle/{{$cliente->id}}" class="link_ruta">
 								{{$cliente->nombre}} {{$cliente->apellido}}
 							</a>
 						</li>
 					</ul><br>
-					@include('partials.menu_productos')
+					
 					<div class="row">
-						<div class="container">
+						
 							<div class="col-md-4"><br>
 								<legend>
 									Datos del cliente
-									<span class="pull-right">
+									<span class="float-right">
 										<a class="btn btn-link btn-sm" id="editCodigo" data-toggle="modal" data-target="#modalEditarCliente">
 											<i class="fa fa-pencil-square-o fa-lg" aria-hidden="true"></i>
 										</a>
@@ -176,7 +176,7 @@
 						</div>
 					</div>
 
-					<div class="row">
+					<div class="container">
 						<div class="col-md-12">
 							<legend>Configuración del cliente <i class="fa fa-cogs" aria-hidden="true"></i></legend>
 							<div class="col-md-8">
@@ -212,7 +212,7 @@
 									</table>
 								</div>
 							</div>
-							<div class="col-md-3 col-md-offset-1">
+							<div class="col-md-3 mb-3 ml-3  col-md-offset-1">
 								<div class="form-group">
 									<form id="form-borrar" class="form-horizontal" role="form" method="POST" action="/clientes/borrar">
 										{{ csrf_field() }}

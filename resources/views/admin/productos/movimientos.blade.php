@@ -5,34 +5,33 @@
     <div class="row">
         <div class="col-md-12">
             <div class="w3-card-4 w3-white">
-                <div class="panel-heading">
+                <div class="card-header">
                     <h4>Movimiento de productos</h4>
                 </div>
 
-                <div class="panel-body">
-                    <span class="pull-right">
+                <div class="card-body">
+                    <span class="float-right">
                         <a class="btn btn-md btn-success" href="/productos/nuevo" class="btn btn-link">
                             <i class="fa fa-plus" aria-hidden="true"></i> Nuevo producto
                         </a>
                     </span><br>
 					<ul class="list-inline">
-                        <li>
+                       <li class="list-inline-item">
                             <a href="/" class="link_ruta">
                                 Inicio &nbsp; &nbsp;<i class="fa fa-chevron-right" aria-hidden="true"></i>
                             </a>
                         </li>
-                        <li>
+                       <li class="list-inline-item">
                             <a href="/productos" class="link_ruta">
                                 Productos &nbsp; &nbsp;<i class="fa fa-chevron-right" aria-hidden="true"></i>
                             </a>
                         </li>
-                        <li>
+                       <li class="list-inline-item">
                             <a href="/productos/movimientos" class="link_ruta">
                                 Movimientos
                             </a>
                         </li>
                     </ul><br>
-                	@include('partials.menu_productos')
                 	<a id="btnFiltrarCollapse" class="btn btn-sm" href="#" data-toggle="collapse" data-target="#collapseFiltrar">
                         Filtrar <i class="fa fa-filter" aria-hidden="true"></i>
                     </a>
@@ -69,7 +68,7 @@
                         </form>
                     </div> 
 				</div>
-				<div class="panel-body">
+				<div class="card-body">
                     <div class="row">
                     	<div class="container">
 	                        <div class="table-responsive">

@@ -5,33 +5,31 @@
 	<div class="row">
 		<div class="col-md-12">
 			<div class="w3-card-4 w3-white">
-				<div class="panel-heading">
+				<div class="card-header">
 					<h4>Alta de producto</h4>
 				</div>
 
-				<div class="panel-body">                
+				<div class="card-body">                
 					<ul class="list-inline">
-						<li>
+						<li class="list-inline-item">
 							<a href="/" class="link_ruta">
 								Inicio &nbsp; &nbsp;<i class="fa fa-chevron-right" aria-hidden="true"></i>
 							</a>
 						</li>
-						<li>
+						<li class="list-inline-item">
 							<a href="/productos" class="link_ruta">
 								Productos &nbsp; &nbsp;<i class="fa fa-chevron-right" aria-hidden="true"></i>
 							</a>
 						</li>
-						<li>
+						<li class="list-inline-item">
 							<a href="/productos/nuevo" class="link_ruta">
 								Nuevo
 							</a>
 						</li>
 					</ul><br>
 				
-						@include('partials.menu_productos')
-				
 					<div class="row">
-						<div class="w3-card-4">
+						
 							<div class="col-md-4">
 								<legend>Registro de producto</legend>
 								<form id="form_nuevo_producto" role="form" method="POST" action="/productos/nuevo">
@@ -113,7 +111,7 @@
 											</tr>	                						
 										</thead>
 										<tbody>
-											@foreach($productos->sortByDesc('created_at')->take(8) as $p)
+											@foreach($productos->sortByDesc('id')->take(8) as $p)
 												<tr>
 													<td><a href="/productos/detalle/{{ $p->codigo}}">{{ $p->codigo}}</a></td>
 													<td>{{ $p->nombre }}</td>
@@ -141,7 +139,7 @@
 </div>
 @endsection
 
-@section('scripts')
+@push('scripts')
 <script type="text/javascript">	
 	//Auto focus al buscador
 	$("#txtCodigo").focus();
@@ -176,4 +174,4 @@
 		});
 	});
 </script>
-@endsection
+@endpush

@@ -5,39 +5,38 @@
 	<div class="row">
 		<div class="col-md-12">
 			<div class="w3-card-4 w3-white">
-				<div class="panel-heading">
+				<div class="card-header">
 					<h4>Detalle de producto</h4>
 				</div>
-				<div class="panel-body">
-					<span class="pull-right">
+				<div class="card-body">
+					<span class="float-right">
 						<a class="btn btn-md btn-success" href="/productos/nuevo" class="btn btn-link">
 							<i class="fas fa-plus" aria-hidden="true"></i> Nuevo producto
 						</a>
 					</span><br>
 					<ul class="list-inline">
-						<li>
+						 <li class="list-inline-item">
 							<a href="/" class="link_ruta">
 								Inicio &nbsp; &nbsp;<i class="fa fa-chevron-right" aria-hidden="true"></i>
 							</a>
 						</li>
-						<li>
+						 <li class="list-inline-item">
 							<a href="/productos" class="link_ruta">
 								Productos &nbsp; &nbsp;<i class="fa fa-chevron-right" aria-hidden="true"></i>
 							</a>
 						</li>
-						<li>
+						 <li class="list-inline-item">
 							<a href="/productos/detalle/{{$producto->codigo}}" class="link_ruta">
 								{{ $producto->nombre }}
 							</a>
 						</li>
 					</ul><br>
-					@include('partials.menu_productos')
+					
 					<div class="row">
-						<div class="container">
 							<div class="col-md-4">
 								<legend>
 									Detalle del producto
-									<span class="pull-right">
+									<span class="float-right">
 										<a class="btn btn-link btn-sm" id="editCodigo" data-toggle="modal" data-target="#modalEditarProducto">
 											<i class="fas fa-edit fa-lg" aria-hidden="true"></i>
 										</a>
@@ -77,7 +76,7 @@
 											<td> 													
 												{{ str_limit(str_replace('<br />','', $producto->descripcion), 40) }}
 												@if(strlen($producto->descripcion) > 80)
-													<span class="pull-right">
+													<span class="float-right">
 														<a class="btn-sm btn-link" data-toggle="modal" data-target="#myModal{{ $producto->codigo }}">
 															más...
 														</a>
@@ -111,7 +110,7 @@
 												<!-- Se obtiene moneda predeterinada --> 
 												{{ App\Models\Moneda::find(config('app.monedaPreferida'))->first()->simbolo }}
 												{{ $producto->precio }}
-												<span class="pull-right">
+												<span class="float-right">
 													<a href="#formStock" class="btn btn-sm" id="{{$producto->codigo}}" data-toggle="modal" data-target="#modalHistoricoPrecios" onclick='$("#form_stock").attr("action", "/productos/{{$producto->codigo}}/ModificarStock");'  title="Histórico de precios de venta para este producto">
 														<i class="fa fa-book" aria-hidden="true"></i>
 													</a>
@@ -122,7 +121,7 @@
 											<td>Tasa de IVA</td>
 											<td>
 												{{ $producto->iva->nombre }}
-												<span class="pull-right">
+												<span class="float-right">
 													 ( {{$producto->iva->tasa}} % )
 
 												</span>
@@ -132,7 +131,7 @@
 											<td>Stock</td>
 											<td> 
 												{{ $producto->stock }}
-												<span class="pull-right">
+												<span class="float-right">
 													<a href="#formStock" class="btn btn-sm" id="{{$producto->codigo}}" data-toggle="modal" data-target="#formStock" onclick='$("#form_stock").attr("action", "/productos/{{$producto->codigo}}/ModificarStock");' title="Realizar un movimiento de stock">
 														<i class="fas fa-exchange-alt" aria-hidden="true"></i>
 													</a>
@@ -195,7 +194,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="row">
+					<div class="container">
 						<div class="col-md-12">
 							<legend>Configuración del producto <i class="fa fa-cogs" aria-hidden="true"></i></legend>
 							<div class="col-md-8">
@@ -216,23 +215,21 @@
 														Recibe una notificación cuando el stock del producto sea menor o igual al especificado.
 													</td>
 													@push('scripts')
-													<td  class="text-right">
-														@if( $producto->stock_minimo_notificar )
-															
-																
+													<td  class="float-right">
 														
+															
 															<script type="text/javascript">
 																$("#txtStockMinimo").prop('disabled', false);
 															</script>
 															<span class="label label-success">Activado</span>
 															<a href="/productos/{{$producto->codigo}}/NotifStockMin">Desactivar</a>
-														@else
+														
 															<script type="text/javascript">
 																$("#txtStockMinimo").prop('disabled', true);
 															</script>
 															<span class="label label-warning">Desactivado</span>
 															<a href="/productos/{{$producto->codigo}}/NotifStockMin">Activar</a>
-														@endif
+														
 														@endpush
 													</td>
 												</tr>												
@@ -252,7 +249,7 @@
 										<h4>Eliminar producto</h4>
 										<p><small>El producto no se mostrará más luego de ser borrado. Pero se mantendrá su registro histórico.</small></p>
 										<input class="btn btn-danger" type="submit" name="" value="Borrar producto">
-									</form>
+									</form><br>
 								</div>
 							</div>
 						</div>
@@ -398,7 +395,7 @@
 </div>
 @endsection
 
-@section('scripts')
+@push('scripts')
 <script type="text/javascript">	
 	$(document).ready(function(){
 		$('#form-borrar').on('submit', function(e) {			
@@ -417,4 +414,4 @@
 		}
 	});
 </script>
-@endsection
+@endpush

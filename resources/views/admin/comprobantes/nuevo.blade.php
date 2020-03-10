@@ -14,24 +14,24 @@
 <div class="container">
 	<div class="row">    
 		<div class="col-md-12">
-			<div class="panel panel-default">
-				<div class="panel-heading">
+			<div class="card card-default">
+				<div class="card-header">
 				<h4>Ingreso de comprobante</h4> 
 				
 				</div>                
-				<div class="panel-body">
+				<div class="card-body">
 					<ul class="list-inline">
-						<li>
+						<li class="list-inline-item">
 							<a href="/" class="link_ruta">
 								Inicio &nbsp; &nbsp;<i class="fa fa-chevron-right" aria-hidden="true"></i>
 							</a>
 						</li>
-						<li>
+						<li class="list-inline-item">
 							<a href="/comprobantes" class="link_ruta">
 								Comprobantes &nbsp; &nbsp;<i class="fa fa-chevron-right" aria-hidden="true"></i>
 							</a>
 						</li>
-						<li>
+						<li class="list-inline-item">
 							<a href="/comprobantes/nuevo" class="link_ruta">
 								Nuevo
 							</a>
@@ -40,13 +40,13 @@
 								
 							
 					
-							<div href="#" class="pull-right text-red">
+							<div href="#" class="float-right text-red">
 								Número de caja ( {{$item->caja_id}} )
 							</div>
 							@endforeach
 						
 					</ul>
-					@include('partials.menu_productos')
+					
 					
 					<form id="formNuevoComprobante" action="/comprobantes/guardar" method="post">
 					{{ csrf_field() }}
@@ -97,16 +97,16 @@
 										</select>
 									</div>
 
-									<div class="form-group col-md-4 form_venta_contado form_factura_credito form_devolucion_contado">
+									<div class="form-group col-md-12 form_venta_contado form_factura_credito form_devolucion_contado">
 										<label class="sr-only" for="txtSerieComprobante">Serie</label>
 										<input name="serie" type="text" class="form-control input-sm" id="txtSerieComprobante" placeholder="Serie" tabindex="2">
 									</div>
-									<div class="form-group col-md-8 form_venta_contado form_factura_credito form_devolucion_contado">
+									<div class="form-group col-md-12 form_venta_contado form_factura_credito form_devolucion_contado">
 										<label class="sr-only" for="txtNumeroCómprobante">Número</label>
 										<input name="numero" type="text" class="form-control input-sm" id="txtNumeroCómprobante" placeholder="N° de Comrprobante" tabindex="3">
 									</div>
 									
-									<div class="form-group col-md-6 form_venta_contado form_factura_credito form_devolucion_contado form_compra_contado">
+									<div class="form-group col-md-12 form_venta_contado form_factura_credito form_devolucion_contado form_compra_contado">
 										<label class="sr-only" for="txtMoneda">Moneda</label>
 										<select name="moneda" class="form-control input-sm" tabindex="4">
 											@foreach($monedas as $moneda)
@@ -119,7 +119,7 @@
 										</select>
 									</div>
 
-									<div class="form-group col-md-6 form_venta_contado form_factura_credito form_devolucion_contado form_compra_contado">
+									<div class="form-group col-md-12 form_venta_contado form_factura_credito form_devolucion_contado form_compra_contado">
 										<label class="sr-only" for="txtCotizacion">Cotización</label>
 										<input name="cotizacion" type="text" class="form-control input-sm" id="txtCotizacion" placeholder="Cotización" tabindex="5">
 									</div>
@@ -206,7 +206,7 @@
 											Artículos
 										</div>
 										<div class="col-md-8">
-											<div class="input-group pull-right">
+											<div class="input-group float-right">
 												<form>
 													<input type="text" class="form-control input-sm" id="txtAgregarArticulo" list="listaBusquedaProducto" placeholder="Agregar un artículo..." onkeydown="if (event.keyCode == 13) return false;" tabindex="1">
 													<div class="input-group-btn">
@@ -243,19 +243,19 @@
 											<tbody id="tablaProductos">
 												
 											</tbody>
-										</table>
-									</div><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-									<div class="col-md-6 form_venta_contado form_factura_credito form_devolucion_contado form_compra_contado">
-										<button id="btnGuardarComprobante" class="btn btn-block btn-primary" tabindex="9">
-											Confirmar
-										</button>
-									</div>
-									<div class="col-md-6 form_venta_contado form_factura_credito form_devolucion_contado form_compra_contado">
-										<table class="table-condensed pull-right table-striped">
+										</table><br><br><br><br><br>	
+									
+									<div class="col-md-12 form_venta_contado form_factura_credito form_devolucion_contado form_compra_contado">
+										<table class="table-condensed float-right table-striped">
 											<thead id="tablaResumen">
 												
 											</thead>
 										</table>
+									</div>		
+									<div class="col-md-6 form_venta_contado form_factura_credito form_devolucion_contado form_compra_contado">
+										<button id="btnGuardarComprobante" class="btn btn-block btn-primary" tabindex="9">
+											Confirmar
+										</button>
 									</div>
 								</fieldset>                                
 							</div>
@@ -291,7 +291,7 @@
 			<div class="modal-header">
 				<h4>
 					Buscar cliente
-					<span class="pull-right">
+					<span class="float-right">
 						<a class="btn btn-success btn-sm text-center" href="/clientes/nuevo" target="_blank" >
 							<i class="fa fa-user-plus" aria-hidden="true"></i>
 						</a>
@@ -346,7 +346,7 @@
 			<div class="modal-header">
 				<h4>
 					Buscar Proveedor
-					<span class="pull-right">
+					<span class="float-right">
 						<a class="btn btn-success btn-sm text-center" href="/proveedores/nuevo" target="_blank" >
 							<i class="fa fa-user-plus" aria-hidden="true"></i>
 						</a>

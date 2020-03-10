@@ -1,35 +1,32 @@
 @extends('layouts.admin')
 @section('title', 'Apertura de caja')
-@section('page_title', 'Inicio')
-@section('page_subtitle', 'Principal')
 @section('content')
 <div class="container">
 	<div class="row">
 		<div class="col-md-12">
-			<div class="box  box-primary w3-card-4 w3-white">
-				<div class="panel-heading">
-					<h4>Alta de cliente</h4>
+			<div class="w3-card-4 w3-white">
+				<div class="card-header">
+					<h4>Apertura de caja</h4>
 				</div>
 
-				<div class="panel-body">
+				<div class="card-body">
 					<ul class="list-inline">
-						<li>
+						<li class="list-inline-item">
 							<a href="/" class="link_ruta">
 								Inicio &nbsp; &nbsp;<i class="fa fa-chevron-right" aria-hidden="true"></i>
 							</a>
 						</li>
-						<li>
+						<li class="list-inline-item">
 							<a href="/apertura" class="link_ruta">
 								Apertura de caja &nbsp; &nbsp;<i class="fa fa-chevron-right" aria-hidden="true"></i>
 							</a>
 						</li>
-						<li>
+						<li class="list-inline-item">
 							<a href="/apertura/create" class="link_ruta">
 								Nuevo
 							</a>
 						</li>
 					</ul><br>
-					@include('partials.menu_productos')
 					<div class="row">
 						<div class="container row">
 							<div class="col-md-12 col-md-offset-0">

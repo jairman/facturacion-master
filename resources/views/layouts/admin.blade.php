@@ -154,8 +154,9 @@
         <!-- REQUIRED JS SCRIPTS -->
         <!-- jQuery -->
         <script src="{{asset('js/app.js')}}"></script>
-        <script src="{{asset('js/icheck.js')}}"></script>
-        <script src="{{asset('js/jquery-ui.js')}}"></script>
+        <script src="{{asset('js/dataTable.min.js')}}"></script>
+        <script src="{{asset('js/dataTableBoostrap.min.js')}}"></script>
+        
        
         
         @stack('scripts')
@@ -165,21 +166,16 @@
         #sidebar{
             
         
-                    background: #E53935;
-                    font-family: 'Roboto', sans-serif;
-                    -webkit-box-shadow: 20px 20px 10px 0px rgba(0,0,0,0.40);
-                    -moz-box-shadow: 20px 20px 10px 0px rgba(0,0,0,0.40);
-                    box-shadow: 20px 20px 10px 0px rgba(0,0,0,0.40);
+                background:linear-gradient(to right,#f85032,#f6290c ,#bf1506,#8c1c14,#7d0f05,#871005);
                 }
 
         
         #opciones{
             
-                    background: #E53935;
+                    background: #871005;
         
         
                 }
-
 
 
         </style>

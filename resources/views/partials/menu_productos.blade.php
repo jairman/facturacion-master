@@ -12,7 +12,7 @@
 		</div>						 
 		<!-- Agrupar los enlaces de navegación, los formularios y cualquier
 		otro elemento que se pueda ocultar al minimizar la barra -->
-		<div class="collapse navbar-collapse navbar-ex1-collapse" style=" background:linear-gradient(to left,#f85032,#f6290c ,#bf1506,#8c1c14,#7d0f05,#871005);">
+		<div class="collapse navbar-collapse navbar-ex1-collapse" >
 			<ul class="nav navbar-nav">
 				<!--									
 				<li><a href="#">Enlace #2</a></li>

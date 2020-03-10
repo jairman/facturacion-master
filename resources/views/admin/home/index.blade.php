@@ -15,7 +15,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <div class="box  box-primary w3-card-4 w3-white ">
+                <div class=" w3-card-4 w3-white ">
                     <div class="box-header">
                         <h4 class="">Panel de control</h4> 
                     

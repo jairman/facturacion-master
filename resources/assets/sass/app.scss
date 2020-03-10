@@ -1,14 +1,28 @@
 // Fonts
-@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic");
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+$fa-font-path: "../webfonts";
+
 // Variables
-@import "variables";
+@import 'variables';
+
 // Bootstrap
-@import "~bootstrap-sass/assets/stylesheets/bootstrap";
-// Font Awesome
-@import "~font-awesome/scss/font-awesome.scss";
-// toastr
+@import '~bootstrap/scss/bootstrap';
+
+// Admin-lte 3
+@import '~admin-lte/dist/css/adminlte.css';
+
+@import '~@fortawesome/fontawesome-free/css/all.min.css';
+
+
+@import "~icheck/skins/square/blue.css";
+
+
 @import "~toastr/toastr.scss";
+
 // pace-progress
 @import "~@dlghq/pace-progress/themes/blue/pace-theme-minimal.css";
-// iCheck
-@import "~icheck/skins/square/blue.css";
+
+
+
+

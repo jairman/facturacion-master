@@ -3,7 +3,7 @@
  
     <div class="user-panel" style="background: white;">
         <div class="pull-left image offset-sm-3">
-         <img src="{{ asset('images/logo/logo-imagen.png') }}" class="" alt="User Image">><br>
+         <img src="{{ asset('images/logo/logo-imagen.png') }}" class="" alt="User Image"><br>
          <center><small class="pull-right" style="font-size: smaller;">Nuestros sistemas en tu negocio.</small></center>  
       </div><br> 
     </div>

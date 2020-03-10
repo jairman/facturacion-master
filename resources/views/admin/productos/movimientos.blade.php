@@ -72,7 +72,7 @@
                     <div class="row">
                     	<div class="container">
 	                        <div class="table-responsive">
-								<table width="97%" class="  table-striped table-hover">
+								<table width="97%" class="table table-hover">
 									<tr>
 										<th width="70px">Fecha</th>
 										<th width="70px">Hora</th>
@@ -111,9 +111,9 @@
 										</tr>
 									@endforeach							
 								</table>
-							</div>
+							</div><br>
 							<div class="text-center">
-								{{ $movimientos->links() }}
+								{{ $movimientos->links( "pagination::bootstrap-4") }}
 							</div>
 						</div>
                     </div>

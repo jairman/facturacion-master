@@ -39,7 +39,7 @@
         
         </li>
         <div class=" mt-3 pb-3 mb-3 ">
-              <li class="nav-item has-treeview">
+              <li class="nav-item has-treeview menu-open">
               <a href="#" class="nav-link active">
               <i class="nav-icon fas fa-cogs"></i>
               <p>

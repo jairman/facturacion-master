@@ -55,19 +55,19 @@
             <div class="navbar-custom-menu">
                 <ul class="nav navbar-nav">
                 <li class="dropdown user user-menu" >
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"  style="color:#ffff;">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"  style="color:white;">
                     <!--<img src="dist/img/user2-160x160.jpg" class="user-image" alt="User Image">-->
                     <span class="fa fa fa-user"></span>
-                    <span class="hidden-xs">{{ Auth::user()->name }}</span>
+                    <span class="hidden-xs">{{ Auth::user()->full_name }}</span>
                     </a>
                     <ul class="dropdown-menu"  style="color:#ffff;">
                     <li class="user-header" id="opciones">
                         <!--<img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">-->
                         <i class="fa fa-user fa-5x" style="color:#fff;"></i>
                         <p>
-                        {{ Auth::user()->name }}
+                        {{ Auth::user()->full_name }}
                         <br>
-                        {{ Auth::user()->hasrole('administrador') ? 'Administrador' : 'Votante' }}
+                        {{ Auth::user()->hasrole('admin') ? 'Administrador' : 'Vendedor' }}
                         </p>
                     </li>
                     <li class="user-footer">
@@ -135,7 +135,7 @@
         </div>
 
         <!-- confirm modal -->
-        @include('layouts.partials.confirm_modal')
+        @include('layouts.partials.confirm_modal')<br><br>
 
         <!-- Main Footer -->
         <footer class="main-footer">
@@ -166,13 +166,13 @@
         #sidebar{
             
         
-                background:linear-gradient(to right,#f85032,#f6290c ,#bf1506,#8c1c14,#7d0f05,#871005);
+                background:linear-gradient(to right,#30a0f5,#0e68ad,#004985);
                 }
 
         
         #opciones{
             
-                    background: #871005;
+                    background: #004985;
         
         
                 }

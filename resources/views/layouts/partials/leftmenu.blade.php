@@ -52,7 +52,7 @@
               
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-circle"></i>
+              <i class="nav-icon fas fa-store"></i>
               <p>
                 Inventario
                 <i class="right fas fa-angle-left"></i>
@@ -61,19 +61,19 @@
             <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="/productos/nuevo" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
+                  <i class="far fa-plus-square nav-icon"></i>
                   <p>Agregar producto</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="/productos" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
+                  <i class="fas fa-clipboard-list nav-icon"></i>
                   <p>Vista general</p>
                 </a>
               </li>
               <li class="nav-item has-treeview">
                 <a href="#" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
+                  <i class="fas fa-users-cog nav-icon"></i>
                   <p>
                     Opciones
                     <i class="right fas fa-angle-left"></i>
@@ -82,13 +82,13 @@
                 <ul class="nav nav-treeview">
                   <li class="nav-item">
                     <a href="/productos/movimientos" class="nav-link">
-                      <i class="far fa-dot-circle nav-icon"></i>
+                      <i class="fas fa-people-carry nav-icon"></i>
                       <p>Ver movimiento</p>
                     </a>
                   </li>
                   <li class="nav-item">
                     <a href="#" class="nav-link">
-                      <i class="far fa-dot-circle nav-icon"></i>
+                      <i class="fas fa-file-pdf nav-icon"></i>
                       <p>Generar reportes</p>
                     </a>
                   </li>
@@ -98,7 +98,7 @@
           </li>
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-circle"></i>
+              <i class="nav-icon fas fa-shopping-basket"></i>
               <p>
                 Comprobantes
                 <i class="right fas fa-angle-left"></i>
@@ -107,13 +107,13 @@
             <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="/comprobantes" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
+                  <i class="fas fa-clipboard-list nav-icon"></i>
                   <p>&nbsp Vista general</p>
                 </a>
               </li>
               <li class="nav-item has-treeview">
                 <a href="#" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
+                  <i class="fas fa-users-cog nav-icon"></i>
                   <p>
                     Opciones
                     <i class="right fas fa-angle-left"></i>
@@ -122,19 +122,19 @@
                 <ul class="nav nav-treeview">
                   <li class="nav-item">
                     <a href="/comprobantes/nuevo" class="nav-link">
-                      <i class="far fa-dot-circle nav-icon"></i>
+                      <i class="fas fa-cart-plus nav-icon"></i>
                       <p>&nbsp Comprobante nuevo</p>
                     </a>
                   </li>
                   <li class="nav-item">
                     <a href="/comprobantes/imprimir" class="nav-link">
-                      <i class="far fa-dot-circle nav-icon"></i>
+                      <i class="fas fa-file-pdf nav-icon"></i>
                       <p>&nbsp Reportes</p>
                     </a>
                   </li>
                   <li class="nav-item">
                     <a href="/comprobantes/vencimientos" class="nav-link">
-                      <i class="far fa-dot-circle nav-icon"></i>
+                      <i class="fas fa-id-badge nav-icon"></i>
                       <p>&nbsp  Vencimientos</p>
                     </a>
                   </li>
@@ -144,7 +144,7 @@
           </li>
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-circle"></i>
+              <i class="nav-icon fas fa-store-alt"></i>
               <p>
                 Gastos
                 <i class="right fas fa-angle-left"></i>
@@ -153,7 +153,7 @@
             <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="#" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
+                  <i class="fas fa-clipboard-list nav-icon"></i>
                   <p>&nbsp Vista general</p>
                 </a>
               </li>
@@ -161,7 +161,7 @@
           </li>
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-circle"></i>
+              <i class="nav-icon fas fa-user-tie"></i>
               <p>
                 Clientes
                 <i class="right fas fa-angle-left"></i>
@@ -170,13 +170,13 @@
             <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="/clientes" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
+                  <i class="fas fa-clipboard-list nav-icon"></i>
                   <p>&nbsp Vista general</p>
                 </a>
               </li>
               <li class="nav-item has-treeview">
                 <a href="#" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
+                  <i class="fas fa-user-cog nav-icon"></i>
                   <p>
                     Opciones
                     <i class="right fas fa-angle-left"></i>
@@ -185,7 +185,7 @@
                 <ul class="nav nav-treeview">
                   <li class="nav-item">
                     <a href="clientes/nuevo" class="nav-link">
-                      <i class="far fa-dot-circle nav-icon"></i>
+                      <i class="fas fa-user-plus nav-icon"></i>
                       <p>&nbsp Nuevo cliente</p>
                     </a>
                   </li>
@@ -195,7 +195,7 @@
           </li>
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-circle"></i>
+              <i class="nav-icon fas fa-shipping-fast"></i>
               <p>
                 Proveedores
                 <i class="right fas fa-angle-left"></i>
@@ -204,13 +204,13 @@
             <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="/proveedores" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
+                  <i class="fas fa-clipboard-list nav-icon"></i>
                   <p>&nbsp Vista general</p>
                 </a>
               </li>
               <li class="nav-item has-treeview">
                 <a href="#" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
+                  <i class="fas fa-user-cog nav-icon"></i>
                   <p>
                     Opciones
                     <i class="right fas fa-angle-left"></i>
@@ -219,7 +219,7 @@
                 <ul class="nav nav-treeview">
                   <li class="nav-item">
                     <a href="/proveedores/nuevo" class="nav-link">
-                      <i class="far fa-dot-circle nav-icon"></i>
+                      <i class="fab fa-opencart nav-icon"></i>
                       <p>&nbsp Proveedor nuevo</p>
                     </a>
                   </li>
@@ -229,7 +229,7 @@
           </li>
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-circle"></i>
+              <i class="nav-icon fas fa-business-time"></i>
               <p>
                 Empleados
                 <i class="right fas fa-angle-left"></i>
@@ -238,13 +238,13 @@
             <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="/empleados" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
+                  <i class="fas fa-clipboard-list nav-icon"></i>
                   <p>&nbsp Vista general</p>
                 </a>
               </li>
               <li class="nav-item has-treeview">
                 <a href="#" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
+                  <i class="fas fa-user-cog nav-icon"></i>
                   <p>
                     Opciones
                     <i class="right fas fa-angle-left"></i>
@@ -263,7 +263,7 @@
           </li>
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-circle"></i>
+              <i class="nav-icon fas fa-cash-register"></i>
               <p>
                 Apertura de caja
                 <i class="right fas fa-angle-left"></i>
@@ -272,13 +272,13 @@
             <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="/apertura" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
+                  <i class="fas fa-clipboard-list nav-icon"></i>
                   <p>&nbsp Vista general</p>
                 </a>
               </li>
               <li class="nav-item has-treeview">
                 <a href="#" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
+                  <i class="fas fa-user-cog nav-icon"></i>
                   <p>
                     Opciones
                     <i class="right fas fa-angle-left"></i>
@@ -297,7 +297,7 @@
           </li>
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-circle"></i>
+              <i class="nav-icon fas fa-window-close"></i>
               <p>
                 Cierre de caja
                 <i class="right fas fa-angle-left"></i>
@@ -306,13 +306,13 @@
             <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="/cierre" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
+                  <i class="fas fa-clipboard-list nav-icon"></i>
                   <p>&nbsp Vista general</p>
                 </a>
               </li>
               <li class="nav-item has-treeview">
                 <a href="#" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
+                  <i class="fas fa-user-cog nav-icon"></i>
                   <p>
                     Opciones
                     <i class="right fas fa-angle-left"></i>
@@ -321,7 +321,7 @@
                 <ul class="nav nav-treeview">
                   <li class="nav-item">
                     <a href="#" class="nav-link">
-                      <i class="far fa-dot-circle nav-icon"></i>
+                      <i class="fas fa-file-pdf nav-icon"></i>
                       <p>&nbsp Reportes</p>
                     </a>
                   </li>

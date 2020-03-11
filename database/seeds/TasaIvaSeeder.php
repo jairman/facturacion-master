@@ -13,11 +13,11 @@ class TasaIvaSeeder extends Seeder
     {
          DB::table('tasas_iva')->insert([
             'nombre' => 'Básica',
-            'tasa' => 22
+            'tasa' => 16
         ]);
         DB::table('tasas_iva')->insert([
             'nombre' => 'Mínimo',
-            'tasa' => 10
+            'tasa' => 12
         ]);
         DB::table('tasas_iva')->insert([
             'nombre' => 'Exento',

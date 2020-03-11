@@ -378,7 +378,9 @@ var listadoArticulos = [
 */
 ]
 function agregarArticulo(data){
-	
+	//console.log(data["productos"]);
+
+
 	if(data["productos"].length > 0){
 		var producto = data["productos"][0];
 		var producto_codigo = producto["codigo"];
@@ -387,14 +389,17 @@ function agregarArticulo(data){
 			var producto_stock = producto["stock"];
 			if(producto_stock > 0){
 				var producto_nombre = producto["nombre"];
+				
 				var producto_precio = producto["precio"];
 				var producto_iva = producto["iva"]["tasa"]/100;
+				let producto_cotizacion = producto["cotizacion"] /producto_precio;
 				var producto_cantidad = 1;
-				console.log(producto_iva);
+				
 				listadoArticulos[listadoArticulos.length] = {
 					'codigo':producto_codigo,
 					'nombre': producto_nombre,
 					'precio': producto_precio,
+					'precioDolar':producto_cotizacion,
 					'stock': producto_stock,
 					'cantidad': producto_cantidad,
 					'subTotal': (producto_precio * producto_cantidad),
@@ -408,6 +413,7 @@ function agregarArticulo(data){
 				productoBuscado["cantidad"]++;                		
 			}               	
 		}
+		//console.log(productoBuscado["cantidad"] < productoBuscado["stock"] < productoBuscado["precioDolar"]);
 		actualizarTablaArticulos();
 		$("#txtAgregarArticulo").val("");
 	}
@@ -417,12 +423,14 @@ function agregarArticulo(data){
 
 function modificarStock(codigo, cantidad){           
 	var articulo = buscarArticuloEnListado(codigo);
+
 	if(articulo != null){
 		articulo["cantidad"] = cantidad;
 		articulo["subTotal"] = parseFloat(cantidad * articulo["precio"]);
 		articulo["iva"] = parseFloat(cantidad * articulo["precio"] * 0.16);
 		articulo["total"] = parseFloat(articulo["subTotal"] + articulo["iva"]).toFixed(2);
-
+		articulo["precioDolar"] = articulo["subTotal"] / 78000 ;
+		
 		actualizarTablaArticulos();
 	}
 }
@@ -434,7 +442,8 @@ function modificarPrecio(codigo, precio){
 		articulo["subTotal"] = parseFloat(articulo["cantidad"] * precio);
 		articulo["iva"] = parseFloat(articulo["cantidad"] * precio * 0.16);
 		articulo["total"] = parseFloat(articulo["subTotal"] + articulo["iva"]).toFixed(2);
-
+		articulo["precioDolar"] = precio / 78000;
+		//console.log(articulo["precioDolar"]);
 		actualizarTablaArticulos();
 	}
 }
@@ -448,12 +457,14 @@ function buscarArticuloEnListado(codigo){
 		}
 		i++;
 	}
+	//console.log(articuloBuscado)
 	return articuloBuscado;
-	console.log(articuloBuscado);
+	;
 }
 
 function descartarArticulo(posicion){
 	listadoArticulos.splice(posicion, 1);
+	$("#precioDolar").val(0);
 	actualizarTablaArticulos();
 }
 
@@ -471,7 +482,7 @@ function actualizarTablaArticulos(){
 					+ listadoArticulos[i]["nombre"] 
 				+ "</td><td>" 
 					//+ listadoArticulos[i]["precio"] 
-					+ "<input class='form-control input-sm td_precio' value="+ listadoArticulos[i]["precio"] + ">"
+					+ "<input class='form-control mr-5 input-sm td_precio' value="+ listadoArticulos[i]["precio"] + ">"
 				+ "</td><td>"
 					+ "<input type='text' class='form-control input-sm td_cantidad' value="+ listadoArticulos[i]["cantidad"] + " max="  + " min=4>"
 				+ "</td><td class='td_subTotal'>" 
@@ -488,6 +499,8 @@ function actualizarTablaArticulos(){
 		resumen_sub_total += parseFloat(listadoArticulos[i]["subTotal"]);
 		resumen_iva += parseFloat(listadoArticulos[i]["iva"]);
 		resumen_total += parseFloat(listadoArticulos[i]["total"]);
+		precio_dolar=parseFloat(listadoArticulos[i]["precioDolar"]);
+		$("#precioDolar").val(precio_dolar.toFixed(2));
 	}
 	$("#tablaResumen").html("");
 	$("#tablaResumen").append(

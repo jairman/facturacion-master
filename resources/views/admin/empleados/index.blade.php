@@ -43,11 +43,32 @@
                            
                             <tbody>
                                 <tr>
-                                    <td>{{$empleado->id_empleado}}</td>
+                                    <td>{{$empleado->id_empleado_empleado}}</td>
                                     <td>{{$empleado->nb_nombre}}</td>
                                     <td>{{$empleado->nb_apellido}}</td>
                                     <td>{{$empleado->nu_cedula}}</td>
                                     <td>{{$empleado->fe_ingreso}}</td>
+                                    <td>
+                                    	<div class="dropdown">
+					                      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					                       <i class="fas fa-cogs"></i>&nbsp Opciones
+					                      </button>
+					                      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+					                        <a class="dropdown-item" href="{{  url('empleados', [$empleado->id_empleado]) }}"><i class="fa fa-eye"></i> Perfil</a></li>
+					                         @can('edit_users')
+					                        <li><a class="dropdown-item" href="{{ url('empleados', [$empleado->id_empleado, 'edit']) }}"><i class="fa fa-edit"></i> Editar</a></a></li>
+					                        @endcan
+					                       @can('view_logins')
+					                        <li class="divider"><li>
+					                        <li><a class="dropdown-item" href="{{ url('empleados/login', [$empleado->id_empleado]) }}"><i class="fas fa-sign-in-alt"></i> Logins</a></li>
+					                        @endcan
+					                        @if(auth()->user()->can('delete_users') && Auth::user()->id_empleado != $empleado->id_empleado)
+					                        <li class="divider"><li>
+					                        <li><a class="dropdown-item" href="#confirm-modal" id="{{ $empleado->id_empleado }}"  class="del-btn" data-toggle="modal"><i class="fa fa-trash"></i> Eliminar</a></li>
+					                        @endif
+					                      </div>
+					                    </div>
+                                    </td>
                                     
                                 </tr>
                                 @endforeach

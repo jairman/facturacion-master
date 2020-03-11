@@ -9,6 +9,7 @@ use App\facades\SistemaFactura;
 use App\Models\TipoComprobante;
 use App\Models\Notificacion;
 use App\Models\LineaProducto;
+use App\Models\LineaCaja;
 use App\Models\Cliente;
 use App\Models\Comprobante;
 use App\Models\Factura;
@@ -99,7 +100,7 @@ class ComprobanteController extends Controller
 		}
 		
 		$notification = array(
-            'message' => '¡Debe iniciar apertura de caja antes de gnerar un comprobante de venta!',
+            'message' => '¡Debe iniciar apertura de caja antes de generar un comprobante de venta!',
             'alert-type' => 'error'
         );
         
@@ -168,6 +169,11 @@ class ComprobanteController extends Controller
 					$lineaProducto->producto()->associate($producto);
 					$lineaProducto->usuario()->associate(Auth::user());
 
+					$lineaCaja = new LineaCaja();
+					$lineaCaja->comprobante()->associate($comprobante);
+					$lineaCaja->producto()->associate($producto);
+					$lineaCaja->usuario()->associate(Auth::user());
+
 					// Checkea si es devolución
 					if($comprobante->tipo->id == 2){
 						$linea->cantidad *= -1;						
@@ -193,10 +199,35 @@ class ComprobanteController extends Controller
 					$comprobante->subTotal += $lineaProducto->subTotal;
 					$moneda_simbolo = $comprobante->moneda->simbolo;
 
-					$lineaProducto->descripcion = "x $lineaProducto->cantidad  $producto->nombre  -  TOTAL $moneda_simbolo $lineaProducto->total";                
+					$lineaProducto->descripcion = "x $lineaProducto->cantidad  $producto->nombre  -  TOTAL $moneda_simbolo $lineaProducto->total";
+
+				    /*************************************************************/
+				    ///////////////////////Movimiento de caja/////////////////////    /*************************************************************/
+					$producto->stock -= $linea->cantidad;
+					$lineaProducto->stock = $producto->stock;
+					
+					$lineaProducto->precioUnitario = $linea->precio;
+					$lineaProducto->cantidad = $linea->cantidad;
+
+					//$lineaProducto->subTotal = $producto->precio * $linea->cantidad;
+					$lineaProducto->subTotal = $articulos[$i]->precio * $linea->cantidad;
+					// Para los iva accede al tipo de iva que tenga el producto.
+					// Próxima versión debería poer modificarse si se quiere.
+					$lineaProducto->iva = $lineaProducto->subTotal * ($producto->iva->tasa / 100);
+					
+					$lineaProducto->total = $lineaProducto->subTotal + $lineaProducto->iva;
+
+					$lineaProducto->fecha = date("Y-m-d H:i:s");
+
+					$comprobante->iva += $lineaCaja->iva;
+					$comprobante->subTotal += $lineaCaja->subTotal;
+					$moneda_simbolo = $comprobante->moneda->simbolo;
+
+					$lineaCaja->descripcion = "x $lineaProducto->cantidad  $producto->nombre  -  TOTAL $moneda_simbolo $lineaProducto->total";                
 					
 					$lineaProducto->save();
 					$producto->save();
+					$lineaCaja->save();
 				}
 				$comprobante->total = $comprobante->iva + $comprobante->subTotal;				
 				$comprobante->save();								

@@ -320,6 +320,20 @@
 										
 									</tr>
 									<tr>
+										<th>Precio de compra ({{ App\Models\Moneda::find(1)->first()->simbolo }}) (Con IVA)</th>
+										<td>
+											<input id="preciocompra" name="preciocompra" type="text" class="form-control input-sm" name="nombre" placeholder="Nombre del producto" value="{{$producto->preciocompra}}" required>
+										</td>
+										
+									</tr>
+									<tr>
+										<th>Cotización del dólar</th>
+										<td>
+											<input id="cotizacion" name="cotizacion" type="text" class="form-control input-sm" name="nombre" placeholder="Nombre del producto" value="{{$producto->cotizacion}}" required>
+										</td>
+										
+									</tr>
+									<tr>
 										<th>
 											Precio de venta ({{ App\Models\Moneda::find(1)->first()->simbolo }}) (Sin IVA)
 										</th>
@@ -333,11 +347,9 @@
 										<td>
 											<select name="tasa_iva" class='form-control'>
 												@foreach($tasas_iva as $tasa_iva)
-													@if($tasa_iva->id == $producto->tasa_iva_id)
-														<option value='{{$tasa_iva->id}}' selected='true'>{{$tasa_iva->nombre}}</opition>
-													@else
-														<option value='{{$tasa_iva->id}}'>{{$tasa_iva->nombre}}</opition>
-													@endif
+													
+														<option value='{{$tasa_iva->id}}'>{{$tasa_iva->nombre}} ({{$tasa_iva->tasa}})</opition>
+													
 												@endforeach
 											</select>
 										</td>

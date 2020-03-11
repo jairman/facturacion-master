@@ -61,6 +61,7 @@
 			</div>
 		</div>
 	</div>
+	@include('partials.mensajes');
 </div>
 
 @endsection

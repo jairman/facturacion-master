@@ -28,13 +28,13 @@
       </div>
     </div>
     <br>
-    <div class="row">
+    <div class="container">
       <div class="col-md-12">
-        <div class="box box-primary">
+        <div class="card card-primary">
           <form role="form" id="main-form">
             <input type="hidden" id="_url" value="{{ url('user', [$user->encode_id]) }}">
             <input type="hidden" id="_token" value="{{ csrf_token() }}">
-            <div class="box-body">
+            <div class="card-body">
               <div class="form-group pading">
                 <label for="name">Nombres</label>
                 <input class="form-control" id="name" name="name" value="{{ $user->name }}" placeholder="Nombres">
@@ -88,14 +88,15 @@
                 <input type="password" class="form-control" id="current_password" name="current_password" placeholder="Contraseña actual">
                 <span class="missing_alert text-danger" id="current_password_alert"></span>
               </div>
-              <div class="box-footer">
+        
+        </div>
+        <div class="card-footer">
               <button type="submit" class="btn btn-primary ajax" id="submit">
                 <i id="ajax-icon" class="fa fa-edit"></i> Editar
               </button>
             </div>
-          </form>
-        </div>
       </div>
+        </form>
     </div>
   </section>
 

@@ -198,14 +198,14 @@
 									</div>
 								</fieldset>
 							</div>
-							<div class="col-md-8">
+							<div class="col-md-8 ">
 								<fieldset>
 									<legend>
-									<div class="row form_venta_contado form_factura_credito form_devolucion_contado form_compra_contado">
-										<div class="col-md-4">
-											Artículos
+									<div class="row container form_venta_contado form_factura_credito form_devolucion_contado form_compra_contado">
+										<div class="col-md-6">
+											Buscar artículos <i class="fas fa-arrow-right ml-5 fa-2x"></i>
 										</div>
-										<div class="col-md-8">
+										<div class="col-md-6">
 											<div class="input-group float-right">
 												<form>
 													<input type="text" class="form-control input-sm" id="txtAgregarArticulo" list="listaBusquedaProducto" placeholder="Agregar un artículo..." onkeydown="if (event.keyCode == 13) return false;" tabindex="1">
@@ -216,7 +216,12 @@
 													</div>
 												</form>
 											</div>
-										</div> 
+										<h5 class=" m-5 shadow p-4 bg-primary" >Monto en Dólares</h5>
+										<center><i class="fas fa-arrow-down mx-auto fa-3x"></center></i>
+										<input name="numero" type="text" class="form-control input-sm" id="precioDolar" placeholder="Monto en dólares" tabindex="3" value="0" disabled>
+										</div>
+										
+										 
 										<datalist id="listaBusquedaProducto">
 											<!--
 											<option value="a"/>
@@ -227,7 +232,7 @@
 									</div>
 									</legend>
 									<div class="col-md-12 pre-scrollable div-detalle-comprobante form_venta_contado form_factura_credito form_devolucion_contado form_compra_contado">
-										<table width="100%" class="table-condensed table-striped table-bordered">
+										<table width="100%" class="table table-responsive table-hover">
 											<thead>
 												<tr>
 													<th class="text-center" width="100px">Código</th>

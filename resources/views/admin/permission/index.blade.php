@@ -1,27 +1,19 @@
 @extends('layouts.admin')
 
 @section('title', 'Permisos')
-@section('page_title', 'Permisos')
-@section('page_subtitle', 'Listado')
 
-@section('breadcrumb')
-    @parent
-    <li><a href="{{ url('/') }}"><i class="fa fa-dashboard"></i> Inicio</a></li>
-    <li><a href="{{ url('user') }}">usuarios</a></li>
-    <li class="active">permisos</li>
-@endsection
 
 @section('content')
 
     <section class="content">
-      <div class="row">
+      <div class="container">
         <div class="col-md-12">
-            <div class="box">
-              <div class="box-header">
-                <h2 class="box-title">Permisos del rol usuario</h2>
-                <div class="box-tools"></div>
+            <div class="card">
+              <div class="card-header">
+                <h2 class="card-title">Permisos del rol usuario</h2>
+                <div class="card-tools"></div>
               </div>
-              <div class="box-body table-responsive table-striped">
+              <div class="card-body table-responsive table-striped">
                 <form role="form" id="main-form">
                   <input type="hidden" id="_url" value="{{ url('permission', ['user']) }}">
                   <input type="hidden" id="_token" value="{{ csrf_token() }}">

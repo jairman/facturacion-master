@@ -31,7 +31,7 @@ class CreateProductosTable extends Migration
             $table->string('nombre')->unique();
             $table->text('descripcion')->nullable();
             $table->double('precio')->default(0);
-
+            $table->double('preciocompra')->default(0);
             $table->double('cotizacion')->default(0);
 
             $table->integer('stock_minimo_valor')->default(0);

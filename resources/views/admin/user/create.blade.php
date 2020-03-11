@@ -27,13 +27,13 @@
       </div>
     </div>
     <br>
-    <div class="row">
+    <div class="container">
       <div class="col-md-12">
-        <div class="box box-primary">
+        <div class="card card-primary">
           <form role="form" id="main-form">
             <input type="hidden" id="_url" value="{{ url('user') }}">
             <input type="hidden" id="_token" value="{{ csrf_token() }}">
-            <div class="box-body">
+            <div class="card-body">
               <div class="form-group pading">
                 <label for="name">Nombres</label>
                 <input class="form-control" id="name" name="name" placeholder="Nombres">
@@ -53,7 +53,7 @@
                 <label for="role">Tipo de usuario</label>
                 <div class="checkbox icheck">
                   <label>
-                    <input type="radio" name="role" value="user" checked> Usuario&nbsp;&nbsp;
+                    <input type="radio" name="role" value="user" checked> Vendedor&nbsp;&nbsp;
                     <input type="radio" name="role" value="admin"> Administrador
                   </label>
                 </div>
@@ -78,13 +78,11 @@
                 </div>
               </div>
             </div>
-            <div class="box-footer">
+            <div class="card-footer">
               <button type="submit" class="btn btn-primary ajax" id="submit">
                 <i id="ajax-icon" class="fa fa-save"></i> Ingresar
               </button>
-              <a type="submit" class="btn btn-info ajax hide" id="edit-button">
-                <i class="fa fa-edit"></i> Editar
-              </a>
+             
             </div>
           </form>
         </div>

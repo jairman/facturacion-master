@@ -17,10 +17,10 @@
     <section class="content">
       <div class="row">
         <div class="col-md-12">
-          <div class="box">
-            <div class="box-header">
-              <h3 class="box-title">Registros de logins</h3>
-              <div class="box-tools">
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">Registros de logins</h3>
+              <div class="card-tools">
                 @role('admin')
                 <form>
                   <input type="hidden" id="_url" value="{{ url('') }}">
@@ -34,7 +34,7 @@
                  @endrole
               </div>
             </div>
-            <div class="box-body table-responsive table-striped">
+            <div class="card-body table-responsive table-striped">
               <table class="table table-hover">
                 <tr>
                     <th>Usuario</th>
@@ -53,8 +53,8 @@
                 </tr>
                 @endforeach
               </table>
-              <div class="box-footer clearfix">
-                  {{ $logins ->links() }}
+              <div class="card-footer clearfix">
+                  {{ $logins->links( "pagination::bootstrap-4")}}
                   <p class="text-muted">Mostrando <strong>{{ $logins->count() }}</strong> registros de <strong>{{$logins->total() }}</strong> totales</p>
               </div>
          </div>

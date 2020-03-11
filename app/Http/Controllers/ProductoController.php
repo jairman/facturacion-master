@@ -85,7 +85,8 @@ class ProductoController extends Controller
 			//Acá se hace el alta
 			$producto = new Producto();
 			$producto->codigo  = $request->codigo;
-			//$producto->cotizacion  = $request->cotizacion;
+			$producto->cotizacion  = $request->cotizacion;
+			$producto->preciocompra  = $request->preciocompra;
 			$producto->codigo_de_barras  = $request->codigo_de_barras;
 			$producto->nombre  = $request->nombre;
 			$producto->descripcion  = nl2br($request->descripcion);
@@ -105,8 +106,11 @@ class ProductoController extends Controller
 			
 			$producto->save();
 			$producto->registrarCambioPrecio();
-			$mensaje = "El producto fue ingresado correctamente.";
-			return Redirect::to('productos/nuevo/')->with(compact('mensaje'));			
+			$notification = array(
+            'message' => '¡Producto creado satisfactoriamente!',
+            'alert-type' => 'success'
+        	);
+			return Redirect::to('productos/nuevo/')->with($notification);			
 		} catch ( \Illuminate\Database\QueryException $e) {
 			if($e->errorInfo[0] == "23000"){
 				$error = "Ya existe un producto con el código '" . $producto->codigo . "'.
@@ -131,8 +135,11 @@ class ProductoController extends Controller
 		$producto = Producto::BuscarPorId($producto_id)->first();        
 
 		if(is_null($producto)){
-			$alerta = "El producto no existe.";
-			return Redirect::back()->with(compact('alerta'));
+			$notification = array(
+            'message' => '¡El producto no existe!',
+            'alert-type' => 'danger'
+        );
+			return Redirect::back()->with($notification);
 		}else{
 			if($producto->codigo != $request->codigo){
 				$producto->codigo  = $request->codigo;
@@ -141,7 +148,8 @@ class ProductoController extends Controller
 				$producto->nombre  = $request->nombre;
 			}
 			$producto->codigo_de_barras  	= $request->codigo_de_barras;
-			//$producto->cotizacion  			= $request->cotizacion;
+			$producto->cotizacion  			= $request->cotizacion;
+			$producto->preciocompra  		= $request->preciocompra;
 			$producto->descripcion  		= nl2br($request->descripcion);
 			$producto->familiaProducto_id  	= $request->familia_producto;
 			$producto->tasa_iva_id  		= $request->tasa_iva;
@@ -156,8 +164,11 @@ class ProductoController extends Controller
 			}			
 			
 			$producto->save();            
-			$mensaje = "El producto fue modificado correctamente.";
-			return Redirect::to('productos/detalle/'.$producto->codigo)->with(compact('mensaje'));
+			$notification = array(
+            'message' => '¡El producto editado!',
+            'alert-type' => 'danger'
+        );
+			return Redirect::to('productos/detalle/'.$producto->codigo)->with($notification);
 		}
 	}
 
@@ -249,7 +260,10 @@ class ProductoController extends Controller
 		try {
 			$familiaProducto->nombre = $request->nombreFamiliaProducto;
 			$familiaProducto->save();
-			$mensaje = "Familia de producto agregada correctamente.";
+			$notification = array(
+            'message' => '¡Tipo de producto guardado!',
+            'alert-type' => 'success'
+        );
 			return Redirect::back()->with(compact('mensaje'));
 		} catch ( \Illuminate\Database\QueryException $e) {
 			if($e->errorInfo[0] == "23000"){

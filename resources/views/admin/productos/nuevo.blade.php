@@ -35,24 +35,24 @@
 								<form id="form_nuevo_producto" role="form" method="POST" action="/productos/nuevo">
 									{{ csrf_field() }}
 									<div class="form-group">
-										<label for="txtCodigo" class="control-label sr-only">Código</label>
+										<label for="txtCodigo" class="control-label ">Código</label>
 										<input id="txtCodigo" type="text" class="form-control" name="codigo" placeholder="Código de producto"  value="{!! old('codigo') !!}" oninvalid="this.setCustomValidity('Debe ingresar un código para registrar el producto')" required oninput="setCustomValidity('')">
 									</div>
 
 									<div class="form-group">
-										<label for="txtNombre" class="control-label sr-only">Nombre</label>
+										<label for="txtNombre" class="control-label ">Nombre</label>
 										<input id="txtNombre" type="text" class="form-control" name="nombre" placeholder="Nombre de producto" oninvalid="this.setCustomValidity('Debe ingresar un nombre de producto')"  required oninput="setCustomValidity('')">
 									</div>
 									
 									<div class="form-group">
-										<label for="txtCodigoDeBarras" class="control-label sr-only">
+										<label for="txtCodigoDeBarras" class="control-label ">
 											Código de barras
 										</label>
 										<input id="txtCodigoDeBarras" type="text" class="form-control" name="codigo_de_barras" placeholder="Código de barras"  value="{!! old('codigo_de_barras') !!}" >
 									</div>
 									
 									<div class="form-group">
-										<label for="txtNombre" class="control-label sr-only">
+										<label for="txtNombre" class="control-label sr-only ">
 											Familia de producto
 											<a href="#formFamiliaProducto" class="btn-link" data-toggle="modal" data-target="#formFamiliaProducto" style="color:green">
 												<small>
@@ -79,26 +79,38 @@
 										</div>
 									</div>
 									
-									<div class="form-group" style="margin-top: 64px;">
-										<label for="txtDescripcion" class="control-label sr-only">Descripción</label>
-										<textarea class="form-control" id="txtDescripcion" rows="3" placeholder="Descripción del producto" name="descripcion"></textarea>
-									</div>
-									
 									<div class="form-group">
-										<label for="txtPrecio" class="control-label sr-only">Precio de venta</label>
+										<label for="txtPrecio" class="control-label ">Cotización</label>
+										<input id="cotizacion" name="cotizacion" class="form-control" name="precio" placeholder="Cotización del dólar">
+									</div>
+									<div class="form-group">
+										<label for="txtPrecio" class="control-label ">Precio de compra</label>
+										<input id="preciocompra" name="preciocompra" class="form-control" name="precio" placeholder="Precio de compra del producto">
+									</div>
+									<div class="form-group">
+										<label for="txtPrecio" class="control-label ">Precio de venta</label>
 										<input id="txtPrecio" class="form-control" name="precio" placeholder="Precio en {{ $moneda->simbolo }}">
 									</div>
+
 									
 									<div class="form-group">										
-										<label for="txtStock" class="control-label sr-only">Stock inicial</label>
+										<label for="txtStock" class="control-label ">Cantidad inicial</label>
 										<input id="txtStock" type="number" class="form-control" name="stock" placeholder="Stock inicial del producto">
 									</div>
+									<div class="form-group" style="">
+										<label for="txtDescripcion" class="control-label ">Descripción</label>
+										<textarea class="form-control" id="txtDescripcion" rows="3" placeholder="Descripción del producto" name="descripcion"></textarea>
+									</div>
+
+									
+
 									<div class="form-group text-center">
 										<input type="submit" class="btn btn-primary btn-block" value="Guardar">
 									</div>		                    		
-								</form>    
-							</div>
+								</form>   
 
+							</div>
+		
 							<div class="col-md-6 col-md-offset-1">
 								<legend>Últimos productos registrados</legend>
 								<div class="table-responsive">
@@ -145,7 +157,6 @@
 <script type="text/javascript">	
 	//Auto focus al buscador
 	$("#txtCodigo").focus();
-
 	$("#form_nuevo_producto").on('submit', function(e){		
 		var precio = $("#txtPrecio").val();
 		precio = precio.replace(",", ".");		
@@ -176,4 +187,5 @@
 		});
 	});
 </script>
+
 @endpush

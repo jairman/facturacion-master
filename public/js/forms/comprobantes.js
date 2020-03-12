@@ -377,6 +377,8 @@ var listadoArticulos = [
    {'Id':'2','Username':'Steve','FatherName':'Johnson'}           
 */
 ]
+console.log(listadoArticulos);
+var producto_cotizacion = 78000;
 function agregarArticulo(data){
 	//console.log(data["productos"]);
 
@@ -392,7 +394,7 @@ function agregarArticulo(data){
 				
 				var producto_precio = producto["precio"];
 				var producto_iva = producto["iva"]["tasa"]/100;
-				let producto_cotizacion = producto["cotizacion"] /producto_precio;
+				this.producto_cotizacion = producto["cotizacion"] /producto_precio;
 				var producto_cantidad = 1;
 				
 				listadoArticulos[listadoArticulos.length] = {
@@ -430,7 +432,7 @@ function modificarStock(codigo, cantidad){
 		articulo["iva"] = parseFloat(cantidad * articulo["precio"] * 0.16);
 		articulo["total"] = parseFloat(articulo["subTotal"] + articulo["iva"]).toFixed(2);
 		articulo["precioDolar"] = articulo["subTotal"] / 78000 ;
-		
+		console.log(this.producto_cotizacion);
 		actualizarTablaArticulos();
 	}
 }

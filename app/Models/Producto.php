@@ -22,7 +22,7 @@ class Producto extends Model
     protected $table = 'productos';
 
     protected $fillable = [
-        'codigo', 'codigo_de_barras','stock', 'nombre','descripcion', 'precio', 'tasa_iva_id','cotizacion','preciocompra'
+        'codigo', 'codigo_de_barras','stock', 'nombre','descripcion', 'precio', 'tasa_iva_id','preciocompra'
     ];
 
     public $sortable = [

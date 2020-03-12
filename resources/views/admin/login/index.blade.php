@@ -18,7 +18,7 @@
       <div class="row">
         <div class="col-md-12">
           <div class="card">
-            <div class="card-header">
+            <div class="card-primary card-outline card-header">
               <h3 class="card-title">Registros de logins</h3>
               <div class="card-tools">
                 @role('admin')

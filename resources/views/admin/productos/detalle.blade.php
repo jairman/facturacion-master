@@ -5,7 +5,7 @@
 	<div class="row">
 		<div class="col-md-12">
 			<div class="w3-card-4 w3-white">
-				<div class="card-header">
+				<div class="card-primary card-outline card-header">
 					<h4>Detalle de producto</h4>
 				</div>
 				<div class="card-body">
@@ -323,13 +323,6 @@
 										<th>Precio de compra ({{ App\Models\Moneda::find(1)->first()->simbolo }}) (Con IVA)</th>
 										<td>
 											<input id="preciocompra" name="preciocompra" type="text" class="form-control input-sm" name="nombre" placeholder="Nombre del producto" value="{{$producto->preciocompra}}" required>
-										</td>
-										
-									</tr>
-									<tr>
-										<th>Cotización del dólar</th>
-										<td>
-											<input id="cotizacion" name="cotizacion" type="text" class="form-control input-sm" name="nombre" placeholder="Nombre del producto" value="{{$producto->cotizacion}}" required>
 										</td>
 										
 									</tr>

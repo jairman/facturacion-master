@@ -27,10 +27,11 @@
       </div>
     </div>
     <br>
+    
     <div class="container">
       <div class="col-md-12">
-        <div class="card card-primary">
-          <form role="form" id="main-form">
+        <div class="card card-primary card-outline card-header">
+          {!!Form::open (['route'=>'user.store'])!!}
             <input type="hidden" id="_url" value="{{ url('user') }}">
             <input type="hidden" id="_token" value="{{ csrf_token() }}">
             <div class="card-body">
@@ -84,7 +85,7 @@
               </button>
              
             </div>
-          </form>
+          {!! Form::close()!!}
         </div>
       </div>
     </div>
@@ -102,5 +103,5 @@
         });
       });
     </script>
-    <script src="{{ asset('js/admin/user/create.js') }}"></script>
+    
 @endpush

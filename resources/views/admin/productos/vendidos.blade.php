@@ -5,7 +5,7 @@
 	<div class="row">
 		<div class="col-md-12">
 			<div class="w3-card-4 w3-white">
-				<div class="card-heading">
+				<div class="card-primary card-outline card-header">
 					<h4>Vista general de los productos más <b>Vendidos durante el mes cursante </b></h4>
 				</div>
 

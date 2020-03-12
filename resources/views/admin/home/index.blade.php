@@ -8,7 +8,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class=" w3-card-4 w3-white ">
-                    <div class="card-header">
+                    <div class="card-primary card-outline card-header">
                         <h4 class="">Panel de control</h4> 
                     
                         <div class="card-body">					
@@ -24,7 +24,7 @@
                                             <p style="color:white;">Productos guardados</p>
                                             </div>
                                             <div class="icon">
-                                            <i class="ion-android-done-all"></i>
+                                            <i class="fas fa-store"></i>
                                             </div>
                                             <a href="{{ url('productos') }}" class="small-box-footer">Más información <i class="fa fa-arrow-circle-left"></i></a>
                                         </div>
@@ -41,7 +41,7 @@
                                             <p style="color:white;">Comprobantes generados</p>
                                             </div>
                                             <div class="icon">
-                                            <i class="ion ion-bag"></i>
+                                            <i class="fas fa-shopping-basket"></i>
                                             </div>
                                             <a href="{{ url('/comprobantes') }}" class="small-box-footer">Más información <i class="fa fa-arrow-circle-left"></i></a>
                                         </div>
@@ -59,7 +59,7 @@
                                             <p style="color:white;">Facturas generadas</p>
                                             </div>
                                             <div class="icon">
-                                            <i class="ion ion-bag"></i>
+                                            <i class="fas fa-store-alt"></i>
                                             </div>
                                             <a href="#" class="small-box-footer">Más información <i class="fa fa-arrow-circle-left"></i></a>
                                         </div>
@@ -80,7 +80,7 @@
                                                 <p style="color:white;">Clientes guardados</p>
                                             </div>
                                             <div class="icon">
-                                            <i class="ion-android-contacts"></i>
+                                            <i class="fas fa-user-tie"></i>
                                             </div>
                                             <a href="{{ url('/clientes') }}" class="small-box-footer">Más información <i class="fa fa-arrow-circle-left"></i></a>
                                         </div>
@@ -96,7 +96,7 @@
                                             <p style="color:white;">Proveedores guardados</p>
                                             </div>
                                             <div class="icon">
-                                            <i class="ion ion-bag"></i>
+                                            <i class="fas fa-shipping-fast"></i>
                                             </div>
                                             <a href="{{ url('/proveedores') }}" class="small-box-footer">Más información <i class="fa fa-arrow-circle-left"></i></a>
                                         </div>
@@ -114,7 +114,7 @@
                                                 <p style="color:white;">Empleados guardados</p>
                                                 </div>
                                                 <div class="icon">
-                                                <i class="ion-android-happy"></i>
+                                                <i class="fas fa-user"></i>
                                                 </div>
                                                 <a href="{{ route('empleados.index') }}" class="small-box-footer">Más información <i class="fa fa-arrow-circle-left"></i></a>
                                             </div>
@@ -135,7 +135,7 @@
                                                 <p style="color:white;">Cantidad de aperturas de caja</p>
                                                 </div>
                                                 <div class="icon">
-                                                <i class="ion-android-open"></i>
+                                                <i class="fas fa-cash-register"></i>
                                                 </div>
                                                 <a href="{{ route('apertura.index') }}" class="small-box-footer">Más información <i class="fa fa-arrow-circle-left"></i></a>
                                         </div>
@@ -151,7 +151,7 @@
                                                 <p style="color:white;">Cantidad de cierres de caja</p>
                                                 </div>
                                                 <div class="icon">
-                                                <i class="ion-android-notifications-off"></i>
+                                                <i class="fas fa-window-close"></i>
                                                 </div>
                                                 <a href="{{ route('cierre.index') }}" class="small-box-footer">Más información <i class="fa fa-arrow-circle-left"></i></a>
                                             </div>
@@ -159,17 +159,17 @@
                             </div>
                             <div class="col-md-4">
                                     <div class="w3-card-4 w3-white"><br>
-                                        <center><h3>Vendedores</h3></center>
-                                        @can('add_users')
+                                        <center><h3>Tasa del diaria (dólar)</h3></center>
+                                        @can('add_tasa_diaria')
                                             <div class="small-box" style="background:linear-gradient(to left,#e00000 ,#c40000,#ab0707,#a60707,#910303)">
                                                 <div class="inner">
                                                     <h3 style="color:white;">{{ $count }}</h3>
-                                                    <p style="color:white;">Vendedores registrados</p>
+                                                    <p style="color:white;">Tasa registrada</p>
                                                 </div>
                                         <div class="icon">
-                                        <i class="ion-person-stalker"></i>
+                                        <i class="fas fa-users"></i>
                                         </div>
-                                        <a href="{{ route('user.index') }}" class="small-box-footer">Más información <i class="fa fa-arrow-circle-left"></i></a>
+                                        <a href="{{ route('tasa.index') }}" class="small-box-footer">Más información <i class="fa fa-arrow-circle-left"></i></a>
                                     </div>
                                     @else
                                     <center><h5 style="color:red;">Lo siento, no tienes permisos para ver éste módulo.</h5></center><br>

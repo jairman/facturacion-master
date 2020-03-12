@@ -28,12 +28,10 @@
       </div>
     </div>
     <br>
-    <div class="container">
+    <div class="row">
       <div class="col-md-12">
-        <div class="card card-primary">
-          <form role="form" id="main-form">
-            <input type="hidden" id="_url" value="{{ url('user', [$user->encode_id]) }}">
-            <input type="hidden" id="_token" value="{{ csrf_token() }}">
+        <div class="card card-primary card-outline">
+           {!! Form::model($user, ['route' => ['user.update',$user->encode_id],'method' => 'PUT']) !!}
             <div class="card-body">
               <div class="form-group pading">
                 <label for="name">Nombres</label>
@@ -88,7 +86,8 @@
                 <input type="password" class="form-control" id="current_password" name="current_password" placeholder="Contraseña actual">
                 <span class="missing_alert text-danger" id="current_password_alert"></span>
               </div>
-        
+              
+       
         </div>
         <div class="card-footer">
               <button type="submit" class="btn btn-primary ajax" id="submit">
@@ -96,21 +95,12 @@
               </button>
             </div>
       </div>
-        </form>
+         {!! Form::close()!!}
     </div>
   </section>
 
 @endsection
 
 @push('scripts')
-    <script>
-      $(function () {
-        $('input').iCheck({
-          checkboxClass: 'icheckbox_square-blue',
-          radioClass: 'iradio_square-blue',
-          increaseArea: '20%' // optional
-        });
-      });
-    </script>
-    <script src="{{ asset('js/admin/user/edit.js') }}"></script>
+
 @endpush

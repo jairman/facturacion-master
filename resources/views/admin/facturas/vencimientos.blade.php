@@ -14,7 +14,7 @@
 	<div class="row">    
 		<div class="col-md-12">
 			<div class="w3-card-4 w3-white">
-				<div class="card-header">
+				<div class="card-primary card-outline card-header">
 					<h4>Vencimientos</h4>
 				</div>
 				<div class="card-body">                    

@@ -5,7 +5,7 @@
 	<div class="row">
 		<div class="col-md-12">
 			<div class="w3-card-4 w3-white">
-				<div class="card-header">
+				<div class="card-primary card-outline card-header">
 					<h4>Alta de producto</h4>
 				</div>
 
@@ -77,11 +77,6 @@
 												</a>
 											</div>
 										</div>
-									</div>
-									
-									<div class="form-group">
-										<label for="txtPrecio" class="control-label ">Cotización</label>
-										<input id="cotizacion" name="cotizacion" class="form-control" name="precio" placeholder="Cotización del dólar">
 									</div>
 									<div class="form-group">
 										<label for="txtPrecio" class="control-label ">Precio de compra</label>

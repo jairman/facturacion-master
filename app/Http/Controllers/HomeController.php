@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\TasaDolar;
 use App\Models\CierreCaja;
 use App\Models\AperturaCaja;
 use App\Models\Empleados;
@@ -46,7 +47,7 @@ class HomeController extends Controller
         $id= \Auth::user()->id;
 
         if ($user) {
-            $count = User::count();
+            $count = TasaDolar::count();
             $producto= Producto::count();
             $comprobante=Comprobante::count();
             $clientes = Cliente::count();
@@ -55,7 +56,7 @@ class HomeController extends Controller
             $apertura = AperturaCaja::count();
           return view('admin.home.index',compact('count','cierre','apertura','proveedor','clientes','comprobante','producto'));
          } 
-            $count = User::where('id',$id)->count();
+            $count = TasaDolar::where('id',$id)->count();
             $producto= Producto::count();
             $comprobante=Comprobante::where('usuario_id',$id)->count();
             $clientes = Cliente::where('usuario_id',$id)->count();

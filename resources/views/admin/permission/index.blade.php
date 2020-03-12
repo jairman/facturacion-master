@@ -9,7 +9,7 @@
       <div class="container">
         <div class="col-md-12">
             <div class="card">
-              <div class="card-header">
+              <div class="card-primary card-outline card-header">
                 <h2 class="card-title">Permisos del rol usuario</h2>
                 <div class="card-tools"></div>
               </div>

@@ -77,6 +77,23 @@ class ComprobanteController extends Controller
         return ( count($apertura) > 0) ? true : false ;
     }
 
+    public function tasa()
+    {
+		
+		$carbon = new \Carbon\Carbon();
+		$date =$carbon->format('Y-m-d');
+	
+	
+		$usuario= Auth::user()->id;
+		$apertura=AperturaCaja::where('apertura_caja.status','=','1')
+		->where('usuario_id',$usuario )
+		->where('fecha_emision',$date)
+		->get();
+	
+
+        return ( count($apertura) > 0) ? true : false ;
+    }
+
 	public function nuevo()
 	{
 

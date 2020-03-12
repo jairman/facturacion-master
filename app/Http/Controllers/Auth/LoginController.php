@@ -38,7 +38,7 @@ class LoginController extends Controller
     }
 
 
-z
+
 
 
     protected function credentials(Request $request)

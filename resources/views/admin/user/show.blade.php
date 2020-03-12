@@ -14,7 +14,7 @@
 @section('content')
 <div class="card card-primary card-outline">
   <div class="col-xs-12">
-    <div class=" card-header">
+    <div class=" card-primary card-outline card-header">
       <h2 class="card-title">
         <i class="fa fa-user"></i> Datos de usuario
         <small class="pull-right">{{ $user->display_name }}</small>

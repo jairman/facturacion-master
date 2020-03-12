@@ -88,8 +88,12 @@ class RolesAndPermissionsSeeder extends Seeder
                                  'view_gastos',
                                  'add_gastos',
                                  'edit_gastos',
-                                 'delete_gastos'
+                                 'delete_gastos',
 
+                                 /*  Tasa diaria del dólar*/
+                                 'add_tasa_diaria',
+                                 'edit_tasa_diaria',
+                                 'delete_tasa_diaria'
 
 
                               ];
@@ -133,7 +137,11 @@ class RolesAndPermissionsSeeder extends Seeder
                                    'view_productos',
                                    'add_productos',
                                    'edit_productos',
-                                   'delete_productos'
+                                   'delete_productos',
+
+                                    /*  Tasa diaria del dólar*/
+                                   'add_tasa_diaria',
+                                   'edit_tasa_diaria'
 
 
 

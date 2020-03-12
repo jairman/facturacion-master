@@ -14,8 +14,8 @@
 <div class="container">
 	<div class="row">    
 		<div class="col-md-12">
-			<div class="card card-default">
-				<div class="card-header">
+			<div class="card">
+				<div class="card-primary card-outline card-header">
 				<h4>Ingreso de comprobante</h4> 
 				
 				</div>                

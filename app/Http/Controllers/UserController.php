@@ -10,14 +10,7 @@ use App\Models\User;
 class UserController extends Controller
 {
 
-    public function __construct()
-    {
-        $this->middleware('permission:add_users')->only('store');
-        $this->middleware('permission:edit_users')->only('update');
-        $this->middleware('permission:delete_users')->only('destroy');
-        $this->middleware('ajax', ['only' => ['store', 'update', 'destroy']]);
-    }
-
+    
 
 
     public function index(Request $request)
@@ -43,6 +36,8 @@ class UserController extends Controller
 
     public function store(StoreUser $request)
     {
+        
+
         $user = User::create($request->except('role'));
 
         if ($request->has('role'))
@@ -50,7 +45,12 @@ class UserController extends Controller
             $user->assignRole($request->role);
         }
 
-        return json_encode(['success' => true, 'user_id' => $user->encode_id]);
+         $notification = array(
+            'message' => '¡Usuario Creado!',
+            'alert-type' => 'success'
+        );
+        
+        return  \Redirect::to('/user')->with($notification);
     }
 
 
@@ -86,7 +86,12 @@ class UserController extends Controller
             $user->syncRoles($request->role);
         }
 
-        return json_encode(['success' => true]);
+        $notification = array(
+            'message' => '¡Usuario Actualizado!',
+            'alert-type' => 'success'
+        );
+        
+        return  \Redirect::to('/user')->with($notification);
     }
 
 
@@ -96,7 +101,14 @@ class UserController extends Controller
     {
         $user = User::find(\Hashids::decode($id)[0])->delete();
 
-        return json_encode(['success' => true]);
+        $user = User::find(\Hashids::decode($id)[0])->delete();
+
+        $notification = array(
+            'message' => '¡Usuario Eliminado!',
+            'alert-type' => 'success'
+        );
+        
+        return  \Redirect::to('/user')->with($notification);
     }
 
 

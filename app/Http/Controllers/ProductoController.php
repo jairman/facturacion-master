@@ -73,19 +73,15 @@ class ProductoController extends Controller
 		return view('admin.productos.nuevo')->with(compact('productos', 'familias_producto', 'moneda'));
 	}
 
-	public function guardar(Request $request){        
-		// validaciones
-		$this->validate($request, [                 
-			'codigo' => 'required',
-			'nombre' => 'required',
-		]);
+	public function guardar(Request $request){  
+	     
+		
 		$producto = Producto::BuscarPorCodigo($request->codigo)->get();
 		try{
 			$iva = TasaIva::find(1);
 			//Acá se hace el alta
 			$producto = new Producto();
 			$producto->codigo  = $request->codigo;
-			$producto->cotizacion  = $request->cotizacion;
 			$producto->preciocompra  = $request->preciocompra;
 			$producto->codigo_de_barras  = $request->codigo_de_barras;
 			$producto->nombre  = $request->nombre;
@@ -148,7 +144,7 @@ class ProductoController extends Controller
 				$producto->nombre  = $request->nombre;
 			}
 			$producto->codigo_de_barras  	= $request->codigo_de_barras;
-			$producto->cotizacion  			= $request->cotizacion;
+			//$producto->cotizacion  			= $request->cotizacion;
 			$producto->preciocompra  		= $request->preciocompra;
 			$producto->descripcion  		= nl2br($request->descripcion);
 			$producto->familiaProducto_id  	= $request->familia_producto;

@@ -14,7 +14,7 @@
 @section('content')
 
     <section class="content">
-      <div class="row">
+      <div class="container">
         <div class="col-md-6">
           <div class="btn-group">
          
@@ -24,10 +24,11 @@
         </div>
       </div>
       <br>
+      @include('partials.mensajes');
       <div class="container">
         <div class="col-md-12">
           <div class="card">
-            <div class="card-header">
+            <div class="card-primary card-outline card-header">
               <h3 >Listado de usuarios</h3>
                 <form>
                   <input type="hidden" id="_url" value="{{ url('') }}">

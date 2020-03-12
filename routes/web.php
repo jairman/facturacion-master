@@ -108,11 +108,21 @@ Route::middleware(['auth',])->group(function () {
 	****************************************************************************/
 
 	Route::resource('/empleados','EmpleadosController');
+	/***************************************************************************
+	***************************** PDF & EXCEL***********************************
+	****************************************************************************/
 
 
 	Route::get('/comprobantes/excel', 'ComprobanteController@excel')->name('comprobantes.excel');
 
 	Route::get('/comprobantes/imprimir', 'ImprimirComprobantesController@index')->name('comprobantes.imprimir');
 	Route::get('/comprobantes/imprimir/{facturaId}', 'ImprimirComprobantesController@show');
+
+	/***************************************************************************
+	********************************* Tasa del dólar al día ********************
+	****************************************************************************/
+
+	Route::resource('/tasa','TasaDolarController');
+
 
 });

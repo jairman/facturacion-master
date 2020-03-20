@@ -36,7 +36,7 @@
 					<div class="row">
 						<div class="container">
 							<div class="table-responsive ">
-								<table  class="table table-hover" style="width:100%">
+								<table id="example"  class="table table-hover">
 									<thead>
 									<tr>
 										<th class="text-center" width="120px">Código</th>
@@ -132,11 +132,33 @@
 </div>
 @endsection
 
-@push('scripts')
-<script type="text/javascript"> 
-	$(document).ready(function() {
-    $('#example').DataTable();
-} ); 
-</script>
 
+@push('scripts')
+<script type="text/javascript">
+    $(document).ready(function() {
+
+    var table = $('#example').DataTable({
+    language: {
+        "decimal": "",
+        "emptyTable": "No hay información",
+        "info": "Mostrando _START_ a _END_ de _TOTAL_ Entradas",
+        "infoEmpty": "Mostrando 0 to 0 of 0 Entradas",
+        "infoFiltered": "(Filtrado de _MAX_ total entradas)",
+        "infoPostFix": "",
+        "thousands": ",",
+        "lengthMenu": "Mostrar _MENU_ Entradas",
+        "loadingRecords": "Cargando...",
+        "processing": "Procesando...",
+        "search": "Buscar:",
+        "zeroRecords": "Sin resultados encontrados",
+        "paginate": {
+            "first": "Primero",
+            "last": "Ultimo",
+            "next": "Siguiente",
+            "previous": "Anterior"
+            }
+        },
+    });
+    } );
+        </script>
 @endpush

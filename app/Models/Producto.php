@@ -16,7 +16,7 @@ class Producto extends Model
 {
 
     use SoftDeletes;
-    use Sortable;
+   
 
     #Tabla asociada
     protected $table = 'productos';

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\StoreUser;
 use App\Http\Requests\UpdateUser;
 use App\Models\User;
+use App\Models\Caja;
 
 class UserController extends Controller
 {
@@ -28,7 +29,8 @@ class UserController extends Controller
 
     public function create()
     {
-        return view('admin.user.create');
+        $cajas = Caja::get();
+        return view('admin.user.create',compact('cajas'));
     }
 
 

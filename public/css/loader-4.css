@@ -2,10 +2,6 @@
 /*Loading fade animation */
 /*Include as many nth-of-type childs of loader-4 as letters are there*/
 /*delay their animation time as suitable*/ 
-
-
-@import url('https://fonts.googleapis.com/css?family=Righteous');
-
 #loader-4 #loader{
 	position: relative;
 	color:transparent;

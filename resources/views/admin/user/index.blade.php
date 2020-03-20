@@ -30,20 +30,11 @@
           <div class="card">
             <div class="card-primary card-outline card-header">
               <h3 >Listado de usuarios</h3>
-                <form>
-                  <input type="hidden" id="_url" value="{{ url('') }}">
-                  <input type="hidden" id="_token" value="{{ csrf_token() }}">
-                  <div class="input-group input-group-sm" id="search-content">
-                    <input type="text" name="q"  value="{{ request()->q }}" class="form-control pull-right"  id="search-input" placeholder="Buscar" autocomplete="off">
-                    <div class="input-group-btn">
-                      <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
-                    </div>
-                  </div>
-                 </form>
-            
+
             </div>
             <div class="card-body ">
-              <table class="table table-responsive table-hover">
+              <table id="example" class="table table-responsive table-hover">
+                <thead>
                 <tr>
                     <th>Usuario</th>
                     <th>Tipo</th>
@@ -53,6 +44,8 @@
                     <th>Actualizado</th>
                     <th>Opciones</th>
                 </tr>
+                </thead>
+                <tbody>
                 @foreach ($users as $user)
                 <tr class="row{{ $user->encode_id }}">
                   <td>{{ $user->full_name }}</td>
@@ -84,12 +77,12 @@
                   </td>
                 </tr>
                 @endforeach
+                </tbody>
               </table>
-              <div class="card-footer">
-                  {{ $users->links( "pagination::bootstrap-4") }}
+            </div>
+             <div class="card-footer">
                   <p class="text-muted">Mostrando <strong>{{ $users->count() }}</strong> registros de <strong>{{$users->total() }}</strong> totales</p>
               </div>
-            </div>
           </div>
         </div>
       </div>
@@ -100,4 +93,32 @@
 
 @push('scripts')
   <script src="{{ asset('js/admin/user/index.js') }}"></script>
+
+  <script type="text/javascript">
+    $(document).ready(function() {
+
+    var table = $('#example').DataTable({
+    language: {
+        "decimal": "",
+        "emptyTable": "No hay información",
+        "info": "Mostrando _START_ a _END_ de _TOTAL_ Entradas",
+        "infoEmpty": "Mostrando 0 to 0 of 0 Entradas",
+        "infoFiltered": "(Filtrado de _MAX_ total entradas)",
+        "infoPostFix": "",
+        "thousands": ",",
+        "lengthMenu": "Mostrar _MENU_ Entradas",
+        "loadingRecords": "Cargando...",
+        "processing": "Procesando...",
+        "search": "Buscar:",
+        "zeroRecords": "Sin resultados encontrados",
+        "paginate": {
+            "first": "Primero",
+            "last": "Ultimo",
+            "next": "Siguiente",
+            "previous": "Anterior"
+            }
+        },
+    });
+    } );
+        </script>
 @endpush

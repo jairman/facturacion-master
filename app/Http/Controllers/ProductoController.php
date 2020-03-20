@@ -45,7 +45,7 @@ class ProductoController extends Controller
 			if ($producto !=null) {
 				return Redirect::to('productos/' . $producto->busqueda);
 			}else{
-				$productos = Producto::Filtrar($busqueda)->orderBy('nombre')->sortable()->paginate(5);
+				$productos = Producto::Filtrar($busqueda)->orderBy('nombre')->paginate(5);
 				return view('admin.productos.index')->with(compact('productos','date'));
 			}
 		}

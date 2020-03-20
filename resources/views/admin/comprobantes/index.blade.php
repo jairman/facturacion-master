@@ -2,93 +2,18 @@
 @section('title', 'comprobantes')
 @section('content')
 <div class="container">
-	<div class="row">    
+   
 		<div class="col-md-12">
 			<div class="w3-card-4 w3-white">
 				<div class="card-primary card-outline card-header">
 					<h4>Vista general de comprobantes</h4>
 				</div>
-				<div class="card-body">                    
-					<span class="float-right">
-						<a class="btn btn-md btn-success" href="/comprobantes/nuevo" class="btn btn-link">
-							<i class="fa fa-plus" aria-hidden="true"></i> Nuevo comprobante
-						</a>
-					</span>
-					<ul class="list-inline">
-						<li class="list-inline-item">
-							<a href="/" class="link_ruta">
-								Inicio &nbsp; &nbsp;<i class="fa fa-chevron-right" aria-hidden="true"></i>
-							</a>
-						</li>
-						<li class="list-inline-item">
-							<a href="/comprobantes" class="link_ruta">
-								Comprobantes
-							</a>
-						</li>
-					</ul><br>
-				
-					
-					<a id="btnFiltrarCollapse" class="btn btn-sm" href="#" data-toggle="collapse" data-target="#collapseFiltrar">
-						Filtrar <i class="fa fa-filter" aria-hidden="true"></i>
-					</a>
-					
-					<div id="collapseFiltrar" class="collapse">
-						<form id="formFiltrarComprobantes" action="/comprobantes/">
-							{{ csrf_field() }}
-							<div class="row">
-								<div class="col-md-2 form-group text-center ">
-									<label class="form-label">Tipo de comprobante</label>
-									<select class="form-control input-sm">
-										<option value=""></option>
-										@foreach($tipos_comprobante as $t)
-											<option value="{{$t->id}}">{{$t->nombre}}</option>
-										@endforeach
-									</select>
-								</div>
-								<div class="col-md-4 form-inline">
-									<div class="col-md-6 text-center ">
-										<label class="form-label">Fecha de emisión</label>
-									</div>
-									<div class="col-md-6 text-center ">
-										<input class="form-control input-sm" type="date" name="fechaInicio">
-										 - 
-										<input class="form-control input-sm" type="date" name="fechaFin">
-									</div>
-								</div>
-								<div class="col-md-2 form-group text-center ">
-									<label class="form-label">Moneda</label>
-									<select name="moneda" class="form-control input-sm" >
-										<option value=""></option>
-										@foreach($monedas as $moneda)
-											<option value="{{$moneda->id}}">{{$moneda->nombre}} ({{$moneda->simbolo}})</option>
-										@endforeach
-									</select>
-								</div>
-								<div class="col-md-2 form-group text-center ">
-									<label class="form-label">Tipo de pago</label>
-									<select name="pago" class="form-control input-sm" >
-										<option value=""></option>
-										@foreach($tipos_pago as $moneda)
-											<option value="{{$moneda->id}}">({{$moneda->nb_tipo_pago}})</option>
-										@endforeach
-									</select>
-								</div>
-								<div class="col-md-2 form-group text-center ">
-								</div>
-								<div class="col-md-2 form-group text-center ">
-									<label class="form-label"></label>
-									<button type="submit" class="btn btn-block btn-sm btn-primary" type="button" name="btnFiltrar" >Filtrar</button>
-								</div>
-							</div>
-						</form>
-					</div>                    
-				</div>
 				<div class="card-body">
 					<div class="col-sm-3 float-left">
-					<a href="/comprobantes/imprimir"class="btn btn-block btn-primary">
-									Reportes
+					<a href="/comprobantes/nuevo"class="btn btn-block btn-primary">
+									Nuevo comprobante
 									<span class="float-right">
-										<i class="fa fa-print" aria-hidden="true"></i>
+										<i class="fa fa-plus-square" aria-hidden="true"></i>
 									</span>
 								</a>
 					</div>
@@ -105,7 +30,8 @@
 						
 					</div>
 					<div class="table-responsive"><br>
-						<table id="tabla_comprobantes" cellspacing="0" width="100%" class="table table-hover">
+						<table id="example" cellspacing="0" class="table table- table-border">
+							<thead>
 							<tr>								
 								<th class="text-center " width="120px">Fecha emisión</th>
 								<th class="text-center " width="200px">Tipo comprobante</th>
@@ -116,8 +42,12 @@
 								<th class="text-center " class="text-center " width="120px">Sub-total</th>
 								<th class="text-center " class="text-center " width="120px">IVA</th>
 								<th class="text-center " class="text-center " width="120px">Total</th>
-								<th class="text-center " width="50px" colspan="2"></th>								
+								<th class="text-center " class="text-center " width="120px">N° Caja</th>
+								<th class="text-center"></th>	
+								<th class="text-center"></th>								
 							</tr>
+							</thead>
+							<tbody>
 
 							@foreach($comprobantes as $comprobante)
 							<tr>								
@@ -145,12 +75,6 @@
 									</a>
 								</td>
 
-								@else
-
-								<td class="text-center ">
-									{{$comprobante->nombre_cliente}}
-								</td>
-
 								@endif
 								
 								<td>
@@ -173,20 +97,26 @@
 										{{ number_format($comprobante->total, 2) }}
 									</span>
 								</td>
-
-								<td width="50px" class="text-center " title="Vista de impresión">
+								<td>
+									
+									<span class="float-right">
+										{{$comprobante->usuario_id }}
+									</span>
+								</td
+								<td class="text-center " title="Vista de impresión">
 									<a target="_blank" href="/comprobantes/imprimir/{{$comprobante->id}}">
 										<i class="fas fa-print" aria-hidden="true"></i>
 									</a>
 								</td>
 
-								<td width="50px" class="text-center " title="Detalle del comprobante">
+								<td class="text-center " title="Detalle del comprobante">
 									<a href="/comprobantes/detalle/{{$comprobante->id}}">
 										<i class="fas fa-external-link-square-alt" aria-hidden="true"></i>
 									</a>
 								</td>
 							</tr>
 							@endforeach
+							</tbody>
 						</table>
 					</div>
 					<div class="text-center ">
@@ -199,9 +129,33 @@
 </div>
 @endsection
 
+
 @push('scripts')
 <script type="text/javascript">
-$(document).ready(function(){        
-	});
-</script>
+    $(document).ready(function() {
+
+    var table = $('#example').DataTable({
+    language: {
+        "decimal": "",
+        "emptyTable": "No hay información",
+        "info": "Mostrando _START_ a _END_ de _TOTAL_ Entradas",
+        "infoEmpty": "Mostrando 0 to 0 of 0 Entradas",
+        "infoFiltered": "(Filtrado de _MAX_ total entradas)",
+        "infoPostFix": "",
+        "thousands": ",",
+        "lengthMenu": "Mostrar _MENU_ Entradas",
+        "loadingRecords": "Cargando...",
+        "processing": "Procesando...",
+        "search": "Buscar:",
+        "zeroRecords": "Sin resultados encontrados",
+        "paginate": {
+            "first": "Primero",
+            "last": "Ultimo",
+            "next": "Siguiente",
+            "previous": "Anterior"
+            }
+        },
+    });
+    } );
+        </script>
 @endpush

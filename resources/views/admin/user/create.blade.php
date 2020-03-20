@@ -14,7 +14,7 @@
 @section('content')
 
   <section class="content">
-    <div class="row">
+    <div class="container|">
       <div class="col-md-6">
         <div class="btn-group">
           @can('view_users')
@@ -30,7 +30,7 @@
     
     <div class="container">
       <div class="col-md-12">
-        <div class="card card-primary card-outline card-header">
+        <div class="card card-primary card-outline">
           {!!Form::open (['route'=>'user.store'])!!}
             <input type="hidden" id="_url" value="{{ url('user') }}">
             <input type="hidden" id="_token" value="{{ csrf_token() }}">
@@ -67,6 +67,16 @@
               <div class="form-group">
                 <label for="password_confirmation">Confirmar Contraseña</label>
                 <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" placeholder="Contraseña">
+                <span class="missing_alert text-danger" id="password_confirmation_alert"></span>
+              </div>
+              <div class="form-group">
+                <label for="password_confirmation">N° Caja</label>
+               <select id="caja_id" name="caja_id" class="form-control input-sm" tabindex="2">
+                 <option value="0">Seleccione</option>
+                      @foreach($cajas as $t)
+                        <option value="{{$t->id}}">{{$t->nu_caja}}</option>
+                      @endforeach                     
+                </select>
                 <span class="missing_alert text-danger" id="password_confirmation_alert"></span>
               </div>
               <div class="form-group">

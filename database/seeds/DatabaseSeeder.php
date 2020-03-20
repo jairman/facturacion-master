@@ -13,7 +13,7 @@ class DatabaseSeeder extends Seeder
     {
         $this->call(RolesAndPermissionsSeeder::class);
         $this->call(UsersTableSeeder::class);
-        $this->call(TasaIvaSeeder::class);
+        $this->call(TasaIvaTableSeeder::class);
         $this->call(MonedaSeeder::class);
         $this->call(TipoDocumentoSeeder::class);
         $this->call(TipoComprobanteSeeder::class);

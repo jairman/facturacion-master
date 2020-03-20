@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class TasaIvaSeeder extends Seeder
+class TasaIvaTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.

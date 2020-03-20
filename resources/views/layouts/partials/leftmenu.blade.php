@@ -35,25 +35,23 @@
               <i class="far fa-user nav-icon"></i>
               <p>Usuarios</p>
             </a>
-          </li>
-        
-                
+          </li>   
           <li class="nav-item">
             <a href="{{url('permission')}}" class="nav-link">
               <i class="far fa-file-archive nav-icon"></i>
               <p>Permisos</p>
             </a>
-          </
+          </li>
            <li class="nav-item">
             <a href="{{url('logins')}}" class="nav-link">
               <i class="fas fa-id-card-alt nav-icon"></i>
               <p>Logins</p>
             </a>
-          </
+          </li>
         </ul>
       </li>
         <div class=" mt-3 pb-3 mb-3 ">
-              <li class="nav-item has-treeview menu-open">
+          <li class="nav-item has-treeview menu-open">
               <a href="#" class="nav-link active">
               <i class="nav-icon fas fa-cogs"></i>
               <p>
@@ -173,7 +171,7 @@
                 </a>
               </li>
             </ul>
-          </
+          </li>
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-user-tie"></i>
@@ -365,7 +363,7 @@
                 </a>
               </li>         
             </ul>
-          </
+          </li>
            </ul>
           </li>
         </div>

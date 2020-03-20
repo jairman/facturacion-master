@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\CierreCaja;
 use App\Models\AperturaCaja;
+use App\Models\HistorialCajas;
 use App\Models\Caja;
 
 class CierreCajaController extends Controller
@@ -112,6 +113,22 @@ class CierreCajaController extends Controller
     public function store(Request $request)
     {
         $cierre = CierreCaja::create($request->all());
+
+        $bolivares     = $request->nu_cantidad_efectivo;
+        $dolares       = $request->nu_cantidad_dolares;
+        $transferencia = $request->nu_cantidad_pago_movil;
+        $pago          = $request->nu_cantidad_transferencias;
+        $punto         = $request->nu_cantidad_punto_venta;
+
+        $historial = new HistorialCajas();
+
+        $historial->descripcion = 'El vendedor '. \Auth::user()->name.' ha cerrado|  la caja N°'.$request->caja_id.' con: '.$bolivares.'Bss en efectivo, '.$punto.'Bss por pagos por punto de venta, '.$pago.'Bss por ventas realizadas por pago movil como medio de pago, '.$transferencia.'Bss por pagos recibidos por transferencias, y con '.$dolares.'$ en efectivo.';
+
+        $historial->usuario_id = $request->usuario_id;
+        $historial->caja_id = $request->caja_id;
+        $historial->fecha =  date("d-m-Y H:i:s");
+
+        $historial->save();
 
         \DB::table('apertura_caja')
         ->update(

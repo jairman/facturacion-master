@@ -37,12 +37,7 @@
                                      
                                         <div class="col-md-4">
                                             <label class="sr-only">N° de caja</label><br>
-                                            <select name="caja_id" id="caja_id" class="form-control" oninvalid="this.setCustomValidity('Debe ingresar el número de caja')"Debe  required="true" oninput="setCustomValidity('')">
-                                                <option value="0">Número de caja</option>
-                                                @foreach($cajas as $caja)
-                                                    <option value="{{ $caja->id }}">{{ $caja->nu_caja }}</option>
-                                                @endforeach
-                                            </select>
+                                            <input class="form-control" type="text"  id="caja_id"  name="caja_id" placeholder="Cantidad de efectivo en caja" required="true" oninvalid="this.setCustomValidity('Debe ingresar la cantidad de efectivo en caja.')" oninput="setCustomValidity('')" value="{{ Auth::user()->caja_id }} ">
                                         </div>
 									
 									<div class="col-md-4">
@@ -78,7 +73,7 @@
                                     <input type="hidden" name="usuario_id" id="usuario_id" value="{{ Auth::user()->id}}">
 									<div class="col-md-4">
                                         <label class="sr-only" for="txtFecha">Fecha de emisión</label><br>
-                                        <input id="fecha_cierre" type="date" name="fecha_cierre" class="form-control input-sm" title="Fecha del recibo">
+                                        <input id="txtFecha" type="date" name="fecha_cierre" class="form-control input-sm" title="Fecha del recibo">
 									</div>
                                    
 									<div class="col-md-12"> <br>
@@ -109,6 +104,15 @@
           increaseArea: '20%' // optional
         });
       });
+    </script>
+    <script>
+    $(document).ready(function (){
+	var fechaEmision = new Date();
+	var day = ("0" + fechaEmision.getDate()).slice(-2);
+	var month = ("0" + (fechaEmision.getMonth() + 1)).slice(-2);
+	fecha = fechaEmision.getFullYear()+"-"+(month)+"-"+(day);
+	$("#txtFecha").val(fecha);
+	     });
     </script>
 @endpush
 

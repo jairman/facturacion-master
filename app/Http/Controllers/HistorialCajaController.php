@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\HistorialCajas;
 
 class HistorialCajaController extends Controller
 {
@@ -13,7 +14,10 @@ class HistorialCajaController extends Controller
      */
     public function index()
     {
-        //
+        
+        $historiales= HistorialCajas::get();
+        return view('admin.historial.index', compact('historiales'));
+
     }
 
     /**

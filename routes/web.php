@@ -124,5 +124,11 @@ Route::middleware(['auth',])->group(function () {
 
 	Route::resource('/tasa','TasaDolarController');
 
+	/***************************************************************************
+	*******************************Historial de caja ***************************
+	****************************************************************************/
+
+	Route::resource('/historial','HistorialCajaController');
+
 
 });

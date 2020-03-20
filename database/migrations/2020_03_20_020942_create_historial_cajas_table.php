@@ -6,6 +6,8 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreateHistorialCajasTable extends Migration
 {
+    /*Tabla para llevar el manejo de apertura y cierres de caja*/
+
     /**
      * Run the migrations.
      *
@@ -15,6 +17,11 @@ class CreateHistorialCajasTable extends Migration
     {
         Schema::create('historial_cajas', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('descripcion');
+            $table->integer('usuario_id');
+            $table->integer('caja_id');
+            $table->string('fecha');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

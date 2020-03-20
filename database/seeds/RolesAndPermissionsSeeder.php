@@ -93,7 +93,11 @@ class RolesAndPermissionsSeeder extends Seeder
                                  /*  Tasa diaria del dólar*/
                                  'add_tasa_diaria',
                                  'edit_tasa_diaria',
-                                 'delete_tasa_diaria'
+                                 'delete_tasa_diaria',
+
+                                 /*  Historial de las cajas por vendedores*/
+                                 'view_historial_cajas'
+
 
 
                               ];

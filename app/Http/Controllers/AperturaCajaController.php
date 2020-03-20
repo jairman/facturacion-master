@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\AperturaCaja;
 use App\Models\User;
 use App\Models\Caja;
+use App\Models\HistorialCajas;
 
 class AperturaCajaController extends Controller
 {
@@ -56,7 +57,7 @@ class AperturaCajaController extends Controller
         return view('admin.apertura.create')->with(compact('cajas'));
     }
 
-    /**
+    /** 
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -67,6 +68,23 @@ class AperturaCajaController extends Controller
         //dd($request);
         
         $apertura = AperturaCaja::create($request->all());
+
+        $bolivares     = $request->nu_cantidad_efectivo;
+        $dolares       = $request->nu_cantidad_dolares;
+        $transferencia = $request->nu_cantidad_pago_movil;
+        $pago          = $request->nu_cantidad_transferencias;
+        $punto         = $request->nu_cantidad_punto_venta;
+
+        $historial = new HistorialCajas();
+
+        $historial->descripcion = 'El vendedor '. \Auth::user()->name.' ha aperturado la caja N°'.$request->caja_id.' con: '.$bolivares.'Bss en efectivo, '.$punto.'Bss por pagos por punto de venta, '.$pago.'Bss por ventas realizadas por pago movil como medio de pago, '.$transferencia.'Bss por pagos recibidos por transferencias, y con '.$dolares.'$ en efectivo.';
+
+        $historial->usuario_id = $request->usuario_id;
+        $historial->caja_id = $request->caja_id;
+        $historial->fecha =  date("d-m-Y H:i:s");
+
+        $historial->save();
+
         $notification = array(
             'message' => '¡Apertura de caja generada!',
             'alert-type' => 'success'

@@ -94,8 +94,6 @@
 	@include('partials.mensajes');
 </div>
 @endsection
-
-
     @push('scripts')
     <script>
       $(function () {

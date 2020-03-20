@@ -13,7 +13,7 @@ class TasaDolarController extends Controller
      */
     public function index()
     {
-        $tasas = TasaDolar::paginate(5);
+        $tasas = TasaDolar::get();
         return view('admin.tasa.index', compact('tasas'));
     }
 

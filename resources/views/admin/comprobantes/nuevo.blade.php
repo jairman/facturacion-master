@@ -216,9 +216,21 @@
 													</div>
 												</form>
 											</div>
-										<h5 class=" m-5 shadow p-4 bg-primary" >Monto en Dólares</h5>
-										<center><i class="fas fa-arrow-down mx-auto fa-3x"></center></i>
-										<input name="numero" type="text" class="form-control input-sm" id="precioDolar" placeholder="Monto en dólares" tabindex="3" value="0" disabled>
+										</div>
+										<div class="col-md-6">
+											<div class="float-left">
+												<h5 class="  shadow p-4 bg-primary" >Tasa del díal (dólar)</h5>
+												<center><i class="fas fa-arrow-down mx-auto fa-3x"></center></i>
+												<input name="numero" type="text" class="form-control input-sm float left" id="tasaDia" placeholder="Monto en dólares" tabindex="3" value="{{ $tasa->tasa }}" disabled>
+											</div>
+										</div>
+										
+										<div class="col-md-6">
+											<div class="float-right">
+												<h5 class="  shadow p-4 bg-primary" >Monto en Dólares</h5>
+												<center><i class="fas fa-arrow-down mx-auto fa-3x"></center></i>
+												<input name="numero" type="text" class="form-control input-sm float left" id="precioDolar" placeholder="Monto en dólares" tabindex="3" value="0" disabled>
+											</div>
 										</div>
 										
 										 

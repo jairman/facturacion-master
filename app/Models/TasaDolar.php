@@ -12,7 +12,7 @@ class TasaDolar extends Model
    protected $table = 'tasa_dolar';
 
     protected $fillable = [
-    	 'tasa'
+    	 'tasa','fe_tasa'
     ];
 
     public function productos(){

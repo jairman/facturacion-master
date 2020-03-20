@@ -60,6 +60,7 @@
 @endsection
 
 
+
     @push('scripts')
     <script>
       $(function () {
@@ -70,5 +71,15 @@
         });
       });
     </script>
+    <script>
+    $(document).ready(function (){
+	var fechaEmision = new Date();
+	var day = ("0" + fechaEmision.getDate()).slice(-2);
+	var month = ("0" + (fechaEmision.getMonth() + 1)).slice(-2);
+	fecha = fechaEmision.getFullYear()+"-"+(month)+"-"+(day);
+	$("#txtFecha").val(fecha);
+	     });
+    </script>
 @endpush
+
 

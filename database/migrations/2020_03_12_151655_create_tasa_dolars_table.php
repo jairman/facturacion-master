@@ -16,6 +16,7 @@ class CreateTasaDolarsTable extends Migration
         Schema::create('tasa_dolar', function (Blueprint $table) {
             $table->increments('id');
             $table->double('tasa')->default(0);
+            $table->string('fe_tasa');
             $table->softDeletes();
             $table->timestamps();
 

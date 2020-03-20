@@ -36,30 +36,26 @@
 					@include('partials.mensajes')
 				
 					<div class="table-responsive">
-						<table id="tabla_comprobantes" cellspacing="0" width="100%" class="table table-hover">
+						<table id="example" cellspacing="0" width="100%" class="table table-hover">
+							<thead>
 							<tr>
 								<th class="text-center">ID</th>	
                                 <th class="text-center">Tasa</th>
                                 <th class="text-center">Creado</th>
                                 <th class="text-center">Editado</th>
-                                <th  class="text-center "></th>
 							</tr>
-
+							</thead>
+							<tbody>
 							@foreach($tasas as $tasa)
 							<tr class="text-center">
                                 <td>{{$tasa->id}}</td>		
                                 <td>{{$tasa->tasa}}</td>
                                 <td>{{$tasa->created_at}}</td>
                                 <td>{{$tasa->updated_at}}</td>
-                                <td>
-			                    <a class="" href="{{ url('tasa', [$tasa->id, 'edit']) }}"><i class="fa fa-edit"></i> Editar</a>
-			                  </td>
 							</tr>
 							@endforeach
+							</tbody>
 						</table>
-					</div>
-					<div class="text-center">
-						{{ $tasas->links( "pagination::bootstrap-4") }}
 					</div>
 				</div>
 			</div>
@@ -74,8 +70,8 @@
 <script type="text/javascript">
     $(document).ready(function() {
 
-    var table = $('#').DataTable({
-example    language: {
+    var table = $('#example').DataTable({
+    language: {
         "decimal": "",
         "emptyTable": "No hay información",
         "info": "Mostrando _START_ a _END_ de _TOTAL_ Entradas",

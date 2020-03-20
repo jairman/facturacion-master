@@ -5,7 +5,7 @@
 	<div class="row">    
 		<div class="col-md-12">
 			<div class="w3-card-4 w3-white">
-				<div class="card-primary card-outline card-headerr">
+				<div class="card-primary card-outline card-header">
 					<h4>Vista general de la apertura de caja</h4>
 				</div>
 				<div class="card-body">
@@ -28,18 +28,20 @@
 					</ul><br>
 			
 					<div class="table-responsive">
-						<table id="tabla_comprobantes" cellspacing="0" width="100%" class="table table-hover">
+						<table id="example" cellspacing="0" width="100%" class="table table-hover">
+							<thead>
 							<tr>
 								<th class="text-center">ID</th>	
                                 <th class="text-center">Efectivo</th>
-								<th class="text-center">Punto de venta</th>
+								<th class="text-center">Punto V.</th>
 								<th  class="text-center">Dólares</th>
 								<th class="text-center">Transferencia</th>
                                 <th  class="text-center">Pago móvil</th>
-                                <th  class="text-center">Estado de caja</th>
+                                <th  class="text-center">Estado</th>
                                 <th  class="text-center">N° Caja</th>
 							</tr>
-
+							</thead>
+							<tbody>
 							@foreach($aperturas as $apertura)
 							<tr class="text-center">
                                 <td>{{$apertura->id_apertura}}</td>		
@@ -52,10 +54,8 @@
 								<td>{{$apertura->caja_id}}</td>
 							</tr>
 							@endforeach
+							</tbody>
 						</table>
-					</div>
-					<div class="text-center">
-						{{ $aperturas->links( "pagination::bootstrap-4")}}
 					</div>
 				</div>
 			</div>
@@ -70,8 +70,8 @@
 <script type="text/javascript">
     $(document).ready(function() {
 
-    var table = $('#').DataTable({
-example    language: {
+    var table = $('#example').DataTable({
+    language: {
         "decimal": "",
         "emptyTable": "No hay información",
         "info": "Mostrando _START_ a _END_ de _TOTAL_ Entradas",

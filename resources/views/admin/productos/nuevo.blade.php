@@ -65,7 +65,7 @@
 
 										<div class="input-group pull-right">
 											<select id="selectFamiliaProducto" class="form-control" name="familia_producto" required="true">
-												<option value="" disabled selected hidden>Familia de producto</option>
+												<option value="0">Seleccione</option>
 												@foreach( $familias_producto as $f)
 													<option value="{{ $f->id}}">{{ $f->nombre }}</option>
 												@endforeach

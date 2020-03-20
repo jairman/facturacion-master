@@ -18,6 +18,8 @@ use App\Models\Recibo;
 use App\Models\Moneda;
 use App\Models\TipoPago;
 use App\Models\AperturaCaja;
+use App\Models\TasaDolar;
+
 use Auth;
 
 class ComprobanteController extends Controller
@@ -85,21 +87,24 @@ class ComprobanteController extends Controller
 	
 	
 		$usuario= Auth::user()->id;
-		$apertura=AperturaCaja::where('apertura_caja.status','=','1')
-		->where('usuario_id',$usuario )
-		->where('fecha_emision',$date)
+		$tasa=TasaDolar::where('fe_tasa',$date)
 		->get();
 	
 
-        return ( count($apertura) > 0) ? true : false ;
+        return ( count($tasa) > 0) ? true : false ;
     }
 
 	public function nuevo()
 	{
 
 		$apertura = $this->apertura();
+		$tasa = $this->tasa();
 		
 		if ($apertura) {
+			
+			//dd(($tasa));
+
+			if ($tasa) {
 
 			$carbon = new \Carbon\Carbon();
 			$date =$carbon->format('Y-m-d');
@@ -112,8 +117,21 @@ class ComprobanteController extends Controller
 			$productos = Producto::all();
 			$tipos_pago = TipoPago::all();
 			$monedas = Moneda::all();
+			$tasa= TasaDolar::first();
+	
 			$tipos_comprobante = TipoComprobante::all();
-			return view('admin.comprobantes.nuevo')->with(compact('apertura','productos', 'monedas', 'tipos_comprobante','tipos_pago'));	
+			return view('admin.comprobantes.nuevo')->with(compact('apertura','productos', 'monedas', 'tipos_comprobante','tipos_pago','tasa'));		
+			}
+			$notification = array(
+            'message' => '¡Debes agregar la tasa del dolar al dia para iniciar proceso de venta!',
+            'alert-type' => 'error'
+        );
+        
+        return \Redirect::to('/tasa/create')->with($notification);
+
+
+
+			
 		}
 		
 		$notification = array(

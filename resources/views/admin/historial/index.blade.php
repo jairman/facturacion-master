@@ -39,7 +39,7 @@
 							<tr class="text-center">
                                 <td>{{$historial->id}}</td>		
                                 <td>{{$historial->descripcion}}</td>
-                                <td>{{$historial->usuario->name}}</td>
+                                <td>{{$historial->usuario->full_name}}</td>
                                 <td>{{$historial->caja_id}}</td>
                                 <td>{{$historial->fecha}}</td>	
 							</tr>

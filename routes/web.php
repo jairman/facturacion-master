@@ -130,5 +130,11 @@ Route::middleware(['auth',])->group(function () {
 
 	Route::resource('/historial','HistorialCajaController');
 
+	/***************************************************************************
+	*******************************Pagos del empleado ***************************
+	****************************************************************************/
+
+	Route::resource('/pagos/empleado','PagosController');
+
 
 });

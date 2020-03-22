@@ -1,103 +1,81 @@
 @extends('layouts.admin')
-@section('title', 'Empleadoss')
+@section('title', 'Empleados')
 @section('content')
 <div class="container">
-	<div class="row">    
-		<div class="col-md-12">
-			<div class="w3-card-4 w3-white">
-				<div class="card-primary card-outline card-header">
-					<h4>Vista general de los empleados</h4>
-				</div>
-				<div class="card-body">
-					<span class="float-right">
-						<a class="btn btn-md btn-success" href="/empleados/create" class="btn btn-link">
-							<i class="fa fa-user-plus" aria-hidden="true"></i> Nuevo empleado
-						</a>
-					</span>
-					<ul class="list-inline">
-						<li class="list-inline-item">
-							<a href="/" class="link_ruta">
-								Inicio &nbsp; &nbsp;<i class="fa fa-chevron-right" aria-hidden="true"></i>
-							</a>
-						</li>
-						<li class="list-inline-item">
-							<a href="/empleados" class="link_ruta">
-								empleados
-							</a>
-						</li>						
-					</ul><br>
-					
-					<table id="example" class="table table-responsive table-hover">
+    <div class="row">    
+        <div class="col-md-12">
+            <div class="w3-card-4 w3-white">
+                <div class="card-primary card-outline card-header">
+                    <h4>Vista general de los empleados</h4>
+                </div>
+                <div class="card-body">
+                    <span class="float-right">
+                        <a class="btn btn-md btn-success" href="/empleados/create" class="btn btn-link">
+                            <i class="fa fa-user-plus" aria-hidden="true"></i> Nuevo empleado
+                        </a>
+                    </span>
+                    <span class="float-left">
+                        <a class="btn btn-md btn-primary" href="/pagos/empleado" class="btn btn-link">
+                            <i class="fa fa-user-plus" aria-hidden="true"></i> Pagos del empleado
+                        </a>
+                    </span><br><br><br>
+                    <ul class="list-inline">
+                        <li class="list-inline-item">
+                            <a href="/" class="link_ruta">
+                                Inicio &nbsp; &nbsp;<i class="fa fa-chevron-right" aria-hidden="true"></i>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="/empleados" class="link_ruta">
+                                Empleados
+                            </a>
+                        </li>                       
+                    </ul><br>
+            
+                    <div class="table-responsive">
+                        <table id="example" cellspacing="0" width="100%" class="table table-hover table-border">
                             <thead>
-                                <tr>
-                                    <th>ID</th>
-                                    <th>Nombres</th>
-                                    <th>Apellidos</th>
-                                    <th>Cédula</th>
-                                    <th>Fecha de ingreso</th>
-                                    <th>Opciones</th>
-                                </tr>
+                            <tr>
+                                <th class="text-center">ID</th> 
+                                <th class="text-center">Nombres</th>
+                                <th class="text-center">Apellidos</th>
+                                <th  class="text-center">Cédula</th>
+                                <th class="text-center">Teléfono</th>
+                                <th  class="text-center">Profesión</th>
+                                <th  class="text-center">Fecha de ingreso</th>
+                                <th  class="text-center">Opciones</th>
+                            </tr>
                             </thead>
-                            @foreach ($empleados as $empleado)
-                                
-                           
                             <tbody>
-                                <tr>
-                                    <td>{{$empleado->id_empleado_empleado}}</td>
-                                    <td>{{$empleado->nb_nombre}}</td>
-                                    <td>{{$empleado->nb_apellido}}</td>
-                                    <td>{{$empleado->nu_cedula}}</td>
-                                    <td>{{$empleado->fe_ingreso}}</td>
-                                    <td>
-                                    	<div class="dropdown">
-					                      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-					                       <i class="fas fa-cogs"></i>&nbsp Opciones
-					                      </button>
-					                      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-					                        <a class="dropdown-item" href="{{  url('empleados', [$empleado->id_empleado]) }}"><i class="fa fa-eye"></i> Perfil</a></li>
-					                         @can('edit_users')
-					                        <li><a class="dropdown-item" href="{{ url('empleados', [$empleado->id_empleado, 'edit']) }}"><i class="fa fa-edit"></i> Editar</a></a></li>
-					                        @endcan
-					                       @can('view_logins')
-					                        <li class="divider"><li>
-					                        <li><a class="dropdown-item" href="{{ url('empleados/login', [$empleado->id_empleado]) }}"><i class="fas fa-sign-in-alt"></i> Logins</a></li>
-					                        @endcan
-					                        @if(auth()->user()->can('delete_users') && Auth::user()->id_empleado != $empleado->id_empleado)
-					                        <li class="divider"><li>
-					                        <li><a class="dropdown-item" href="#confirm-modal" id="{{ $empleado->id_empleado }}"  class="del-btn" data-toggle="modal"><i class="fa fa-trash"></i> Eliminar</a></li>
-					                        @endif
-					                      </div>
-					                    </div>
-                                    </td>
-                                    
-                                </tr>
-                                @endforeach
-                            <tfoot>
-                                <tr>
-                                    <th>ID</th>
-                                    <<th>Nombres</th>
-                                    <th>Apellidos</th>
-                                    <th>Cédula</th>
-                                    <th>Fecha de ingreso</th>
-                                    
-                                    <th>Opciones</th>
-                                </tr>
-                            </tfoot>
+                           @foreach( $empleados as $empleado)
+                            <tr class="text-center">
+                                <td> {{ $empleado->id_empleado }} </td>     
+                                <td> {{ $empleado->nb_nombre }}</td>
+                                <td> {{ $empleado->nb_apellido }}</td>
+                                <td> {{ $empleado->nu_cedula }}</td>
+                                <td> {{ $empleado->telefono }}</td>
+                                <td> {{ $empleado->nb_profesion }}</td>
+                                <td> {{ $empleado->fe_ingreso }}</td>                 
+                                <td>
+                                <a href="{{route('empleados.edit', $empleado->id_empleado)}}"
+                                    class="btn btn-sm btn-primary"><i class="fas fa-edit fa-lg"></i></a>
+                                </td>
+                            </tr>
+                           @endforeach
+                            </tbody>
                         </table>
-					</div>
-					<div class="text-center">
-						{{ $empleados->links( "pagination::bootstrap-4")}}
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    @include('partials.mensajes');
 </div>
 
 @endsection
 
 @push('scripts')
- <script type="text/javascript">
+<script type="text/javascript">
     $(document).ready(function() {
 
     var table = $('#example').DataTable({

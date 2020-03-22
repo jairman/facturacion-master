@@ -70,11 +70,11 @@
 										<input class="form-control" type="text" name="apellido" placeholder="Apellido">
 									</div>
 
-									<div class="form-group form-empresa" hidden>
+									<div class="form-group form-empresa">
 										<label class="sr-only">Razón social</label>
 										<input class="form-control form-empresa-required" type="text" name="razonSocial" placeholder="Razón social" oninvalid="this.setCustomValidity('Debe ingresar una razón social para el cliente')" oninput="setCustomValidity('')">
 									</div>
-									<div class="form-group form-empresa" hidden>
+									<div class="form-group form-empresa">
 										<label class="sr-only">RIF</label>
 										<input class="form-control form-empresa-required" type="text" name="rif" placeholder="RIF" oninvalid="this.setCustomValidity('Debe ingresar un RIF para el cliente')" oninput="setCustomValidity('')">
 									</div>

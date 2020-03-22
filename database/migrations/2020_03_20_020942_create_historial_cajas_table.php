@@ -18,8 +18,14 @@ class CreateHistorialCajasTable extends Migration
         Schema::create('historial_cajas', function (Blueprint $table) {
             $table->increments('id');
             $table->string('descripcion');
-            $table->integer('usuario_id');
-            $table->integer('caja_id');
+            // Usuario asociado
+            $table->integer('usuario_id')->unsigned();
+            $table->foreign('usuario_id')->references('id')->on('users');
+
+            // Usuario asociado
+            $table->integer('caja_id')->unsigned();
+            $table->foreign('caja_id')->references('id')->on('cajas');
+
             $table->string('fecha');
             $table->softDeletes();
             $table->timestamps();

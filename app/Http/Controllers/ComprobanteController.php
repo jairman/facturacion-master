@@ -70,11 +70,8 @@ class ComprobanteController extends Controller
 	
 	
 		$usuario= Auth::user()->id;
-		$apertura=AperturaCaja::where('apertura_caja.status','=','1')
-		->where('usuario_id',$usuario )
-		->where('fecha_emision',$date)
-		->get();
-	
+		$apertura=AperturaCaja::where('fecha_emision',$date)->get();
+		//dd($apertura);
 
         return ( count($apertura) > 0) ? true : false ;
     }
@@ -98,6 +95,8 @@ class ComprobanteController extends Controller
 	{
 
 		$apertura = $this->apertura();
+
+		//dd($apertura);
 		$tasa = $this->tasa();
 		
 		if ($apertura) {
@@ -204,10 +203,10 @@ class ComprobanteController extends Controller
 					$lineaProducto->producto()->associate($producto);
 					$lineaProducto->usuario()->associate(Auth::user());
 
-					$lineaCaja = new LineaCaja();
+					/*$lineaCaja = new LineaCaja();
 					$lineaCaja->comprobante()->associate($comprobante);
 					$lineaCaja->producto()->associate($producto);
-					$lineaCaja->usuario()->associate(Auth::user());
+					$lineaCaja->usuario()->associate(Auth::user());*/
 
 					// Checkea si es devolución
 					if($comprobante->tipo->id == 2){
@@ -254,15 +253,11 @@ class ComprobanteController extends Controller
 
 					$lineaProducto->fecha = date("Y-m-d H:i:s");
 
-					$comprobante->iva += $lineaCaja->iva;
-					$comprobante->subTotal += $lineaCaja->subTotal;
-					$moneda_simbolo = $comprobante->moneda->simbolo;
-
-					$lineaCaja->descripcion = "x $lineaProducto->cantidad  $producto->nombre  -  TOTAL $moneda_simbolo $lineaProducto->total";                
 					
+					$moneda_simbolo = $comprobante->moneda->simbolo;          
 					$lineaProducto->save();
 					$producto->save();
-					$lineaCaja->save();
+					
 				}
 				$comprobante->total = $comprobante->iva + $comprobante->subTotal;				
 				$comprobante->save();								

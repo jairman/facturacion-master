@@ -265,7 +265,7 @@ class ProductoController extends Controller
 			if($e->errorInfo[0] == "23000"){
 				$error = "Ya existe una familia de producto llamada '" . $request->nombreFamiliaProducto . "'.
 				";
-				return $familiaProducto;                
+				return $familiaProduct->id;                
 			}
 			dd($error);
 		}

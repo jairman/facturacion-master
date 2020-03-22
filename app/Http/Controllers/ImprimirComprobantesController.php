@@ -50,7 +50,8 @@ class ImprimirComprobantesController extends Controller
        
 
         $fecha = "04/07/2018";
-        $pdf= app('Fpdf');
+        
+        $pdf= app('FPDF');
 
         $pdf->AddPage();
        

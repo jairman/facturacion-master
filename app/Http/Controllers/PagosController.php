@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Empleados;
 
-class EmpleadosController extends Controller
+class PagosController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,22 @@ class EmpleadosController extends Controller
      */
     public function index()
     {
-        $empleados=Empleados::paginate(5);
-        return view('admin.empleados.index',compact('empleados'));
+        $empleados = Empleados::get();
+
+        $total_days = 0;
+        $startDate = $empleados->fe_ingreso;
+        dd($startDate);
+        $endDate = new DateTime('2018-12-11');
+        while($startDate->getTimestamp() <= $endDate->getTimestamp()){
+            if($startDate->format('l')== 'Saturday' || $startDate->format('l')== 'Sunday'){
+                echo $startDate->format('Y-m-d (D)')."<br/>";
+            }else{
+                $total_days ++;
+            }
+            $startDate->modify("+1 days");
+        }
+         
+        echo '<br><br>Total de dias sin fin de semana '.$total_days;
     }
 
     /**
@@ -25,7 +39,7 @@ class EmpleadosController extends Controller
      */
     public function create()
     {
-       return view('admin.empleados.create');
+        //
     }
 
     /**
@@ -36,14 +50,7 @@ class EmpleadosController extends Controller
      */
     public function store(Request $request)
     {
-        //dd($request);
-        $empleados = Empleados::create($request->all());
-        $notification = array(
-            'message' => '¡Empleado creado satisfactoriamente!',
-            'alert-type' => 'success'
-        );
-        
-        return \Redirect::to('/empleados')->with($notification);
+        //
     }
 
     /**
@@ -65,8 +72,7 @@ class EmpleadosController extends Controller
      */
     public function edit($id)
     {
-        $empleados= Empleados::find($id);
-        return view('admin.empleados.edit',compact('empleados'));
+        //
     }
 
     /**
@@ -78,17 +84,7 @@ class EmpleadosController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //dd($request);
-        $empleados = Empleados::find($id);
-        $empleados->update($request->all());
-        
-
-        $notification = array(
-            'message' => 'Empleado Actualizado!',
-            'alert-type' => 'success'
-        );
-        
-        return \Redirect::to('/empleados')->with($notification);
+        //
     }
 
     /**

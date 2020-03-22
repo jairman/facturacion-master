@@ -309,7 +309,7 @@
 				<h4>
 					Buscar cliente
 					<span class="float-right">
-						<a class="btn btn-success btn-sm text-center" href="/clientes/nuevo" target="_blank" >
+						<a class="btn btn-success btn-sm ml-5" href="/clientes/nuevo" target="_blank" >
 							<i class="fa fa-user-plus" aria-hidden="true"></i>
 						</a>
 					</span>
@@ -330,7 +330,7 @@
 							</div>
 						</div>						
 						<hr/>
-						<table width="100%" class="table-condensed table-striped table-bordered">
+						<table width="100%" class="table table-responsive table-hover">
 							<thead>
 								<tr>
 									<th width="5%">ID</th>

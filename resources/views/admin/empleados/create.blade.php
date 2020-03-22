@@ -1,12 +1,12 @@
 @extends('layouts.admin')
-@section('title', 'empleados')
+@section('title', 'Empleados')
 @section('content')
 <div class="container">
 	<div class="row">
 		<div class="col-md-12">
 			<div class="w3-card-4 w3-white">
 				<div class="card-primary card-outline card-header">
-					<h4>Alta de cliente</h4>
+					<h4>Creación de empleados</h4>
 				</div>
 
 				<div class="card-body">
@@ -35,38 +35,7 @@
 									{{ csrf_field() }}
 									<div class="form-group row">
                                      
-                                        <div class="col-md-4">
-                                            <label class="">Nombres</label><br>
-                                            <input class="form-control" type="text"  id="nb_nombre"  name="nb_nombre" placeholder="Nombres" required="true" oninvalid="this.setCustomValidity('Debe ingresar la cantidad de efectivo en caja.')" oninput="setCustomValidity('')">
-                                        </div>
-									
-									<div class="col-md-4">
-										<label class="">Apellidos</label><br>
-                                        <input class="form-control" type="text"  id="nb_apellido"  name="nb_apellido" placeholder="Apellidos" required="true" oninvalid="this.setCustomValidity('Debe ingresar la cantidad de efectivo en caja.')" oninput="setCustomValidity('')">
-									</div>
-
-									<div class="col-md-4">
-										<label class="">Cédula</label><br>
-										<input class="form-control" type="text" name="nu_cedula" id="nu_cedula" placeholder="Número de cédula" required="true" oninvalid="this.setCustomValidity('Debe ingresar la cantidad de dinero en punto de venta.')" oninput="setCustomValidity('')">
-									</div>
-									<div class="col-md-4">
-										<label class="">Teléfono</label><br>
-										<input class="form-control" type="text" id="telefono" name="telefono" placeholder="Número de teléfono" required="true" oninvalid="this.setCustomValidity('Debe ingresar la cantidad de efectivo en dolares que posee en caja.')" oninput="setCustomValidity('')">
-									</div>
-									<div class="col-md-4">
-										<label class="">Profesión</label><br>
-										<input class="form-control" type="text" name="nb_profesion" id="nb_profesion" placeholder="Indique la profesión del empleado" required="true" oninvalid="this.setCustomValidity('Debe ingresar la cantidad de dinero por concepto de pago móvil.')" oninput="setCustomValidity('')">
-									</div>
-									
-                                    <input type="hidden" name="usuario_id" id="usuario_id" value="{{ Auth::user()->id}}">
-									<div class="col-md-4">
-                                        <label class="" for="txtFecha">Fecha de ingreso</label><br>
-                                        <input id="fe_ingreso" type="date" name="fe_ingreso" class="form-control input-sm" title="Fecha de ingreso">
-									</div>
-                                   
-									<div class="col-md-12"> <br>
-										<button type="submit" class="btn btn-block btn-primary">Guardar</button>
-									</div>
+                                    @include('admin.empleados.partials.nuevo')
 								</form>
 							</div>
 							

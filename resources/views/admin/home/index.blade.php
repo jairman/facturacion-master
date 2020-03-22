@@ -54,9 +54,9 @@
                                         @can('add_gastos')
                                         <div class="small-box" style="background:linear-gradient(to left,#ffee00 ,#b5a906,#968a00,#918505,#877b0a)">
                                             <div class="inner">
-                                            <h3 style="color:white;">150</h3>
+                                            <h3 style="color:white;"> {{ $gastos }} </h3>
 
-                                            <p style="color:white;">Facturas generadas</p>
+                                            <p style="color:white;">Gastos generados</p>
                                             </div>
                                             <div class="icon">
                                             <i class="fas fa-store-alt"></i>
@@ -109,7 +109,7 @@
                                         
                                             <div class="small-box" style="background:linear-gradient(to left,#1296e3,#0c6aa8,#045185,#014773)">
                                                 <div class="inner">
-                                                <h3 style="color:white;">150</h3>
+                                                <h3 style="color:white;"> {{ $empleados }} </h3>
 
                                                 <p style="color:white;">Empleados guardados</p>
                                                 </div>

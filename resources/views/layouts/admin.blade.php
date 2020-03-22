@@ -12,6 +12,8 @@
         <link rel="stylesheet" href="{{ asset('css/we.css') }}">
         <link rel="stylesheet" href="{{ asset('css/all.min.css') }}">
         <link rel="stylesheet" href="{{ asset('css/dataTable.min.css') }}">
+
+        <link rel="stylesheet" type="text/css" href="{{asset('css/buttons.bootstrap4.min.css') }}">
         <!-- Ionicons -->
             <link rel="stylesheet" href="{{asset('css/ionicons.min.css')}}">
 
@@ -156,6 +158,13 @@
         <script src="{{asset('js/app.js')}}"></script>
         <script src="{{asset('js/dataTable.min.js')}}"></script>
         <script src="{{asset('js/dataTableBoostrap.min.js')}}"></script>
+        <script src="{{asset('js/buttons.bootstrap4.min.js') }}"></script>
+        <script src="{{asset('js/jszip.min.js') }}"></script>
+        <script src="{{asset('js/pdfmake.min.js') }}"></script>
+        <script src="{{asset('js/vfs_fonts.js') }}"></script>
+        <script src="{{asset('js/buttons.html5.min.js') }}"></script>
+        <script src="{{asset('js/buttons.print.min.js') }}"></script>
+        <script src="{{asset('js/buttons.colVis.min.js') }}"></script>
         
        
         

@@ -41,7 +41,7 @@
 									<tr>
 										<th class="text-center" width="120px">Código</th>
 										<th class="text-center" width="90px">Nombre</th>
-										<th class="text-center" width="150px">Familia producto</th>
+										<th class="text-center" width="150px">Categoría</th>
 										<th class="text-center">Descripción</th>
 										<th class="text-center" width="80px">Precio</th>
 										<th class="text-center" width="10%">Stock</th> <th class="text-center" width="10%">Opciones</th>                                     
@@ -110,7 +110,7 @@
 							            <tr>
 							                <th>Código</th>
 							                <th>Nombre</th>
-							                <th>Familia producto</th>
+							                <th>Categoría</th>
 							                <th>Descripción</th>
 							                <th>Precio</th>
 							                <th>Stock</th>

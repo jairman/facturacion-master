@@ -22,11 +22,11 @@ class CreatePagosTable extends Migration
         $table->integer('usuario_id')->unsigned();
         $table->foreign('usuario_id')->references('id')->on('users');
         // Tipo de pago asociado
-        $table->integer('tipo_pagos_id')->unsigned();
-        $table->foreign('tipo_pagos_id')->references('id_tipo_pagos')->on('tipo_pagos');
+        $table->integer('tipo_pago_empleado_id')->unsigned();
+        $table->foreign('tipo_pago_empleado_id')->references('id_tipo_pago_empleado')->on('tipo_pago_empleado');
         // Modo de pago asociado
         $table->integer('modo_pagos_id')->unsigned();
-        $table->foreign('modo_pagos_id')->references('id_modo_pago')->on('modo_pagos');
+        $table->foreign('modo_pagos_id')->references('id_modo_pago')->on('modo_pago');
         // Sueldo base
         $table->double('nu_sueldo_base')->default(0);
 
@@ -36,11 +36,11 @@ class CreatePagosTable extends Migration
         // Fecha en que se hizo el recibo de pago
         $table->DateTime('fecha')->default(date("d-m-Y H:i:s"));
 
-        // tiempo que tiene el empleado en la empresa
-        $table->string('detalle_empleado');
-
         // descripcion del pago 
         $table->string('tx_descripcion');
+
+        // Dinero por concepto de bono o de un vale
+        $table->double('total')->default(0);
 
         $table->softDeletes();
         $table->timestamps();

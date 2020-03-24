@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class TipoPago extends Model
 {
     protected $table = 'tipo_pago';
+    protected $primaryKey = 'id_tipo_pago';
 
     protected $fillable = [
         'nb_tipo_pago'
@@ -14,7 +15,8 @@ class TipoPago extends Model
 
 
 
-    public function comprobantes(){
-		return $this->hasMany(Comprobante::class)->withTrashed();
-	}   
+    public function pago()
+    {
+        return $this->hasMany('App\Models\TipoPago');
+    } 
 }

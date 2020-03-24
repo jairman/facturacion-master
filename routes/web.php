@@ -135,6 +135,13 @@ Route::middleware(['auth',])->group(function () {
 	****************************************************************************/
 
 	Route::resource('/pagos/empleado','PagosController');
+	Route::get('/pagos/empleado/{id}/imprimir','PagosController@imprimir');
+
+	/***************************************************************************
+	****************************** Reportes ************************************
+	****************************************************************************/
+
+	Route::resource('/reportes','ReportesController');
 
 
 });

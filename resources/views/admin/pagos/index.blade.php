@@ -26,7 +26,7 @@
 					</span>
 
 					<span class="float-left">
-					<a href="/reportes" class="btn  mb-5" style="background:linear-gradient(to right,#30a0f5,#0e68ad,#004985); color: white;"> <i class="fas fa-file-pdf"></i> Reportes</a>	
+					<a href="/reportes" class="btn  mb-5" target="_blank" style="background:linear-gradient(to right,#30a0f5,#0e68ad,#004985); color: white;"> <i class="fas fa-file-pdf"></i> Reportes</a>	
 					</span>
 			
 					<div class="table-responsive">
@@ -65,9 +65,9 @@
 				                      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 				                        <a class="dropdown-item" href="{{  url('pagos/empleado', [$pago->id]) }}"><i class="fa fa-eye"></i> Datos del pago</a></li>
 				                       
-				                        <li><a class="dropdown-item" href="{{ url('pagos/empleado', [$pago->id, 'edit']) }}"><i class="fa fa-edit"></i> Editar Pago</a></a></li>
+				                        <li><a class="dropdown-item" href="{{ url('pagos/empleado', [$pago->id, 'edit']) }}"><i class="fa fa-edit"></i> Editar Pago</a></li>
 
-				                        <li><a class="dropdown-item" href="{{ url('pagos/empleado', [$pago->id, 'imprimir']) }}"><i class="fa fa-print"></i> Imprimir</a></a></li>
+				                        <li><a class="dropdown-item" href="{{ url('pagos/empleado', [$pago->id, 'imprimir']) }}"><i class="fa fa-print"></i> Imprimir</a></li>
 				                      </div>
 				                    </div>
 				                  </td>

@@ -35,6 +35,9 @@
 									<div class="form-group row">
                                      
                                     @include('admin.pagos.partials.nuevo')
+					                <div class="col-md-12"> <br>
+					                  <button type="submit" class="btn btn-block btn-primary">Guardar</button>
+					                </div>
 								</form>
 							</div>
 							

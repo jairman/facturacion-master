@@ -313,9 +313,4 @@ class PagosController extends Controller
 
 
 
-    public function imprimirdetalle($id)
-    {
-        $pagos = Pago::where('empleado_id' , '=', $id)->get();
-        dd($pagos);
-    }
 }

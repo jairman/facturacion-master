@@ -41,4 +41,9 @@
         <label class="" for="txtFecha">Fecha</label><br>
         {!! Form::date('fecha', null,array('class' => 'form-control input-sm','placeholder'=>'Nombres del empleado ','id'=>'fecha')) !!}
 	</div>
+	<div class="col-md-6">
+     <label class="">Descripción</label><br>
+      <textarea class="form-control" id="tx_descripcion" rows="3" placeholder="Descripción del pago"name="tx_descripcion">
+                      
+                   </textarea>
    

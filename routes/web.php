@@ -136,7 +136,8 @@ Route::middleware(['auth',])->group(function () {
 
 	Route::resource('/pagos/empleado','PagosController');
 	Route::get('/pagos/empleado/{id}/imprimir','PagosController@imprimir');
-    Route::resource('/reportes','ReportesController');
+	Route::resource('/reportes','ReportesController');
+    Route::post('/reportes/imprimir','ReportesController@imprimir');
 
 
 });

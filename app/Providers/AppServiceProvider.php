@@ -14,7 +14,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-       Schema::defaultStringLength(250);
+       Schema::defaultStringLength(191);
        \Carbon\Carbon::setToStringFormat('d-m-Y h:i A');
     }
 
@@ -24,7 +24,7 @@ class AppServiceProvider extends ServiceProvider
      * @return void
      */
     public function register()
-    {
-        //
-    }
-}
+     {
+     
+     }
+} 

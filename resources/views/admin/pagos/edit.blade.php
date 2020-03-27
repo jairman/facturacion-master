@@ -34,12 +34,7 @@
                   <div class="form-group row">
                                      
                       @include('admin.pagos.partials.nuevo')
-                  <div class="col-md-6">
-                  <label class="">Descripción</label><br>
-                   <textarea class="form-control" id="tx_descripcion" rows="3" placeholder="Descripción del pago"name="tx_descripcion">
-                      {{$pagos->tx_descripcion }}
-                   </textarea>
-
+                 
                 <div class="col-md-12"> <br>
                   <button type="submit" class="btn btn-block btn-primary">Guardar</button>
                 </div>

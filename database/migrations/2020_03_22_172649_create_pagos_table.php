@@ -34,7 +34,7 @@ class CreatePagosTable extends Migration
         $table->double('nu_cantidad_tipo_pago')->default(0);
 
         // Fecha en que se hizo el recibo de pago
-        $table->DateTime('fecha')->default(date("d-m-Y H:i:s"));
+        $table->DateTime('fecha');
 
         // descripcion del pago 
         $table->string('tx_descripcion');

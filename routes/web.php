@@ -139,5 +139,13 @@ Route::middleware(['auth',])->group(function () {
 	Route::resource('/reportes','ReportesController');
     Route::post('/reportes/imprimir','ReportesController@imprimir');
 
+	/***************************************************************************
+	*******************************Datos de la empresa *************************
+	****************************************************************************/
+
+	Route::resource('/empresa','EmpresaController');
+
+
+
 
 });

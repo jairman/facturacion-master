@@ -48,6 +48,12 @@
               <p>Logins</p>
             </a>
           </li>
+          <li class="nav-item">
+          <a href="{{url('empresa')}}" class="nav-link">
+              <i class="far fa-user nav-icon"></i>
+              <p>Datos de la empresa</p>
+            </a>
+          </li> 
         </ul>
       </li>
         <div class=" mt-3 pb-3 mb-3 ">

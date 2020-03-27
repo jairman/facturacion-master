@@ -7,6 +7,7 @@ use App\Models\Empleados;
 use App\Models\ModoPagos;
 use App\Models\TipoPagoEmpleados;
 use App\Models\Pago;
+use App\Models\Empresa;
 
 class PagosController extends Controller
 {
@@ -109,6 +110,7 @@ class PagosController extends Controller
  
 
         }
+        
         
     
     }
@@ -238,32 +240,43 @@ class PagosController extends Controller
 
         $pago = Pago::find($id);
         
+        $empresas = Empresa::where('usuario_id', \Auth::user()->id)->get();
        
         //dd($comprobantes);
        
-
+        foreach ($empresas as $key => $empresa) {
+            # code...
+        
+        
               
-        //$pdf->Image('images/logo/logo-imagen.png',10,5,40,25,'PNG');
+         $pdf->Image('images/logo/logo-imagen.png',10,5,40,25,'PNG');
          $pdf->SetY(10);
          $pdf->SetFont('Arial','B',12);
-         $pdf->Cell(60,5,utf8_decode("BOCOEXPRESS" ),0,1,'L');
+         $pdf->SetXY(45,10);
+         $pdf->Cell(80,5,utf8_decode($empresa->nombre ),0,1,'L');
+         $pdf->Ln(10);
+         $pdf->SetXY(47,14);
+         $pdf->SetFont('Arial','B',8);
+         $pdf->Cell(80,5,utf8_decode("Soluciones tecnológicas." ),0,1,'L');
          $pdf->SetXY(150,10);
          $pdf->SetFont('Arial','B',12);
          $pdf->Cell(60,5,utf8_decode("Fecha: ".date("d/m/Y")),0,1,'L');
          $pdf->SetXY(150,15);
          $pdf->Cell(60,5,utf8_decode("N° de Recibo: ").($id),0,1,'L');
 
-         $pdf->Ln(1);
+         $pdf->Ln(10);
          $pdf->SetFont('Arial','B',10);
-         $pdf->Cell(190,5,utf8_decode("RIF.: V-17829298-2"),0,1,'L');
+         $pdf->Cell(190,5,utf8_decode($empresa->rif),0,1,'L');
 
          $pdf->SetFont('Arial','B',10);
         //$pdf->Ln(1);
-         $pdf->Cell(190,5,utf8_decode("Direccion*******************"),0,1,'L');
+         $pdf->Cell(190,5,utf8_decode($empresa->telefono),0,1,'L');
         //$pdf->Ln(1);
-         $pdf->Cell(190,5,utf8_decode("Direccion********************"),0,1,'L');
+         $pdf->Cell(190,5,utf8_decode($empresa->direccion),0,1,'L');
          //$pdf->Ln(1);
-         $pdf->Cell(190,5,utf8_decode("Telefonos: ********* / **********"),0,1,'L');
+        
+
+         }
 
          $pdf->Ln(10);
          $pdf->SetFont('Arial','B',12);

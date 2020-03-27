@@ -6,9 +6,9 @@
   <div class="container">
       <div class="row justify-content-center">
         <div class="col-md-6">
-          <div class="w3-card-4 w3-white border p-3 form">
-            <center><img src="{{asset('images/logo/logo-imagen-2.png')}}" class="w3-card-4 float-right" alt="User Image" id="imagen"></center><br><br>
-             <center><h1 style="font-size: medium; font-style: inherit;" class="ml-3 mt-3 float-right">Ingresa el correo y la contraseña para iniciar sesión</h1></center><br><br><br><br><br><br><br>
+          <div class="card  p-3 ">
+            <center><img src="{{asset('images/logo/logo-imagen-2.png')}}" class="w3-card-4 ml-5" alt="User Image" id="imagen"></center><br><br>
+             <center><h1 style="font-size: medium; font-style: inherit;" class="ml-3 mt-3 float-right">Ingresa el correo y la contraseña para iniciar sesión</h1></center><br>
 
                 <form id="main-form" class=""><br>
                   <input type="hidden" id="_url" value="{{ url('login') }}">

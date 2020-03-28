@@ -8,8 +8,8 @@ use Illuminate\Http\Request;
 use App\facades\SistemaFactura;
 use App\Models\TipoComprobante;
 use App\Models\Notificacion;
+use App\Models\MovimientoCaja;
 use App\Models\LineaProducto;
-use App\Models\LineaCaja;
 use App\Models\Cliente;
 use App\Models\Comprobante;
 use App\Models\Factura;
@@ -203,15 +203,39 @@ class ComprobanteController extends Controller
 					$lineaProducto->producto()->associate($producto);
 					$lineaProducto->usuario()->associate(Auth::user());
 
-					/*$lineaCaja = new LineaCaja();
-					$lineaCaja->comprobante()->associate($comprobante);
-					$lineaCaja->producto()->associate($producto);
-					$lineaCaja->usuario()->associate(Auth::user());*/
+
+					$movimiento = new MovimientoCaja();
+					$movimiento->comprobante()->associate($comprobante);
+					$movimiento->producto()->associate($producto);
+					$movimiento->usuario()->associate(Auth::user());
+					$movimiento->moneda()->associate($moneda);
+
+
+
+
+					
 
 					// Checkea si es devolución
 					if($comprobante->tipo->id == 2){
 						$linea->cantidad *= -1;						
 					}
+
+
+					$movimiento->usuario_id = \Auth::user()->id;
+					$movimiento->fecha =date("Y-m-d H:i:s");
+
+					if ($comprobante->tipo_pago_id == 3) {
+						
+						$dolar = $comprobante->cotizacion / $comprobante->precio;
+					}
+
+					$movimiento->tipo_pago_id = $comprobante->tipo_pago_id;
+					$movimiento->moneda_id = $comprobante->moneda_id;
+					$movimiento->caja_id = $comprobante->caja_id;
+					$movimiento->cliente = $comprobante->nombre_cliente;
+					$movimiento->tipo_comprobante_id = $request->tipo_comprobante;
+
+					$movimiento->descripcion = 'El vendedor '.''.\Auth::user()->name.' ha realizado una venta en '.$movimiento->tipo->nombre;
 
 					$producto->stock -= $linea->cantidad;
 					$lineaProducto->stock = $producto->stock;
@@ -237,25 +261,12 @@ class ComprobanteController extends Controller
 
 				    /*************************************************************/
 				    ///////////////////////Movimiento de caja/////////////////////    /*************************************************************/
-					$producto->stock -= $linea->cantidad;
-					$lineaProducto->stock = $producto->stock;
-					
-					$lineaProducto->precioUnitario = $linea->precio;
-					$lineaProducto->cantidad = $linea->cantidad;
 
-					//$lineaProducto->subTotal = $producto->precio * $linea->cantidad;
-					$lineaProducto->subTotal = $articulos[$i]->precio * $linea->cantidad;
-					// Para los iva accede al tipo de iva que tenga el producto.
-					// Próxima versión debería poer modificarse si se quiere.
-					$lineaProducto->iva = $lineaProducto->subTotal * ($producto->iva->tasa / 100);
-					
-					$lineaProducto->total = $lineaProducto->subTotal + $lineaProducto->iva;
-
-					$lineaProducto->fecha = date("Y-m-d H:i:s");
 
 					
 					$moneda_simbolo = $comprobante->moneda->simbolo;          
 					$lineaProducto->save();
+					$movimiento->save();
 					$producto->save();
 					
 				}

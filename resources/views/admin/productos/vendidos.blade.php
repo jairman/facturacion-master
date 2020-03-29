@@ -29,30 +29,11 @@
 						</li>
 					</ul><br>
 					<div class="row">
-						<div class="container">
-							<div class="table-responsive table-condensed">
-								<table id="tabla_productos" cellspacing="0" width="97%" class="table-condensed table-striped table-bordered">
-									<tr>
-										<th class="text-center" width="120px">Producto</th>
-										<th class="text-center" width="200px"> Cantidad</th>
-										                                      
-									</tr>
-
-									@foreach($masVendidos as $producto)
-										<tr>
-											<td class="text-center">{{ ($producto->producto) }}</a></td>
-											<td class="text-center">{{ ($producto->total_sales) }}											
-											</td>
-										</tr>
-									@endforeach                         
-								</table>
-							</div>
-							<div class="text-center">
-								{{ $masVendidos->links( "pagination::bootstrap-4") }}
-							</div>
-						</div>
-					</div>
-					@include('partials.movimiento_stock')
+						<div class="container-fluid">
+					        <div class="card">
+					            <canvas id="employee"></canvas>
+					        </div>x
+					    </div>
 				</div>                
 			</div>
 		</div>
@@ -61,8 +42,50 @@
 @endsection
 
 @push('scripts')
-<script type="text/javascript"> 
-	$("#form_busqueda").show();
-	$("#txtBusqueda").focus();  
-</script>
+ <script src="{{asset('js/Chart.js')}}"></script>
+  {{-- Create the chart with javascript using canvas --}}
+    <script>
+        // Get Canvas element by its id
+        employee_chart = document.getElementById('employee').getContext('2d');
+        chart = new Chart(employee_chart,{
+            type:'line',
+            data:{
+                labels:[
+                    /*
+                        this is blade templating.
+                        we are getting the date by specifying the submonth
+                     */
+                    '{{Carbon\Carbon::now()->subMonths(4)->toFormattedDateString()}}',
+                    '{{Carbon\Carbon::now()->subMonths(3)->toFormattedDateString()}}',
+                    '{{Carbon\Carbon::now()->subMonths(2)->toFormattedDateString()}}',
+                    '{{Carbon\Carbon::now()->subMonths(1)->toFormattedDateString()}}'
+                    ],
+                datasets:[{
+                    label:'Cantidad de productos vendidos en los úlitmos 4 meses',
+                    data:[
+                        '{{$emp_count_4}}',
+                        '{{$emp_count_3}}',
+                        '{{$emp_count_2}}',
+                        '{{$emp_count_1}}'
+                    ],
+                    backgroundColor: [
+                        'rgba(178,235,242 ,1)'
+                    ],
+                    borderColor: [
+                        'rgba(0,150,136 ,1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero:true
+                        }
+                    }]
+                }
+            }
+        });
+    </script>
 @endpush

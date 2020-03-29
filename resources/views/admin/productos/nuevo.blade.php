@@ -63,9 +63,9 @@
 											</a>
 										</label>
 
-										<div class="input-group pull-right">
+										<div class="input-group float-right">
 											<select id="selectFamiliaProducto" class="form-control" name="familia_producto" required="true">
-												<option value="0">Seleccione</option>
+												<option value="" disabled selected hidden>Familia de producto</option>
 												@foreach( $familias_producto as $f)
 													<option value="{{ $f->id}}">{{ $f->nombre }}</option>
 												@endforeach
@@ -77,7 +77,7 @@
 												</a>
 											</div>
 										</div>
-									</div>
+									</div><br>
 									<div class="form-group">
 										<label for="txtPrecio" class="control-label ">Precio de compra</label>
 										<input id="preciocompra" name="preciocompra" class="form-control" name="precio" placeholder="Precio de compra del producto">

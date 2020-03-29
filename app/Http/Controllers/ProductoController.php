@@ -256,16 +256,14 @@ class ProductoController extends Controller
 		try {
 			$familiaProducto->nombre = $request->nombreFamiliaProducto;
 			$familiaProducto->save();
-			$notification = array(
-            'message' => '¡Tipo de producto guardado!',
-            'alert-type' => 'success'
-        );
-			return Redirect::back()->with(compact('mensaje'));
+			return $familiaProducto->id;
+			//$mensaje = "Familia de producto agregada correctamente.";
+			//return Redirect::back()->with(compact('mensaje'));
 		} catch ( \Illuminate\Database\QueryException $e) {
 			if($e->errorInfo[0] == "23000"){
 				$error = "Ya existe una familia de producto llamada '" . $request->nombreFamiliaProducto . "'.
 				";
-				return $familiaProduct->id;                
+				return Redirect::back()->with(compact('error'));                
 			}
 			dd($error);
 		}

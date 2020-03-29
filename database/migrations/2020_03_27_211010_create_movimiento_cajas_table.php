@@ -34,11 +34,16 @@ class CreateMovimientoCajasTable extends Migration
             // Cliente asociado
             $table->string('cliente');
 
-
             // Caja asociada
             $table->integer('caja_id');
             $table->foreign('caja_id')->references('id')->on('cajas');
 
+            // Comprobantes asociados
+            $table->integer('comprobante_id');
+            $table->foreign('comprobante_id')->references('id')->on('comprobantes');
+
+            $table->integer('producto_id');
+            $table->foreign('producto_id')->references('id')->on('productos');
             $table->string('fecha');
 
             $table->string('descripcion');

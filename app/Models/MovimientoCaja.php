@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class MovimientoCaja extends Model
 {
-    protected $table = 'movimiento_cajaS';
+    protected $table = 'movimiento_cajas';
 
 	protected $fillable = [
 		'usuario_id',
@@ -16,7 +16,8 @@ class MovimientoCaja extends Model
 		'caja_id',
 		'tipo_pago_id',
 		'moneda_id',
-		'producto_id'
+		'producto_id',
+		'comprobante_id'
 
 	];
 

@@ -13,6 +13,7 @@ use App\Models\Cliente;
 use App\Models\Moneda;
 use App\Models\Comprobante;
 use App\Models\Producto;
+use App\Empresa;
 class HomeController extends Controller
 {
     /**
@@ -44,9 +45,9 @@ class HomeController extends Controller
         $carbon = new \Carbon\Carbon();
         $date =$carbon->format('Y-m-d');
 
-        $empresa = \Empresa::where('fecha_emision', $date)->get();
+        $empresa = Empresa::where('fecha_emision', $date)->get();
 
-        return $empresa;
+        return ( count($empresa) > 0) ? true : false ;
 
     }
 
@@ -56,6 +57,9 @@ class HomeController extends Controller
         
         $user = $this->user();
         $company = $this->company();
+
+
+        //dd($company);
 
         if ($user) {
 

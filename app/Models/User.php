@@ -8,6 +8,7 @@ use App\Notifications\ResetPasswordNotification;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Nicolaslopezj\Searchable\SearchableTrait;
 use Spatie\Permission\Traits\HasRoles;
+use App\Empresa;
 
 
 class User extends Authenticatable
@@ -74,8 +75,9 @@ class User extends Authenticatable
 
         public function empresa()
     {
-        return $this->belongsTo('App\Models\Empresa');
+        return $this->belongsTo(Empresa::class, 'empresa_id');
     }
+
 
 
     /*

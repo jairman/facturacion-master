@@ -58,19 +58,20 @@ class ImprimirComprobantesController extends Controller
        
         $pdf->Ln(1);
 
-        $comprobantes = Comprobante::find($id);
+        $comprobantes = Comprobante::where('usuario_id',\Auth::user()->id)->find($id);
         
-        $empresas = Empresa::get();
-
-        //dd($comprobantes);
        
-        foreach ($empresas as $key => $empresa) {
+
+        
+       
+        
+         // dd();
               
          $pdf->Image('images/logo/logo-imagen.png',10,5,40,25,'PNG');
          $pdf->SetY(10);
          $pdf->SetFont('Arial','B',12);
          $pdf->SetXY(45,10);
-         $pdf->Cell(80,5,utf8_decode($empresa->nombre ),0,1,'L');
+         $pdf->Cell(80,5,utf8_decode($comprobantes->usuario->empresa->nombre ),0,1,'L');
          $pdf->Ln(10);
          $pdf->SetXY(47,14);
          $pdf->SetFont('Arial','B',8);
@@ -83,15 +84,15 @@ class ImprimirComprobantesController extends Controller
 
          $pdf->Ln(10);
          $pdf->SetFont('Arial','B',10);
-         $pdf->Cell(190,5,utf8_decode($empresa->rif),0,1,'L');
+         $pdf->Cell(190,5,utf8_decode($comprobantes->usuario->empresa->rif),0,1,'L');
 
          $pdf->SetFont('Arial','B',10);
         //$pdf->Ln(1);
-         $pdf->Cell(190,5,utf8_decode($empresa->telefono),0,1,'L');
+         $pdf->Cell(190,5,utf8_decode($comprobantes->usuario->empresa->telefono),0,1,'L');
         //$pdf->Ln(1);
-         $pdf->Cell(190,5,utf8_decode($empresa->direccion),0,1,'L');
+         $pdf->Cell(190,5,utf8_decode($comprobantes->usuario->empresa->direccion),0,1,'L');
          //$pdf->Ln(1);
-       }
+       
 
          $pdf->Ln(10);
          $pdf->SetFont('Arial','B',12);

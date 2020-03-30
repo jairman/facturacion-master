@@ -7,6 +7,7 @@ use App\Http\Requests\StoreUser;
 use App\Http\Requests\UpdateUser;
 use App\Models\User;
 use App\Models\Caja;
+use App\Empresa;
 
 class UserController extends Controller
 {
@@ -30,7 +31,8 @@ class UserController extends Controller
     public function create()
     {
         $cajas = Caja::get();
-        return view('admin.user.create',compact('cajas'));
+        $empresas = Empresa::get();
+        return view('admin.user.create',compact('cajas','empresas'));
     }
 
 

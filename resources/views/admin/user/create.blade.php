@@ -80,6 +80,16 @@
                 <span class="missing_alert text-danger" id="password_confirmation_alert"></span>
               </div>
               <div class="form-group">
+                <label for="password_confirmation">N° Caja</label>
+               <select id="empresa_id" name="empresa_id" class="form-control input-sm" tabindex="2">
+                 <option value="0">Seleccione</option>
+                      @foreach($empresas as $t)
+                        <option value="{{$t->id}}">{{$t->nombre}}</option>
+                      @endforeach                     
+                </select>
+                <span class="missing_alert text-danger" id="password_confirmation_alert"></span>
+              </div>
+              <div class="form-group">
                 <label for="status">Acceso al sistema</label>
                 <div class="checkbox icheck">
                   <label>

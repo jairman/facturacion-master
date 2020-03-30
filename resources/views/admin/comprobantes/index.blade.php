@@ -102,7 +102,7 @@
 									<span class="float-right">
 										{{$comprobante->usuario_id }}
 									</span>
-								</td
+								</td>
 								<td class="text-center " title="Vista de impresión">
 									<a target="_blank" href="/comprobantes/imprimir/{{$comprobante->id}}">
 										<i class="fas fa-print" aria-hidden="true"></i>

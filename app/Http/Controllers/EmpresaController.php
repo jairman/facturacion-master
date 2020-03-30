@@ -37,7 +37,15 @@ class EmpresaController extends Controller
      */
     public function store(Request $request)
     {
-       $empresa = Empresa::create($request->all());
+       $empresa = new Empresa ;
+       $empresa->nombre = $request->nombre;
+       $empresa->rif = $request->rif;
+       $empresa->direccion = $request->direccion;
+       $empresa->telefono = $request->telefono;
+       $empresa->usuario_id = $request->usuario_id;
+       $empresa->fecha_emision = date("Y-m-d");
+
+       $empresa->save();
         $notification = array(
             'message' => '¡Datos creados satisfactoriamente!',
             'alert-type' => 'success'

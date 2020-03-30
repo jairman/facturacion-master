@@ -26,7 +26,8 @@ class User extends Authenticatable
         'email', 
         'password', 
         'status',
-        'caja_id'
+        'caja_id',
+        'empresa_id'
     ];
 
     protected $hidden = [];
@@ -70,6 +71,12 @@ class User extends Authenticatable
     {
         return $this->belongsTo('App\Models\Caja');
     }
+
+        public function empresa()
+    {
+        return $this->belongsTo('App\Models\Empresa');
+    }
+
 
     /*
     |

@@ -34,10 +34,20 @@ class IndicadoresController extends Controller
         /**
          *  get count of employee between two given dates.
          */
-        $emp_count_1 = LineaProducto::whereBetween('fecha',[$prev_date1,$date_current])->count();
-        $emp_count_2 = LineaProducto::whereBetween('fecha',[$prev_date2,$prev_date1])->count();
-        $emp_count_3 = LineaProducto::whereBetween('fecha',[$prev_date3,$prev_date2])->count();
-        $emp_count_4 = LineaProducto::whereBetween('fecha',[$prev_date4,$prev_date3])->count();
+        $emp_count_1 = LineaProducto::whereBetween('fecha',[$prev_date1,$date_current])
+        ->where('precioUnitario', '<>', null)
+        ->count();
+        $emp_count_2 = LineaProducto::whereBetween('fecha',[$prev_date2,$prev_date1])
+        ->where('precioUnitario', '<>', null)
+        ->count();
+        $emp_count_3 = LineaProducto::whereBetween('fecha',[$prev_date3,$prev_date2])
+        ->where('precioUnitario', '<>', null)
+        ->count();
+        $emp_count_4 = LineaProducto::whereBetween('fecha',[$prev_date4,$prev_date3])
+        ->where('precioUnitario', '<>', null)
+        ->count();
+
+        //dd(Carbon::now()->subMonths(4)->format('m'));
 
 		$masVendidos = DB::table('linea_productos')
 			->join('productos', 'productos.id', '=', 'linea_productos.producto_id')
@@ -47,10 +57,17 @@ class IndicadoresController extends Controller
 			->where('precioUnitario', '<>', null)
 			->whereMonth('linea_productos.fecha', '=', $mes)
 			->groupBy('productos.nombre')
-			->get();
+            ->orderBy('total_sales','desc')
+			->get()->toArray();
+
+            
+
+           
+            
 
 		//dd($emp_count_1,$emp_count_2, $emp_count_3, $emp_count_4);			
-    	return view('admin.productos.vendidos')->with(compact('masVendidos',
+    	return view('admin.productos.vendidos')->with(compact(
+                                                              'masVendidos',
 															  'emp_count_1',
 															  'emp_count_2',
 															  'emp_count_3',
@@ -63,5 +80,6 @@ class IndicadoresController extends Controller
      */
     private function getPrevDate($num){
         return Carbon::now()->subMonths($num)->toDateTimeString();
+
     }
 }

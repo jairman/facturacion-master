@@ -39,14 +39,28 @@ class HomeController extends Controller
 
     }
 
+        public function company(){
+
+        $carbon = new \Carbon\Carbon();
+        $date =$carbon->format('Y-m-d');
+
+        $empresa = \Empresa::where('fecha_emision', $date)->get();
+
+        return $empresa;
+
+    }
+
 
     public function index()
     {
         
-        $user= $this->user();
-        $id= \Auth::user()->id;
+        $user = $this->user();
+        $company = $this->company();
 
         if ($user) {
+
+            if ($company) {
+
             $count = TasaDolar::count();
             $producto= Producto::count();
             $comprobante=Comprobante::count();
@@ -56,7 +70,15 @@ class HomeController extends Controller
             $apertura = AperturaCaja::count();
             $empleados = Empleados::count();
             $gastos = Moneda::count();
-          return view('admin.home.index',compact('count','cierre','apertura','proveedor','clientes','comprobante','producto','empleados','gastos'));
+            return view('admin.home.index',compact('count','cierre','apertura','proveedor','clientes','comprobante','producto','empleados','gastos'));
+            }
+
+             $notification = array(
+            'message' => '¡Debe ingresar los datos de su empresa!',
+            'alert-type' => 'error'
+        );
+        
+        return \Redirect::to('/empresa/create')->with($notification);
          } 
             $count = TasaDolar::count();
             $producto= Producto::count();

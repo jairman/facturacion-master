@@ -19,13 +19,14 @@ class CreateEmpresasTable extends Migration
             $table->string('rif');
             $table->string('direccion');
             $table->string('telefono');
-
+            $table->string('fecha_emision');
             // Usuario asociado
             $table->integer('usuario_id')->unsigned();
             $table->foreign('usuario_id')->references('id')->on('users');
 
             $table->timestamps();
             $table->softDeletes();
+            $table->index(['fecha_emision']);
         });
     }
 

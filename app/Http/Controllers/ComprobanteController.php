@@ -226,7 +226,7 @@ class ComprobanteController extends Controller
 
 					if ($comprobante->tipo_pago_id == 3) {
 						
-						$dolar = $comprobante->cotizacion / $comprobante->precio;
+						$dolar = $comprobante->cotizacion /  $linea->precio;
 					}
 
 					$movimiento->tipo_pago_id = $comprobante->tipo_pago_id;

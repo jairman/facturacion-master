@@ -45,7 +45,7 @@ class HomeController extends Controller
         $carbon = new \Carbon\Carbon();
         $date =$carbon->format('Y-m-d');
 
-        $empresa = Empresa::where('fecha_emision', $date)->get();
+        $empresa = Empresa::where('usuario_id', 1)->get();
 
         return ( count($empresa) > 0) ? true : false ;
 
@@ -74,6 +74,7 @@ class HomeController extends Controller
             $apertura = AperturaCaja::count();
             $empleados = Empleados::count();
             $gastos = Moneda::count();
+
             return view('admin.home.index',compact('count','cierre','apertura','proveedor','clientes','comprobante','producto','empleados','gastos'));
             }
 
@@ -84,6 +85,12 @@ class HomeController extends Controller
         
         return \Redirect::to('/empresa/create')->with($notification);
          } 
+
+          $empresa = Empresa::where('usuario_id', \Auth::user()->empresa_id)->get();
+
+         if ( $empresa) {
+
+         	$nombre = \Auth::user()->empresa->nombre;
             $count = TasaDolar::count();
             $producto= Producto::count();
             $comprobante=Comprobante::count();
@@ -93,7 +100,11 @@ class HomeController extends Controller
             $apertura = AperturaCaja::count();
             $empleados = Empleados::count();
             $gastos = Moneda::count();
-          return view('admin.home.index',compact('count','cierre','apertura','proveedor','clientes','comprobante','producto','empleados','gastos'));
+          return view('admin.home.index',compact('count','cierre','apertura','proveedor','clientes','comprobante','producto','empleados','gastos','nombre'));
         
+         }
+         
+
+
     }
 }

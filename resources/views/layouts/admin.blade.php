@@ -70,6 +70,8 @@
                         {{ Auth::user()->full_name }}
                         <br>
                         {{ Auth::user()->hasrole('admin') ? 'Administrador' : 'Vendedor' }}
+                        
+                        
                         </p>
                     </li>
                     <li class="user-footer">

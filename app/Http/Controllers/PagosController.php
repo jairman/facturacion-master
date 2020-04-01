@@ -7,7 +7,7 @@ use App\Models\Empleados;
 use App\Models\ModoPagos;
 use App\Models\TipoPagoEmpleados;
 use App\Models\Pago;
-use App\Models\Empresa;
+use App\Empresa;
 
 class PagosController extends Controller
 {
